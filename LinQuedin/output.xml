@@ -85,7 +85,7 @@
     </Utenti>
     <Reti>
         <Link>a-b</Link>
+        <Link>a-c</Link>
         <Link>b-c</Link>
-        <Link>c-a</Link>
     </Reti>
 </Database>

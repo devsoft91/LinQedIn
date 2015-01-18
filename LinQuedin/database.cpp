@@ -224,8 +224,8 @@ void Database::save() const{
                 for(int j=0;j<netsize;j++){
                     if((*iter).second.flag){
                         QString a,b;
-                        a = (*it).second->username.append("-");
-                        //a.append("-");
+                        a = (*it).second->username;
+                        a.append("-");
                         b = (*iter).first;
                         a.append(b);
                         writer.writeTextElement("Link",a);
