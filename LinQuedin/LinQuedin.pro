@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     profilo.cpp \
     database.cpp \
     rete.cpp \
-    nodo.cpp
+    nodo.cpp \
+    ubasic.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -35,6 +36,7 @@ HEADERS  += mainwindow.h \
     profilo.h \
     database.h \
     rete.h \
-    nodo.h
+    nodo.h \
+    ubasic.h
 
 FORMS    += mainwindow.ui

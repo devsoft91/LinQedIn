@@ -15,7 +15,7 @@ public:
     Profilo profile;
     QString username;
     Rete* net;
-    //Utente();
+    Utente();
     Utente(const Profilo&,const QString&);
     virtual void add(const QString&,const Database&);
     //virtual void find() =0;

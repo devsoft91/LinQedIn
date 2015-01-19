@@ -56,7 +56,8 @@ SOURCES       = ../LinQuedin/main.cpp \
 		../LinQuedin/profilo.cpp \
 		../LinQuedin/database.cpp \
 		../LinQuedin/rete.cpp \
-		../LinQuedin/nodo.cpp moc_mainwindow.cpp
+		../LinQuedin/nodo.cpp \
+		../LinQuedin/ubasic.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		danagrafici.o \
@@ -69,6 +70,7 @@ OBJECTS       = main.o \
 		database.o \
 		rete.o \
 		nodo.o \
+		ubasic.o \
 		moc_mainwindow.o
 DIST          = ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.3.2/5.3/gcc_64/mkspecs/common/shell-unix.conf \
@@ -188,7 +190,8 @@ DIST          = ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../LinQuedin/profilo.cpp \
 		../LinQuedin/database.cpp \
 		../LinQuedin/rete.cpp \
-		../LinQuedin/nodo.cpp
+		../LinQuedin/nodo.cpp \
+		../LinQuedin/ubasic.cpp
 QMAKE_TARGET  = LinQuedin
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = LinQuedin
@@ -451,7 +454,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/LinQuedin1.0.0 || mkdir -p .tmp/LinQuedin1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.h ../LinQuedin/danagrafici.h ../LinQuedin/titolistudio.h ../LinQuedin/laurea.h ../LinQuedin/impieghi.h ../LinQuedin/lavoro.h ../LinQuedin/utente.h ../LinQuedin/profilo.h ../LinQuedin/database.h ../LinQuedin/rete.h ../LinQuedin/nodo.h .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/main.cpp ../LinQuedin/mainwindow.cpp ../LinQuedin/danagrafici.cpp ../LinQuedin/titolistudio.cpp ../LinQuedin/laurea.cpp ../LinQuedin/impieghi.cpp ../LinQuedin/lavoro.cpp ../LinQuedin/utente.cpp ../LinQuedin/profilo.cpp ../LinQuedin/database.cpp ../LinQuedin/rete.cpp ../LinQuedin/nodo.cpp .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.ui .tmp/LinQuedin1.0.0/ && (cd `dirname .tmp/LinQuedin1.0.0` && $(TAR) LinQuedin1.0.0.tar LinQuedin1.0.0 && $(COMPRESS) LinQuedin1.0.0.tar) && $(MOVE) `dirname .tmp/LinQuedin1.0.0`/LinQuedin1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LinQuedin1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.h ../LinQuedin/danagrafici.h ../LinQuedin/titolistudio.h ../LinQuedin/laurea.h ../LinQuedin/impieghi.h ../LinQuedin/lavoro.h ../LinQuedin/utente.h ../LinQuedin/profilo.h ../LinQuedin/database.h ../LinQuedin/rete.h ../LinQuedin/nodo.h ../LinQuedin/ubasic.h .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/main.cpp ../LinQuedin/mainwindow.cpp ../LinQuedin/danagrafici.cpp ../LinQuedin/titolistudio.cpp ../LinQuedin/laurea.cpp ../LinQuedin/impieghi.cpp ../LinQuedin/lavoro.cpp ../LinQuedin/utente.cpp ../LinQuedin/profilo.cpp ../LinQuedin/database.cpp ../LinQuedin/rete.cpp ../LinQuedin/nodo.cpp ../LinQuedin/ubasic.cpp .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.ui .tmp/LinQuedin1.0.0/ && (cd `dirname .tmp/LinQuedin1.0.0` && $(TAR) LinQuedin1.0.0.tar LinQuedin1.0.0 && $(COMPRESS) LinQuedin1.0.0.tar) && $(MOVE) `dirname .tmp/LinQuedin1.0.0`/LinQuedin1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LinQuedin1.0.0
 
 
 clean:compiler_clean 
@@ -719,7 +722,16 @@ main.o: ../LinQuedin/main.cpp ../LinQuedin/mainwindow.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QFile \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamWriter \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qxmlstream.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
+		../LinQuedin/utente.h \
+		../LinQuedin/profilo.h \
+		../LinQuedin/danagrafici.h \
+		../LinQuedin/titolistudio.h \
+		../LinQuedin/laurea.h \
+		../LinQuedin/impieghi.h \
+		../LinQuedin/lavoro.h \
+		../LinQuedin/rete.h \
+		../LinQuedin/nodo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../LinQuedin/main.cpp
 
 mainwindow.o: ../LinQuedin/mainwindow.cpp ../LinQuedin/mainwindow.h \
@@ -1324,9 +1336,24 @@ database.o: ../LinQuedin/database.cpp ../LinQuedin/database.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qvector.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpoint.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
+		../LinQuedin/utente.h \
+		../LinQuedin/profilo.h \
+		../LinQuedin/danagrafici.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QDate \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpair.h \
+		../LinQuedin/titolistudio.h \
+		../LinQuedin/laurea.h \
+		../LinQuedin/impieghi.h \
+		../LinQuedin/lavoro.h \
+		../LinQuedin/rete.h \
+		../LinQuedin/nodo.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstringlist.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qdatastream.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpair.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qregexp.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstringmatcher.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o ../LinQuedin/database.cpp
@@ -1373,6 +1400,9 @@ rete.o: ../LinQuedin/rete.cpp ../LinQuedin/rete.h \
 
 nodo.o: ../LinQuedin/nodo.cpp ../LinQuedin/nodo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nodo.o ../LinQuedin/nodo.cpp
+
+ubasic.o: ../LinQuedin/ubasic.cpp ../LinQuedin/ubasic.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ubasic.o ../LinQuedin/ubasic.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

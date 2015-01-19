@@ -1,6 +1,6 @@
 #include "utente.h"
 
-//Utente::Utente(){}
+Utente::Utente(){}
 
 Utente::Utente(const Profilo& p,const QString& u) : profile(p),username(u){
     net = new Rete();
