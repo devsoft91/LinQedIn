@@ -13,8 +13,7 @@ void Utente::add(const QString& c,const Database& d){
     tmp->net->addUser((*this).username,Nodo(this,false));
 }
 
-Utente::~Utente(){  //ATTENZIONE
-    std::cout<<"Distruttore Utente\n";
+Utente::~Utente(){
     std::map<QString,Nodo>::const_iterator iter = net->rete.begin();
     int netsize = net->rete.size();
     QString user = username;

@@ -3,7 +3,7 @@
 #include "ubasic.h"
 
 void Database::load(){
-    QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB;
+    QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB,tipo;
     QDate datanascita,inizio, fine;
     QStringList coppia;
     int annod, annol;
@@ -24,7 +24,7 @@ void Database::load(){
                 Profilo profile;
                 while(!(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::EndElement)){
                     if(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        std::cout<<reader.attributes().value("type").toString().toStdString()<<std::endl;
+                        tipo = reader.attributes().value("type").toString();
                     }
                     if(reader.name()=="Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::StartElement){
                         while(!(reader.name() == "Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::EndElement)) {
@@ -133,7 +133,12 @@ void Database::load(){
                     reader.readNextStartElement();
                 }
 
-                utente = new UBasic(profile,user);  //costruisco l'utente  DA MODIFICARE
+                if(tipo == "basic")
+                    utente = new UBasic(profile,user);
+                if(tipo == "business")
+                    utente = new UBusiness(profile,user);
+                if(tipo == "executive")
+                    utente = new UExecutive(profile,user);
                 Aggiungi(user,utente);
                 std::cout<<typeid(*utente).name()<<std::endl<<std::endl;
 
