@@ -11,3 +11,5 @@ void UBasic::add(const QString& c, const Database& d){
 }
 
 void UBasic::find(){}
+
+UBasic::~UBasic(){}

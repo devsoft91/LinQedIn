@@ -10,6 +10,7 @@ public:
     UBasic(const Profilo&,const QString&);
     void add(const QString&,const Database&);
     void find();
+    ~UBasic();
 };
 
 #endif // UBASIC_H

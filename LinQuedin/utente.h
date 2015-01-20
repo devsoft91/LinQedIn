@@ -19,6 +19,7 @@ public:
     Utente(const Profilo&,const QString&);
     virtual void add(const QString&,const Database&);
     virtual void find() =0;
+    virtual ~Utente();
 };
 
 #endif // UTENTE_H

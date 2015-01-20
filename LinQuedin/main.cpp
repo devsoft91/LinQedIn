@@ -15,9 +15,10 @@ int main(){
 
     Database database;
     database.load();
-    Utente* utente1 = database.getUtente("a");
-    Utente* ubasic = new UBasic();
-    std::cout<<typeid(*ubasic).name()<<std::endl;
+    database.Elimina("c");
+    //Utente* utente1 = database.getUtente("a");
+    //Utente* ubasic = new UBasic();
+    //std::cout<<typeid(*ubasic).name()<<std::endl;
     //ubasic->add("c",database);
     database.save();
     return 0;

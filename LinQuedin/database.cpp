@@ -250,8 +250,10 @@ void Database::Aggiungi(const QString& us,Utente* ut){
 }
 
 void Database::Elimina(const QString& ut){
+    Utente* tmp = db.find(ut)->second;
     db.erase(ut);
-    //da completare
+    std::cout<<"Elimina\n";
+    delete tmp;
 }
 
 Utente* Database::getUtente(const QString& u) const{
