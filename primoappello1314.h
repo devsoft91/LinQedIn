@@ -68,7 +68,7 @@ private:
 public:
     Articolo(Capo* p,int x=1): c(p),q(x){}
     int getQuantita() const {return q;}
-    void setQuantita(int x=1) {q=0;} //da sostituire col metodo scarica
+    void setQuantita(int x=1) {q=0;} //da sostituire col metodo scarica che ha un corpo diverso
     bool uguale(const Capo& c) const{
         return *this == c;
     }
@@ -106,7 +106,7 @@ public:
         if(it==mag.end()) throw Exception("assente");
     }
     void insert(const Tshirt& t, int x){
-
+      //finisce giovedì
     }
 
 };

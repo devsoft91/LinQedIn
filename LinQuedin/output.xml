@@ -63,8 +63,29 @@
             </Profilo>
             <Username>b</Username>
         </Utente>
+        <Utente type="basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Enrico</Nome>
+                    <Cognome>Infinity</Cognome>
+                    <Email>einfinity@houncazzoenorme.com</Email>
+                    <Data_Nascita>01 02 1992</Data_Nascita>
+                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>infinito</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                </Titoli_Studio>
+            </Profilo>
+            <Username>c</Username>
+        </Utente>
     </Utenti>
     <Reti>
         <Link>a-b</Link>
+        <Link>a-c</Link>
+        <Link>b-c</Link>
     </Reti>
 </Database>
