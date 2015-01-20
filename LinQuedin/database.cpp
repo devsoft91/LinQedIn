@@ -1,5 +1,6 @@
 #include "database.h"
 #include "qstringlist.h"
+#include "ubasic.h"
 
 void Database::load(){
     QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB;
@@ -14,7 +15,7 @@ void Database::load(){
     file.open(QIODevice::ReadOnly);
     QXmlStreamReader reader(&file);
     reader.readNextStartElement();
-    std::cout<<reader.name().toString().toStdString();
+    //std::cout<<reader.name().toString().toStdString();
 
 
     while(!(reader.name()=="Database" && reader.tokenType() == QXmlStreamReader::EndElement)){
@@ -22,8 +23,9 @@ void Database::load(){
             while(!(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::EndElement)){
                 Profilo profile;
                 while(!(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                    std::cout<<reader.name().toString().toStdString()<<std::endl;
-
+                    if(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::StartElement){
+                        std::cout<<reader.attributes().value("type").toString().toStdString()<<std::endl;
+                    }
                     if(reader.name()=="Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::StartElement){
                         while(!(reader.name() == "Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::EndElement)) {
 
@@ -131,10 +133,12 @@ void Database::load(){
                     reader.readNextStartElement();
                 }
 
-                utente = new Utente(profile,user);  //costruisco l'utente  DA MODIFICARE
+                utente = new UBasic(profile,user);  //costruisco l'utente  DA MODIFICARE
                 Aggiungi(user,utente);
+                std::cout<<typeid(*utente).name()<<std::endl<<std::endl;
 
                 reader.readNextStartElement();
+
             }
         }
 
@@ -172,6 +176,7 @@ void Database::save() const{
         int dbsize = db.size();
         for(int i=0;i<dbsize;++i){
             writer.writeStartElement("Utente");
+            writer.writeAttribute("type", "basic");
                 writer.writeStartElement("Profilo");
                     writer.writeStartElement("Dati_Anagrafici");
                         writer.writeTextElement("Nome",(*it).second->profile.getDati().getNome());

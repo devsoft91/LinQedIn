@@ -4,6 +4,7 @@
 #include <string>
 #include <QDate>
 #include <iostream>
+#include <typeinfo>//solo x test DA RIMUOVERE
 
 #include "database.h"
 #include "ubasic.h"
@@ -16,7 +17,8 @@ int main(){
     database.load();
     Utente* utente1 = database.getUtente("a");
     Utente* ubasic = new UBasic();
-    ubasic->add("c",database);
+    std::cout<<typeid(*ubasic).name()<<std::endl;
+    //ubasic->add("c",database);
     database.save();
     return 0;
 

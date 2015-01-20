@@ -6,8 +6,10 @@
 #include <QFile>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
+#include <QXmlStreamAttributes>
 #include <map>
 #include <algorithm>
+#include <typeinfo>
 
 #include "utente.h"
 

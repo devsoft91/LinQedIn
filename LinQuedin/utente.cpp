@@ -4,6 +4,7 @@ Utente::Utente(){}
 
 Utente::Utente(const Profilo& p,const QString& u) : profile(p),username(u){
     net = new Rete();
+    std::cout<<"costruttore di Utente\n";
 }
 
 void Utente::add(const QString& c,const Database& d){

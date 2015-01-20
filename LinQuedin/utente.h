@@ -18,7 +18,7 @@ public:
     Utente();
     Utente(const Profilo&,const QString&);
     virtual void add(const QString&,const Database&);
-    //virtual void find() =0;
+    virtual void find() =0;
 };
 
 #endif // UTENTE_H

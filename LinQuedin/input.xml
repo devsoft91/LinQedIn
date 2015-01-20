@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Database>
     <Utenti>
-	<Utente>
-	    <Profilo>
-		<Dati_Anagrafici>
-		    <Nome>Enrico</Nome>
-		    <Cognome>Infinity</Cognome>
-		    <Email>einfinity@houncazzoenorme.com</Email>
-		    <Data_Nascita>01 02 1992</Data_Nascita>
-		    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
-		    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
-		</Dati_Anagrafici>
-		<Titoli_Studio>
-		    <Diploma>
-			<NomeDiploma>infinito</NomeDiploma>
-			<AnnoDiploma>2010</AnnoDiploma>
-		    </Diploma>
-		</Titoli_Studio>
-	    </Profilo>
-	    <Username>b</Username>
-	</Utente>
-	<Utente>
-	  <Profilo>
-	    <Dati_Anagrafici>
-	      <Nome>Enrico</Nome>
-	      <Cognome>Infinity</Cognome>
-	      <Email>einfinity@houncazzoenorme.com</Email>
-	      <Data_Nascita>01 02 1992</Data_Nascita>
-	      <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
-	      <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
-	    </Dati_Anagrafici>
-	    <Titoli_Studio>
-	      <Diploma>
-		<NomeDiploma>infinito</NomeDiploma>
-		<AnnoDiploma>2010</AnnoDiploma>
-	      </Diploma>
-	    </Titoli_Studio>
-	  </Profilo>
-	  <Username>c</Username>
-	</Utente>
-	<Utente>
-	    <Profilo>
-		<Dati_Anagrafici>
-		    <Nome>Enrico</Nome>
-		    <Cognome>Infinity</Cognome>
-		    <Email>einfinity@houncazzoenorme.com</Email>
-		    <Data_Nascita>01 02 1992</Data_Nascita>
-		    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
-		    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
-		</Dati_Anagrafici>
-		<Titoli_Studio>
-		    <Diploma>
-			<NomeDiploma>infinito</NomeDiploma>
-			<AnnoDiploma>2010</AnnoDiploma>
-		    </Diploma>
-		    <Laurea>
-			<NomeLaurea>Info</NomeLaurea>
-			<AnnoLaurea>2015</AnnoLaurea>
-		    </Laurea>
-		    <Laurea>
-			<NomeLaurea>Psico</NomeLaurea>
-			<AnnoLaurea>2020</AnnoLaurea>
-		    </Laurea>
-		</Titoli_Studio>
-		<Impieghi>
-		    <Lavoro>
-			<Azienda>infinitech</Azienda>
-			<Titolo>CEO</Titolo>
-			<Citta>Treviso</Citta>
-			<Inizio>02 03 2012</Inizio>
-			<Fine>23 09 2012</Fine>
-		    </Lavoro>
-		    <Lavoro>
-			<Azienda>infinitech</Azienda>
-			<Titolo>CEO</Titolo>
-			<Citta>Treviso</Citta>
-			<Inizio>01 05 2012</Inizio>
-			<Fine>23 09 2012</Fine>
-		    </Lavoro>
-		</Impieghi>
-	    </Profilo>
-	    <Username>a</Username>
-	</Utente>
+        <Utente type="basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Enrico</Nome>
+                    <Cognome>Infinity</Cognome>
+                    <Email>einfinity@houncazzoenorme.com</Email>
+                    <Data_Nascita>01 02 1992</Data_Nascita>
+                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>infinito</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                    <Laurea>
+                        <NomeLaurea>Info</NomeLaurea>
+                        <AnnoLaurea>2015</AnnoLaurea>
+                    </Laurea>
+                    <Laurea>
+                        <NomeLaurea>Psico</NomeLaurea>
+                        <AnnoLaurea>2020</AnnoLaurea>
+                    </Laurea>
+                </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Azienda>infinitech</Azienda>
+                        <Titolo>CEO</Titolo>
+                        <Citta>Treviso</Citta>
+                        <Inizio>02 03 2012</Inizio>
+                        <Fine>23 09 2012</Fine>
+                    </Lavoro>
+                    <Lavoro>
+                        <Azienda>infinitech</Azienda>
+                        <Titolo>CEO</Titolo>
+                        <Citta>Treviso</Citta>
+                        <Inizio>01 05 2012</Inizio>
+                        <Fine>23 09 2012</Fine>
+                    </Lavoro>
+                </Impieghi>
+            </Profilo>
+            <Username>a</Username>
+        </Utente>
+        <Utente type="business">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Enrico</Nome>
+                    <Cognome>Infinity</Cognome>
+                    <Email>einfinity@houncazzoenorme.com</Email>
+                    <Data_Nascita>01 02 1992</Data_Nascita>
+                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>infinito</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                </Titoli_Studio>
+            </Profilo>
+            <Username>b</Username>
+        </Utente>
+        <Utente type="basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Enrico</Nome>
+                    <Cognome>Infinity</Cognome>
+                    <Email>einfinity@houncazzoenorme.com</Email>
+                    <Data_Nascita>01 02 1992</Data_Nascita>
+                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>infinito</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                </Titoli_Studio>
+            </Profilo>
+            <Username>c</Username>
+        </Utente>
     </Utenti>
     <Reti>
-      	<Link>a-b</Link>
-	<Link>b-c</Link>
-	<Link>a-c</Link>
+        <Link>a-b</Link>
+        <Link>a-c</Link>
+        <Link>b-c</Link>
     </Reti>
 </Database>
