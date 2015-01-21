@@ -10,6 +10,8 @@ void UBusiness::add(const QString& c, const Database& d){
     this->Utente::add(c,d);
 }
 
-void UBusiness::find(){}
+void UBusiness::find(){
+    std::cout<<"Sono un Profilo Business\n\n";
+}
 
 UBusiness::~UBusiness(){}

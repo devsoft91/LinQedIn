@@ -2,7 +2,7 @@
 #include "qstringlist.h"
 #include "ubasic.h"
 #include "ubusiness.h"
-//#include "uexecutive.h"
+#include "uexecutive.h"
 
 void Database::load(){
     QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB,tipo;
@@ -140,10 +140,10 @@ void Database::load(){
                 if(tipo == "business")
                     utente = new UBusiness(profile,user);
                 if(tipo == "executive")
-                    utente = new UBusiness(profile,user);
+                    utente = new UExecutive(profile,user);
                 Aggiungi(user,utente);
-                std::cout<<typeid(*utente).name()<<std::endl<<std::endl;
-
+                std::cout<<typeid(*utente).name()<<std::endl;
+                utente->find();
                 reader.readNextStartElement();
 
             }

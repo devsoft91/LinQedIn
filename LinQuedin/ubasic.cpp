@@ -10,6 +10,8 @@ void UBasic::add(const QString& c, const Database& d){
     this->Utente::add(c,d);
 }
 
-void UBasic::find(){}
+void UBasic::find(){
+    std::cout<<"Sono un Profilo Basic\n\n";
+}
 
 UBasic::~UBasic(){}

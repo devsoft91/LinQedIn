@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     rete.cpp \
     nodo.cpp \
     ubasic.cpp \
-    ubusiness.cpp
+    ubusiness.cpp \
+    uexecutive.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -39,6 +40,7 @@ HEADERS  += mainwindow.h \
     rete.h \
     nodo.h \
     ubasic.h \
-    ubusiness.h
+    ubusiness.h \
+    uexecutive.h
 
 FORMS    += mainwindow.ui
