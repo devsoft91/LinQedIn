@@ -4,6 +4,8 @@
 #include "ubusiness.h"
 #include "uexecutive.h"
 
+Database::Database(){}
+
 void Database::load(){
     QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB,tipo;
     QDate datanascita,inizio, fine;
@@ -135,15 +137,15 @@ void Database::load(){
                     reader.readNextStartElement();
                 }
 
-                if(tipo == "basic")
+                if(tipo == "Basic")
                     utente = new UBasic(profile,user);
-                if(tipo == "business")
+                if(tipo == "Business")
                     utente = new UBusiness(profile,user);
-                if(tipo == "executive")
+                if(tipo == "Executive")
                     utente = new UExecutive(profile,user);
                 Aggiungi(user,utente);
                 std::cout<<typeid(*utente).name()<<std::endl;
-                utente->find();
+                utente->find();  //al momento stampa il tipo
                 reader.readNextStartElement();
 
             }
@@ -156,7 +158,7 @@ void Database::load(){
                 coppia = users.split("-");
                 userA = coppia.at(0);
                 userB = coppia.at(1);
-                utente = db.find(userA)->second;
+                utente = db.find(userA)->second;  //attenzione core dump se non esiste utente A
                 utente->add(userB,*this);
 
                 reader.readNextStartElement();
@@ -183,7 +185,13 @@ void Database::save() const{
         int dbsize = db.size();
         for(int i=0;i<dbsize;++i){
             writer.writeStartElement("Utente");
-            writer.writeAttribute("type", "basic");
+            QString tipo = typeid(*(*it).second).name();
+            if(tipo.contains("Basic"))
+              writer.writeAttribute("type","Basic");
+            if(tipo.contains("Business"))
+              writer.writeAttribute("type","Business");
+            if(tipo.contains("Executive"))
+              writer.writeAttribute("type","Executive");
                 writer.writeStartElement("Profilo");
                     writer.writeStartElement("Dati_Anagrafici");
                         writer.writeTextElement("Nome",(*it).second->profile.getDati().getNome());
@@ -264,7 +272,10 @@ void Database::Elimina(const QString& ut){
 }
 
 Utente* Database::getUtente(const QString& u) const{
-    return db.find(u)->second;
+    std::map<QString,Utente*>::const_iterator it = db.find(u);
+    if(it!=db.end())
+        return it->second;
+    return 0;
 }
 
 void Database::checkflag() const{

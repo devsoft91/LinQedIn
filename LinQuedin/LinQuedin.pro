@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     nodo.cpp \
     ubasic.cpp \
     ubusiness.cpp \
-    uexecutive.cpp
+    uexecutive.cpp \
+    client.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -41,6 +42,8 @@ HEADERS  += mainwindow.h \
     nodo.h \
     ubasic.h \
     ubusiness.h \
-    uexecutive.h
+    uexecutive.h \
+    client.h
 
-FORMS    += mainwindow.ui
+RESOURCES += \
+    resources.qrc

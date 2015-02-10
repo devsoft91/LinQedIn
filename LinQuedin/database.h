@@ -18,8 +18,9 @@ using std::map;
 class Database
 {
 private:
-    void checkflag() const;
+    void checkflag() const;  //attenzione non usato
 public:
+    Database();
     map<QString,Utente*> db;
     void load();
     void save() const;

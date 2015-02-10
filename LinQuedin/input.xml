@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Database>
     <Utenti>
-        <Utente type="basic">
+        <Utente type="Basic">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Enrico</Nome>
@@ -44,7 +44,7 @@
             </Profilo>
             <Username>a</Username>
         </Utente>
-        <Utente type="business">
+        <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Enrico</Nome>
@@ -63,7 +63,7 @@
             </Profilo>
             <Username>b</Username>
         </Utente>
-        <Utente type="executive">
+        <Utente type="Executive">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Enrico</Nome>

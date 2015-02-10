@@ -16,9 +16,8 @@ void Utente::add(const QString& c,const Database& d){
 Utente::~Utente(){
     std::map<QString,Nodo>::const_iterator iter = net->rete.begin();
     int netsize = net->rete.size();
-    QString user = username;
     for(int i=0;i<netsize;i++){
-        (*iter).second.utente->net->rete.erase(user);
+        (*iter).second.utente->net->rete.erase(username);
         ++iter;
     }
     delete net;

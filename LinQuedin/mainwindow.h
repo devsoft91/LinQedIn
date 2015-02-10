@@ -2,21 +2,27 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-namespace Ui {
-class MainWindow;
-}
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QToolBar>
+#include <QtWidgets/QWidget>
+#include <QPushButton>
+#include <QKeySequence>
+#include <QAction>
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    QMenuBar *menuBar;
+    QToolBar *mainToolBar;
+    QWidget *centralWidget;
+    QStatusBar *statusBar;
+    QPushButton *button;
+    MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

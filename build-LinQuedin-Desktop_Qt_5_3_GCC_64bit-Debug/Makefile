@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I../../../../Qt5.3.2/5.3/gcc_64/mkspecs/linux-g++ -I../LinQuedin -I../../../../Qt5.3.2/5.3/gcc_64/include -I../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets -I../../../../Qt5.3.2/5.3/gcc_64/include/QtGui -I../../../../Qt5.3.2/5.3/gcc_64/include/QtCore -I. -I. -I.
+INCPATH       = -I../../../../Qt5.3.2/5.3/gcc_64/mkspecs/linux-g++ -I../LinQuedin -I../../../../Qt5.3.2/5.3/gcc_64/include -I../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets -I../../../../Qt5.3.2/5.3/gcc_64/include/QtGui -I../../../../Qt5.3.2/5.3/gcc_64/include/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/giacomo/Qt5.3.2/5.3/gcc_64 -Wl,-rpath,/home/giacomo/Qt5.3.2/5.3/gcc_64/lib
 LIBS          = $(SUBLIBS) -L/home/giacomo/Qt5.3.2/5.3/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -59,7 +59,9 @@ SOURCES       = ../LinQuedin/main.cpp \
 		../LinQuedin/nodo.cpp \
 		../LinQuedin/ubasic.cpp \
 		../LinQuedin/ubusiness.cpp \
-		../LinQuedin/uexecutive.cpp moc_mainwindow.cpp
+		../LinQuedin/uexecutive.cpp \
+		../LinQuedin/client.cpp qrc_resources.cpp \
+		moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		danagrafici.o \
@@ -75,6 +77,8 @@ OBJECTS       = main.o \
 		ubasic.o \
 		ubusiness.o \
 		uexecutive.o \
+		client.o \
+		qrc_resources.o \
 		moc_mainwindow.o
 DIST          = ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.3.2/5.3/gcc_64/mkspecs/common/shell-unix.conf \
@@ -197,7 +201,8 @@ DIST          = ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../LinQuedin/nodo.cpp \
 		../LinQuedin/ubasic.cpp \
 		../LinQuedin/ubusiness.cpp \
-		../LinQuedin/uexecutive.cpp
+		../LinQuedin/uexecutive.cpp \
+		../LinQuedin/client.cpp
 QMAKE_TARGET  = LinQuedin
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = LinQuedin
@@ -227,7 +232,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_mainwindow.h $(OBJECTS)  
+$(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../LinQuedin/LinQuedin.pro ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/linux-g++/qmake.conf ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -338,6 +343,7 @@ Makefile: ../LinQuedin/LinQuedin.pro ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/linu
 		../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/lex.prf \
 		../LinQuedin/LinQuedin.pro \
+		../LinQuedin/resources.qrc \
 		/home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Widgets.prl \
 		/home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Gui.prl \
 		/home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Core.prl
@@ -450,6 +456,7 @@ Makefile: ../LinQuedin/LinQuedin.pro ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/linu
 ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/yacc.prf:
 ../../../../Qt5.3.2/5.3/gcc_64/mkspecs/features/lex.prf:
 ../LinQuedin/LinQuedin.pro:
+../LinQuedin/resources.qrc:
 /home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Widgets.prl:
 /home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Gui.prl:
 /home/giacomo/Qt5.3.2/5.3/gcc_64/lib/libQt5Core.prl:
@@ -460,7 +467,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/LinQuedin1.0.0 || mkdir -p .tmp/LinQuedin1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.h ../LinQuedin/danagrafici.h ../LinQuedin/titolistudio.h ../LinQuedin/laurea.h ../LinQuedin/impieghi.h ../LinQuedin/lavoro.h ../LinQuedin/utente.h ../LinQuedin/profilo.h ../LinQuedin/database.h ../LinQuedin/rete.h ../LinQuedin/nodo.h ../LinQuedin/ubasic.h ../LinQuedin/ubusiness.h ../LinQuedin/uexecutive.h .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/main.cpp ../LinQuedin/mainwindow.cpp ../LinQuedin/danagrafici.cpp ../LinQuedin/titolistudio.cpp ../LinQuedin/laurea.cpp ../LinQuedin/impieghi.cpp ../LinQuedin/lavoro.cpp ../LinQuedin/utente.cpp ../LinQuedin/profilo.cpp ../LinQuedin/database.cpp ../LinQuedin/rete.cpp ../LinQuedin/nodo.cpp ../LinQuedin/ubasic.cpp ../LinQuedin/ubusiness.cpp ../LinQuedin/uexecutive.cpp .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.ui .tmp/LinQuedin1.0.0/ && (cd `dirname .tmp/LinQuedin1.0.0` && $(TAR) LinQuedin1.0.0.tar LinQuedin1.0.0 && $(COMPRESS) LinQuedin1.0.0.tar) && $(MOVE) `dirname .tmp/LinQuedin1.0.0`/LinQuedin1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LinQuedin1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/resources.qrc .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/mainwindow.h ../LinQuedin/danagrafici.h ../LinQuedin/titolistudio.h ../LinQuedin/laurea.h ../LinQuedin/impieghi.h ../LinQuedin/lavoro.h ../LinQuedin/utente.h ../LinQuedin/profilo.h ../LinQuedin/database.h ../LinQuedin/rete.h ../LinQuedin/nodo.h ../LinQuedin/ubasic.h ../LinQuedin/ubusiness.h ../LinQuedin/uexecutive.h ../LinQuedin/client.h .tmp/LinQuedin1.0.0/ && $(COPY_FILE) --parents ../LinQuedin/main.cpp ../LinQuedin/mainwindow.cpp ../LinQuedin/danagrafici.cpp ../LinQuedin/titolistudio.cpp ../LinQuedin/laurea.cpp ../LinQuedin/impieghi.cpp ../LinQuedin/lavoro.cpp ../LinQuedin/utente.cpp ../LinQuedin/profilo.cpp ../LinQuedin/database.cpp ../LinQuedin/rete.cpp ../LinQuedin/nodo.cpp ../LinQuedin/ubasic.cpp ../LinQuedin/ubusiness.cpp ../LinQuedin/uexecutive.cpp ../LinQuedin/client.cpp .tmp/LinQuedin1.0.0/ && (cd `dirname .tmp/LinQuedin1.0.0` && $(TAR) LinQuedin1.0.0.tar LinQuedin1.0.0 && $(COMPRESS) LinQuedin1.0.0.tar) && $(MOVE) `dirname .tmp/LinQuedin1.0.0`/LinQuedin1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/LinQuedin1.0.0
 
 
 clean:compiler_clean 
@@ -481,8 +488,15 @@ mocables: compiler_moc_header_make_all compiler_moc_source_make_all
 
 check: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resources.cpp
+qrc_resources.cpp: ../LinQuedin/resources.qrc \
+		../LinQuedin/immagini/save.png \
+		../LinQuedin/immagini/linkedin.png \
+		../LinQuedin/immagini/exit.png
+	/home/giacomo/Qt5.3.2/5.3/gcc_64/bin/rcc -name resources ../LinQuedin/resources.qrc -o qrc_resources.cpp
+
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
@@ -589,24 +603,35 @@ moc_mainwindow.cpp: ../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QMainWindow
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/QKeySequence \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QAction \
 		../LinQuedin/mainwindow.h
 	/home/giacomo/Qt5.3.2/5.3/gcc_64/bin/moc $(DEFINES) -I/home/giacomo/Qt5.3.2/5.3/gcc_64/mkspecs/linux-g++ -I/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin -I/home/giacomo/Qt5.3.2/5.3/gcc_64/include -I/home/giacomo/Qt5.3.2/5.3/gcc_64/include/QtWidgets -I/home/giacomo/Qt5.3.2/5.3/gcc_64/include/QtGui -I/home/giacomo/Qt5.3.2/5.3/gcc_64/include/QtCore -I. ../LinQuedin/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all:
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
-ui_mainwindow.h: ../LinQuedin/mainwindow.ui
-	/home/giacomo/Qt5.3.2/5.3/gcc_64/bin/uic ../LinQuedin/mainwindow.ui -o ui_mainwindow.h
-
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean 
 
 ####### Compile
 
@@ -714,6 +739,21 @@ main.o: ../LinQuedin/main.cpp ../LinQuedin/mainwindow.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QToolBar \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/QKeySequence \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QAction \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QApplication \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qapplication.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcoreapplication.h \
@@ -724,12 +764,7 @@ main.o: ../LinQuedin/main.cpp ../LinQuedin/mainwindow.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QString \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QDate \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qdatetime.h \
-		../LinQuedin/database.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QFile \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamWriter \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qxmlstream.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamAttributes \
+		../LinQuedin/client.h \
 		../LinQuedin/utente.h \
 		../LinQuedin/profilo.h \
 		../LinQuedin/danagrafici.h \
@@ -739,8 +774,12 @@ main.o: ../LinQuedin/main.cpp ../LinQuedin/mainwindow.h \
 		../LinQuedin/lavoro.h \
 		../LinQuedin/rete.h \
 		../LinQuedin/nodo.h \
-		../LinQuedin/ubusiness.h \
-		../LinQuedin/ubasic.h
+		../LinQuedin/database.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QFile \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamWriter \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qxmlstream.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamAttributes
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../LinQuedin/main.cpp
 
 mainwindow.o: ../LinQuedin/mainwindow.cpp ../LinQuedin/mainwindow.h \
@@ -847,45 +886,21 @@ mainwindow.o: ../LinQuedin/mainwindow.cpp ../LinQuedin/mainwindow.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QVariant \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QAction \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qaction.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qapplication.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qeventloop.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QButtonGroup \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QHeaderView \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qheaderview.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qframe.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/qvalidator.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qregularexpression.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qslider.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qstyle.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtabbar.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qrubberband.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QMenuBar \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenubar.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QStatusBar \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QToolBar \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qtoolbar.h \
-		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QWidget
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtGui/QKeySequence \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtWidgets/QAction
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../LinQuedin/mainwindow.cpp
 
 danagrafici.o: ../LinQuedin/danagrafici.cpp ../LinQuedin/danagrafici.h \
@@ -1368,7 +1383,8 @@ database.o: ../LinQuedin/database.cpp ../LinQuedin/database.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qregexp.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstringmatcher.h \
 		../LinQuedin/ubasic.h \
-		../LinQuedin/ubusiness.h
+		../LinQuedin/ubusiness.h \
+		../LinQuedin/uexecutive.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o ../LinQuedin/database.cpp
 
 rete.o: ../LinQuedin/rete.cpp ../LinQuedin/rete.h \
@@ -1573,8 +1589,168 @@ ubusiness.o: ../LinQuedin/ubusiness.cpp ../LinQuedin/ubusiness.h \
 		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamAttributes
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ubusiness.o ../LinQuedin/ubusiness.cpp
 
-uexecutive.o: ../LinQuedin/uexecutive.cpp ../LinQuedin/uexecutive.h
+uexecutive.o: ../LinQuedin/uexecutive.cpp ../LinQuedin/uexecutive.h \
+		../LinQuedin/ubusiness.h \
+		../LinQuedin/ubasic.h \
+		../LinQuedin/utente.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QString \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfeatures.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qtypetraits.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_mips.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_x86.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_unix.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstringbuilder.h \
+		../LinQuedin/profilo.h \
+		../LinQuedin/danagrafici.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QDate \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qisenum.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpair.h \
+		../LinQuedin/titolistudio.h \
+		../LinQuedin/laurea.h \
+		../LinQuedin/impieghi.h \
+		../LinQuedin/lavoro.h \
+		../LinQuedin/rete.h \
+		../LinQuedin/nodo.h \
+		../LinQuedin/database.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QFile \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamWriter \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qxmlstream.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamAttributes
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o uexecutive.o ../LinQuedin/uexecutive.cpp
+
+client.o: ../LinQuedin/client.cpp ../LinQuedin/client.h \
+		../LinQuedin/utente.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QString \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfeatures.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qtypetraits.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_mips.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_x86.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qatomic_unix.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qstringbuilder.h \
+		../LinQuedin/profilo.h \
+		../LinQuedin/danagrafici.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QDate \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qisenum.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpair.h \
+		../LinQuedin/titolistudio.h \
+		../LinQuedin/laurea.h \
+		../LinQuedin/impieghi.h \
+		../LinQuedin/lavoro.h \
+		../LinQuedin/rete.h \
+		../LinQuedin/nodo.h \
+		../LinQuedin/database.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QFile \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamWriter \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qxmlstream.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamReader \
+		../../../../Qt5.3.2/5.3/gcc_64/include/QtCore/QXmlStreamAttributes
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o client.o ../LinQuedin/client.cpp
+
+qrc_resources.o: qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
