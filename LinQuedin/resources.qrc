@@ -3,5 +3,8 @@
         <file>immagini/exit.png</file>
         <file>immagini/save.png</file>
         <file>immagini/linkedin.png</file>
+        <file>immagini/new.png</file>
+        <file>immagini/admin.png</file>
+        <file>immagini/client.png</file>
     </qresource>
 </RCC>

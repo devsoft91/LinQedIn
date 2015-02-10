@@ -16,10 +16,8 @@ class MainWindow : public QMainWindow
 
 public:
     QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
     QStatusBar *statusBar;
-    QPushButton *button;
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
