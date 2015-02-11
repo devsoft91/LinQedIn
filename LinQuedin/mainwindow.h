@@ -10,6 +10,11 @@
 #include <QKeySequence>
 #include <QAction>
 
+#include "menubar.h"
+#include "loginclientwindow.h"
+#include "loginadminwindow.h"
+
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -20,6 +25,15 @@ public:
     QStatusBar *statusBar;
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+signals:
+
+public slots:
+    void showLoginClient();
+    void showLoginAdmin();
+    void saveConfirm();
+    void loginClient();
+    void loginAdmin();
 
 };
 

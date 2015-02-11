@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     ubusiness.cpp \
     uexecutive.cpp \
     client.cpp \
-    loginwindow.cpp
+    menubar.cpp \
+    loginclientwindow.cpp \
+    loginadminwindow.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -45,7 +47,9 @@ HEADERS  += mainwindow.h \
     ubusiness.h \
     uexecutive.h \
     client.h \
-    loginwindow.h
+    menubar.h \
+    loginclientwindow.h \
+    loginadminwindow.h
 
 RESOURCES += \
     resources.qrc
