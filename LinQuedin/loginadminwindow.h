@@ -14,7 +14,9 @@ public:
     QLabel* email_l;
     QLineEdit* email_e;
     QPushButton* login_b;
+    QGridLayout* layout;
     LoginAdminWindow(QWidget *parent = 0);
+    ~LoginAdminWindow();
 
 signals:
 

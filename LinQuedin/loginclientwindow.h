@@ -7,8 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 
-class LoginClientWindow : public QWidget
-{
+class LoginClientWindow : public QWidget{
     Q_OBJECT
 public:
     QLabel* email_l;

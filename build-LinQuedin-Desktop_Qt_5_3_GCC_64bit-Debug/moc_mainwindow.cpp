@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[7];
-    char stringdata[78];
+    char stringdata[90];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,15 +30,16 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10),
-QT_MOC_LITERAL(1, 11, 15),
-QT_MOC_LITERAL(2, 27, 0),
-QT_MOC_LITERAL(3, 28, 14),
-QT_MOC_LITERAL(4, 43, 11),
-QT_MOC_LITERAL(5, 55, 11),
-QT_MOC_LITERAL(6, 67, 10)
+QT_MOC_LITERAL(1, 11, 21),
+QT_MOC_LITERAL(2, 33, 0),
+QT_MOC_LITERAL(3, 34, 20),
+QT_MOC_LITERAL(4, 55, 11),
+QT_MOC_LITERAL(5, 67, 11),
+QT_MOC_LITERAL(6, 79, 10)
     },
-    "MainWindow\0showLoginClient\0\0showLoginAdmin\0"
-    "saveConfirm\0loginClient\0loginAdmin"
+    "MainWindow\0showLoginClientWindow\0\0"
+    "showLoginAdminWindow\0saveConfirm\0"
+    "loginClient\0loginAdmin"
 };
 #undef QT_MOC_LITERAL
 
@@ -77,8 +78,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->showLoginClient(); break;
-        case 1: _t->showLoginAdmin(); break;
+        case 0: _t->showLoginClientWindow(); break;
+        case 1: _t->showLoginAdminWindow(); break;
         case 2: _t->saveConfirm(); break;
         case 3: _t->loginClient(); break;
         case 4: _t->loginAdmin(); break;

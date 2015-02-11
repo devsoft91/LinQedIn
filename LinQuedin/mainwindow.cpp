@@ -10,8 +10,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent){
 
     statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
-    //connect(action_save, SIGNAL(triggered()), this, SLOT(close()));
-    //connect(action_close, SIGNAL(triggered()), this, SLOT(close()));
+
 }
 
 MainWindow::~MainWindow()
@@ -20,15 +19,15 @@ MainWindow::~MainWindow()
 }
 
 //slot
-void MainWindow::showLoginClient(){
-    if(centralWidget)
-        delete centralWidget;
+void MainWindow::showLoginClientWindow(){
+    //if(centralWidget)
+        //delete centralWidget;
     centralWidget = new LoginClientWindow(this);
     setCentralWidget(centralWidget);
 }
 
 //slot
-void MainWindow::showLoginAdmin(){
+void MainWindow::showLoginAdminWindow(){
     if(centralWidget)
         delete centralWidget;
     centralWidget = new LoginAdminWindow(this);
@@ -44,6 +43,8 @@ void MainWindow::saveConfirm(){
 void MainWindow::loginClient(){
     if(centralWidget)
         delete centralWidget;
+    centralWidget = new ClientWindow(this);
+    setCentralWidget(centralWidget);
     statusBar->showMessage("Succesfully logged as Client!");
 }
 
@@ -51,5 +52,7 @@ void MainWindow::loginClient(){
 void MainWindow::loginAdmin(){
     if(centralWidget)
         delete centralWidget;
+    //centralWidget = new AdminWindow(this);
+    //setCentralWidget(centralWidget);
     statusBar->showMessage("Succesfully logged as Admin!");
 }

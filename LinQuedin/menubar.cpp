@@ -45,8 +45,8 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     menutools->addMenu(menutools_options);
     addMenu(menutools);
 
-    connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClient()));
-    connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdmin()));
+    connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
+    connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
 }

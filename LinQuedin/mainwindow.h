@@ -13,6 +13,7 @@
 #include "menubar.h"
 #include "loginclientwindow.h"
 #include "loginadminwindow.h"
+#include "clientwindow.h"
 
 
 class MainWindow : public QMainWindow
@@ -29,8 +30,8 @@ public:
 signals:
 
 public slots:
-    void showLoginClient();
-    void showLoginAdmin();
+    void showLoginClientWindow();
+    void showLoginAdminWindow();
     void saveConfirm();
     void loginClient();
     void loginAdmin();

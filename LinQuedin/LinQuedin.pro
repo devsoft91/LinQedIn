@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     client.cpp \
     menubar.cpp \
     loginclientwindow.cpp \
-    loginadminwindow.cpp
+    loginadminwindow.cpp \
+    clientwindow.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -49,7 +50,8 @@ HEADERS  += mainwindow.h \
     client.h \
     menubar.h \
     loginclientwindow.h \
-    loginadminwindow.h
+    loginadminwindow.h \
+    clientwindow.h
 
 RESOURCES += \
     resources.qrc
