@@ -6,5 +6,6 @@
         <file>immagini/new.png</file>
         <file>immagini/admin.png</file>
         <file>immagini/client.png</file>
+        <file>immagini/logout.png</file>
     </qresource>
 </RCC>

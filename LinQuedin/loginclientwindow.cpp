@@ -13,8 +13,8 @@ LoginClientWindow::LoginClientWindow(QWidget *parent) : QWidget(parent){
     parent->setWindowTitle("LinQedIn - Login Client");
     setLayout(layout);
 
-    connect(login_b, SIGNAL(clicked()), parent, SLOT(loginClient()));
-
+    connect(login_b, SIGNAL(clicked()), this, SLOT(setU()));
+    connect(this, SIGNAL(valueReady(const QString&)), parent, SLOT(loginClient(const QString&)));
 }
 
 LoginClientWindow::~LoginClientWindow(){
@@ -22,4 +22,9 @@ LoginClientWindow::~LoginClientWindow(){
     delete email_e;
     delete login_b;
     delete layout;
+}
+
+//slot
+void LoginClientWindow::setU(){
+    emit valueReady(email_e->text());
 }

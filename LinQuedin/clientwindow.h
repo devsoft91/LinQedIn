@@ -4,12 +4,15 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QGridLayout>
+#include <QTabWidget>
 
-class ClientWindow : public QWidget{
+#include "viewprofilo.h"
+
+class ClientWindow : public QTabWidget{
     Q_OBJECT
 public:
-    QPushButton* button;
-    QGridLayout* layout;
+    ViewProfilo* profilo;
+    QWidget* rete;
     ClientWindow(QWidget *parent);
 
 signals:

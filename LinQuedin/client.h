@@ -1,17 +1,20 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "utente.h"
-#include "mainwindow.h"
+#include <iostream>
 
-class Client
-{
+using namespace std;
+
+#include "utente.h"
+
+class Client{
 public:
     Utente* u;
     Database* data_;
-    MainWindow* window;
     Client(const QString&);
     void stampa() const;
+    void initialize(const QString&);
+
 };
 
 #endif // CLIENT_H

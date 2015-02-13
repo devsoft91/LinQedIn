@@ -8,33 +8,40 @@
 #include <QtWidgets/QWidget>
 #include <QPushButton>
 #include <QKeySequence>
-#include <QAction>
+#include <QMessageBox>
 
 #include "menubar.h"
 #include "loginclientwindow.h"
 #include "loginadminwindow.h"
 #include "clientwindow.h"
 
+#include "client.h"
+
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
+private:
     QMenuBar *menuBar;
     QWidget *centralWidget;
     QStatusBar *statusBar;
+    Client* utente;
+
+public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 signals:
+    void disableNewInstance();
 
 public slots:
     void showLoginClientWindow();
     void showLoginAdminWindow();
     void saveConfirm();
-    void loginClient();
+    void loginClient(const QString&);
     void loginAdmin();
+    void logout();
 
 };
 

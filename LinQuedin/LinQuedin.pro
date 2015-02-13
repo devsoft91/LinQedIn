@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = LinQuedin
 TEMPLATE = app
 
+CONFIG += qt debug
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -31,7 +32,8 @@ SOURCES += main.cpp\
     menubar.cpp \
     loginclientwindow.cpp \
     loginadminwindow.cpp \
-    clientwindow.cpp
+    clientwindow.cpp \
+    viewprofilo.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -51,7 +53,8 @@ HEADERS  += mainwindow.h \
     menubar.h \
     loginclientwindow.h \
     loginadminwindow.h \
-    clientwindow.h
+    clientwindow.h \
+    viewprofilo.h
 
 RESOURCES += \
     resources.qrc

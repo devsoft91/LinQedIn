@@ -1,10 +1,9 @@
 #include "clientwindow.h"
 
-ClientWindow::ClientWindow(QWidget *parent) : QWidget(parent){
-
-    button = new QPushButton("Test");
-    layout = new QGridLayout();
-    layout->addWidget(button,0,0);
-    setLayout(layout);
+ClientWindow::ClientWindow(QWidget *parent) : QTabWidget(parent){
+    profilo = new ViewProfilo(this);
+    rete = new QWidget(this);
+    addTab(profilo,"Profilo");
+    addTab(rete,"Collegamenti");
 
 }

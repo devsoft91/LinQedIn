@@ -5,7 +5,6 @@
 #include <iostream>
 #include <typeinfo>//solo x test DA RIMUOVERE
 
-#include "client.h"
 #include "mainwindow.h"
 
 using namespace std;
@@ -13,9 +12,8 @@ using namespace std;
 int main(int argc,char* argv[]){
 
     QApplication app(argc,argv);
-    //MainWindow w;
-    //w.show();
-    Client a("a");
+    MainWindow w;
+    w.show();
 
     return app.exec();
 
