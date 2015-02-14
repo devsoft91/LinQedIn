@@ -2,29 +2,29 @@
 
 LoginClientWindow::LoginClientWindow(QWidget *parent) : QWidget(parent){
 
-    email_l = new QLabel("Username:");
-    email_e = new QLineEdit;
-    login_b = new QPushButton("Login Client");
+    l_username = new QLabel("Username:");
+    username = new QLineEdit;
+    b_login = new QPushButton("Login Client");
     layout = new QGridLayout();
-    layout->addWidget(email_l,0,0);
-    layout->addWidget(email_e,0,1);
-    layout->addWidget(login_b,0,2);
+    layout->addWidget(l_username,0,0);
+    layout->addWidget(username,0,1);
+    layout->addWidget(b_login,0,2);
 
     parent->setWindowTitle("LinQedIn - Login Client");
     setLayout(layout);
 
-    connect(login_b, SIGNAL(clicked()), this, SLOT(setU()));
+    connect(b_login, SIGNAL(clicked()), this, SLOT(setU()));
     connect(this, SIGNAL(valueReady(const QString&)), parent, SLOT(loginClient(const QString&)));
 }
 
 LoginClientWindow::~LoginClientWindow(){
-    delete email_l;
-    delete email_e;
-    delete login_b;
+    delete l_username;
+    delete username;
+    delete b_login;
     delete layout;
 }
 
 //slot
 void LoginClientWindow::setU(){
-    emit valueReady(email_e->text());
+    emit valueReady(username->text());
 }

@@ -16,7 +16,7 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     action_new_client->setShortcut(newClient);
     action_new_admin->setShortcut(newAdmin);
     action_logout->setShortcut(logout);action_logout->setEnabled(false);
-    action_save->setShortcut(save);
+    action_save->setShortcut(save);action_save->setEnabled(false);
     action_close->setShortcut(close);
 
     menufile = new QMenu("File");
@@ -40,19 +40,12 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     menuedit->addAction("Copy");
     menuedit->addAction("Paste");
     addMenu(menuedit);
-/*
-    menutools = new QMenu("Tools");
-    QMenu* menutools_options = new QMenu("Options");
-    menutools_options->addAction("Language");
-    menutools_options->addAction("Design");
-    menutools_options->addAction("Info");
-    menutools->addMenu(menutools_options);
-    addMenu(menutools);*/
 
     connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
     connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));
     connect(action_logout, SIGNAL(triggered()), parent, SLOT(logout()));
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
+    connect(action_save, SIGNAL(triggered()), this, SLOT(disableSave()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
 }
 
@@ -62,4 +55,14 @@ void MenuBar::changeMenuLogin(){
     action_new_client->setDisabled(true);
     action_new_admin->setDisabled(true);
     action_logout->setDisabled(false);
+}
+
+//slot
+void MenuBar::enableSave(){
+    action_save->setDisabled(false);
+}
+
+//slot
+void MenuBar::disableSave(){
+    action_save->setDisabled(true);
 }

@@ -14,6 +14,9 @@ public:
     Client(const QString&);
     void stampa() const;
     void initialize(const QString&);
+    void sendDatiAnagrafici(const DAnagrafici&);
+    void saveDatabase();
+    DAnagrafici* returnDatiAnagrafici() const;
 
 };
 

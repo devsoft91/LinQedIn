@@ -6,18 +6,24 @@
 #include <QGridLayout>
 #include <QTabWidget>
 
-#include "viewprofilo.h"
+#include "viewdatianagrafici.h"
+#include "viewtitolistudio.h"
+#include "client.h"
 
 class ClientWindow : public QTabWidget{
     Q_OBJECT
 public:
-    ViewProfilo* profilo;
+    ViewDatiAnagrafici* d_anagrafici;
+    ViewTitoliStudio* titoli_studio;
     QWidget* rete;
-    ClientWindow(QWidget *parent);
+    ClientWindow(QWidget *parent,Client*);
+
 
 signals:
+    void signalSaveOn();
 
 public slots:
+    void saveOn();
     
 };
 

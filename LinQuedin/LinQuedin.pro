@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     loginclientwindow.cpp \
     loginadminwindow.cpp \
     clientwindow.cpp \
-    viewprofilo.cpp
+    viewdatianagrafici.cpp \
+    viewtitolistudio.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -54,7 +55,8 @@ HEADERS  += mainwindow.h \
     loginclientwindow.h \
     loginadminwindow.h \
     clientwindow.h \
-    viewprofilo.h
+    viewdatianagrafici.h \
+    viewtitolistudio.h
 
 RESOURCES += \
     resources.qrc

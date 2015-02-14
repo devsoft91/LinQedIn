@@ -12,5 +12,16 @@ void Client::stampa() const{
 
 void Client::initialize(const QString& s){
     u = data_->getUtente(s);
-    //data_->save();
+}
+
+void Client::sendDatiAnagrafici(const DAnagrafici& d){
+    u->profile.setDati(d);
+}
+
+void Client::saveDatabase(){
+    data_->save();
+}
+
+DAnagrafici* Client::returnDatiAnagrafici() const{
+    return new DAnagrafici(u->profile.getDati());
 }

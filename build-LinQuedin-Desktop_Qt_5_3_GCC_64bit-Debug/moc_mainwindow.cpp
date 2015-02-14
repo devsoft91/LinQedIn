@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[9];
-    char stringdata[116];
+    QByteArrayData data[11];
+    char stringdata[147];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,16 +32,19 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10),
 QT_MOC_LITERAL(1, 11, 18),
 QT_MOC_LITERAL(2, 30, 0),
-QT_MOC_LITERAL(3, 31, 21),
-QT_MOC_LITERAL(4, 53, 20),
-QT_MOC_LITERAL(5, 74, 11),
-QT_MOC_LITERAL(6, 86, 11),
-QT_MOC_LITERAL(7, 98, 10),
-QT_MOC_LITERAL(8, 109, 6)
+QT_MOC_LITERAL(3, 31, 18),
+QT_MOC_LITERAL(4, 50, 21),
+QT_MOC_LITERAL(5, 72, 20),
+QT_MOC_LITERAL(6, 93, 11),
+QT_MOC_LITERAL(7, 105, 11),
+QT_MOC_LITERAL(8, 117, 11),
+QT_MOC_LITERAL(9, 129, 10),
+QT_MOC_LITERAL(10, 140, 6)
     },
     "MainWindow\0disableNewInstance\0\0"
-    "showLoginClientWindow\0showLoginAdminWindow\0"
-    "saveConfirm\0loginClient\0loginAdmin\0"
+    "enableSaveInstance\0showLoginClientWindow\0"
+    "showLoginAdminWindow\0saveConfirm\0"
+    "saveEnabler\0loginClient\0loginAdmin\0"
     "logout"
 };
 #undef QT_MOC_LITERAL
@@ -52,28 +55,32 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   49,    2, 0x06 /* Public */,
+       1,    0,   59,    2, 0x06 /* Public */,
+       3,    0,   60,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   50,    2, 0x0a /* Public */,
-       4,    0,   51,    2, 0x0a /* Public */,
-       5,    0,   52,    2, 0x0a /* Public */,
-       6,    1,   53,    2, 0x0a /* Public */,
-       7,    0,   56,    2, 0x0a /* Public */,
-       8,    0,   57,    2, 0x0a /* Public */,
+       4,    0,   61,    2, 0x0a /* Public */,
+       5,    0,   62,    2, 0x0a /* Public */,
+       6,    0,   63,    2, 0x0a /* Public */,
+       7,    0,   64,    2, 0x0a /* Public */,
+       8,    1,   65,    2, 0x0a /* Public */,
+       9,    0,   68,    2, 0x0a /* Public */,
+      10,    0,   69,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -90,12 +97,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
         case 0: _t->disableNewInstance(); break;
-        case 1: _t->showLoginClientWindow(); break;
-        case 2: _t->showLoginAdminWindow(); break;
-        case 3: _t->saveConfirm(); break;
-        case 4: _t->loginClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 5: _t->loginAdmin(); break;
-        case 6: _t->logout(); break;
+        case 1: _t->enableSaveInstance(); break;
+        case 2: _t->showLoginClientWindow(); break;
+        case 3: _t->showLoginAdminWindow(); break;
+        case 4: _t->saveConfirm(); break;
+        case 5: _t->saveEnabler(); break;
+        case 6: _t->loginClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 7: _t->loginAdmin(); break;
+        case 8: _t->logout(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -105,6 +114,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             typedef void (MainWindow::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::disableNewInstance)) {
                 *result = 0;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::enableSaveInstance)) {
+                *result = 1;
             }
         }
     }
@@ -135,13 +150,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }
@@ -150,5 +165,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void MainWindow::disableNewInstance()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, 0);
+}
+
+// SIGNAL 1
+void MainWindow::enableSaveInstance()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

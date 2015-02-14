@@ -3,28 +3,18 @@
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent){
     setWindowIcon(QIcon(":/immagini/linkedin.png"));
     setWindowTitle("LinQedIn");
-    setGeometry(250,250,500,400);
+    setGeometry(200,200,700,500);
 
     menuBar = new MenuBar(this);
     setMenuBar(menuBar);
-/*
-    centralWidget = new QWidget(this);
-
-    tabs = new QTabWidget(centralWidget);
-    QWidget* a = new QWidget(tabs);
-    QWidget* b = new QWidget(tabs);
-    //a->resize(250,250);
-    tabs->addTab(a,"Pagina 1");
-    tabs->addTab(b,"Pagina 2");
-    setCentralWidget(centralWidget);*/
-    //setTabOrder(a,b);
 
     statusBar = new QStatusBar(this);
     setStatusBar(statusBar);
 
-    utente = 0;
+    utentecontrol = 0;
 
     connect(this, SIGNAL(disableNewInstance()), menuBar, SLOT(changeMenuLogin()));
+    connect(this, SIGNAL(enableSaveInstance()), menuBar, SLOT(enableSave()));
 
 }
 
@@ -47,20 +37,26 @@ void MainWindow::showLoginAdminWindow(){
 
 //slot
 void MainWindow::saveConfirm(){
+    utentecontrol->saveDatabase();
     statusBar->showMessage("Database succesfully saved!");
+}
+
+//slot
+void MainWindow::saveEnabler(){
+    emit enableSaveInstance();
 }
 
 //slot
 void MainWindow::loginClient(const QString& s){
     std::cout<<s.toStdString()<<std::endl;
-    if(utente)
-        utente->initialize(s);
-    else utente = new Client(s);
-    if(!utente->u){
+    if(utentecontrol)
+        utentecontrol->initialize(s);
+    else utentecontrol = new Client(s);
+    if(!utentecontrol->u){
         statusBar->showMessage("Errore");
     }
     else{
-        centralWidget = new ClientWindow(this);
+        centralWidget = new ClientWindow(this,utentecontrol);
         setCentralWidget(centralWidget);
         statusBar->showMessage("Succesfully logged as Client!");
         QString title = "LinQedIn - " + s;

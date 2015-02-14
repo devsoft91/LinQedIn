@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
-#include <QtWidgets/QWidget>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QToolBar>
+#include <QWidget>
 #include <QPushButton>
 #include <QKeySequence>
 #include <QMessageBox>
@@ -26,7 +26,7 @@ private:
     QMenuBar *menuBar;
     QWidget *centralWidget;
     QStatusBar *statusBar;
-    Client* utente;
+    Client* utentecontrol;
 
 public:
     MainWindow(QWidget *parent = 0);
@@ -34,11 +34,13 @@ public:
 
 signals:
     void disableNewInstance();
+    void enableSaveInstance();
 
 public slots:
     void showLoginClientWindow();
     void showLoginAdminWindow();
     void saveConfirm();
+    void saveEnabler();
     void loginClient(const QString&);
     void loginAdmin();
     void logout();

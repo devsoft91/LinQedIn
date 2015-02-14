@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Database>
     <Utenti>
-        <Utente type="Basic">
+        <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Enrico</Nome>
@@ -16,33 +16,9 @@
                         <NomeDiploma>infinito</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
-                    <Laurea>
-                        <NomeLaurea>Info</NomeLaurea>
-                        <AnnoLaurea>2015</AnnoLaurea>
-                    </Laurea>
-                    <Laurea>
-                        <NomeLaurea>Psico</NomeLaurea>
-                        <AnnoLaurea>2020</AnnoLaurea>
-                    </Laurea>
                 </Titoli_Studio>
-                <Impieghi>
-                    <Lavoro>
-                        <Azienda>infinitech</Azienda>
-                        <Titolo>CEO</Titolo>
-                        <Citta>Treviso</Citta>
-                        <Inizio>02 03 2012</Inizio>
-                        <Fine>23 09 2012</Fine>
-                    </Lavoro>
-                    <Lavoro>
-                        <Azienda>infinitech</Azienda>
-                        <Titolo>CEO</Titolo>
-                        <Citta>Treviso</Citta>
-                        <Inizio>01 05 2012</Inizio>
-                        <Fine>23 09 2012</Fine>
-                    </Lavoro>
-                </Impieghi>
             </Profilo>
-            <Username>a</Username>
+            <Username>b</Username>
         </Utente>
         <Utente type="Executive">
             <Profilo>
@@ -63,8 +39,46 @@
             </Profilo>
             <Username>c</Username>
         </Utente>
+        <Utente type="Basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Giacomo</Nome>
+                    <Cognome>Beltrame</Cognome>
+                    <Email>giacomo.beltrame@studenti.unipd.it</Email>
+                    <Data_Nascita>24 05 1991</Data_Nascita>
+                    <Luogo_Nascita>Valdobbiadene</Luogo_Nascita>
+                    <Luogo_Residenza>Pederobba</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>Liceo Scientifio Tecnologico</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                    <Laurea>
+                        <NomeLaurea>Informatica(test)</NomeLaurea>
+                        <AnnoLaurea>2020</AnnoLaurea>
+                    </Laurea>
+                    <Laurea>
+                        <NomeLaurea>Psicologia(test)</NomeLaurea>
+                        <AnnoLaurea>2025</AnnoLaurea>
+                    </Laurea>
+                </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Azienda>Alla Cima</Azienda>
+                        <Titolo>Cameriere</Titolo>
+                        <Citta>Valdobbiadene</Citta>
+                        <Inizio>05 08 2012</Inizio>
+                        <Fine>01 12 2015</Fine>
+                    </Lavoro>
+                </Impieghi>
+            </Profilo>
+            <Username>devsoft91</Username>
+        </Utente>
     </Utenti>
     <Reti>
-        <Link>a-c</Link>
+        <Link>b-c</Link>
+        <Link>devsoft91-b</Link>
+        <Link>devsoft91-c</Link>
     </Reti>
 </Database>

@@ -5,8 +5,8 @@
 #include <QAction>
 
 class MenuBar : public QMenuBar{
-    Q_OBJECT
-private:
+    Q_OBJECT    
+public:
     QMenu* menufile;
     QMenu* menuedit;
     QMenu* menufile_newinstance;
@@ -16,13 +16,14 @@ private:
     QAction* action_logout;
     QAction* action_save;
     QAction* action_close;
-public:
     MenuBar(QWidget *parent = 0);
 
 signals:
 
 public slots:
     void changeMenuLogin();
+    void enableSave();
+    void disableSave();
 
 };
 

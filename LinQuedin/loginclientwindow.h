@@ -14,9 +14,9 @@ using std::cout;
 class LoginClientWindow : public QWidget{
     Q_OBJECT
 private:
-    QLabel* email_l;
-    QLineEdit* email_e;
-    QPushButton* login_b;
+    QLabel* l_username;
+    QLineEdit* username;
+    QPushButton* b_login;
     QGridLayout* layout;
 public:
     LoginClientWindow(QWidget *parent = 0);
