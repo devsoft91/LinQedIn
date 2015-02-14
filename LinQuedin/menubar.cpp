@@ -43,14 +43,33 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
 
     connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
     connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));
-    connect(action_logout, SIGNAL(triggered()), parent, SLOT(logout()));
+    connect(action_logout, SIGNAL(triggered()), this, SLOT(checkSaveOn()));
+    connect(this, SIGNAL(logoutSave(bool)), parent, SLOT(logout(bool)));
+    connect(action_logout, SIGNAL(triggered()), this, SLOT(enableMenuLogin()));
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
     connect(action_save, SIGNAL(triggered()), this, SLOT(disableSave()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
 }
 
 //slot
-void MenuBar::changeMenuLogin(){
+void MenuBar::checkSaveOn(){
+    if(action_save->isEnabled()){
+        emit logoutSave(true);
+    }
+    else emit logoutSave(false);
+}
+
+//slot
+void MenuBar::enableMenuLogin(){
+    menufile_newinstance->setDisabled(false);
+    action_new_client->setDisabled(false);
+    action_new_admin->setDisabled(false);
+    action_logout->setDisabled(true);
+    action_save->setDisabled(true);
+}
+
+//slot
+void MenuBar::disableMenuLogin(){
     menufile_newinstance->setDisabled(true);
     action_new_client->setDisabled(true);
     action_new_admin->setDisabled(true);

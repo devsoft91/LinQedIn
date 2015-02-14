@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent){
 
     utentecontrol = 0;
 
-    connect(this, SIGNAL(disableNewInstance()), menuBar, SLOT(changeMenuLogin()));
+    connect(this, SIGNAL(disableNewInstance()), menuBar, SLOT(disableMenuLogin()));
     connect(this, SIGNAL(enableSaveInstance()), menuBar, SLOT(enableSave()));
 
 }
@@ -38,7 +38,7 @@ void MainWindow::showLoginAdminWindow(){
 //slot
 void MainWindow::saveConfirm(){
     utentecontrol->saveDatabase();
-    statusBar->showMessage("Database succesfully saved!");
+    statusBar->showMessage("Database succesfully saved!",3000);
 }
 
 //slot
@@ -58,7 +58,7 @@ void MainWindow::loginClient(const QString& s){
     else{
         centralWidget = new ClientWindow(this,utentecontrol);
         setCentralWidget(centralWidget);
-        statusBar->showMessage("Succesfully logged as Client!");
+        statusBar->showMessage("Succesfully logged as Client!",5000);
         QString title = "LinQedIn - " + s;
         setWindowTitle(title);
         emit disableNewInstance();
@@ -73,8 +73,8 @@ void MainWindow::loginAdmin(){
 }
 
 //slot
-void MainWindow::logout(){
-    if(true/*save enabled*/){
+void MainWindow::logout(bool b){
+    if(b){
         QMessageBox box;
         box.setWindowTitle("Attention");
         box.setText("Exit without saving?");
@@ -84,15 +84,29 @@ void MainWindow::logout(){
         switch(choose){
             case QMessageBox::Save:
                 saveConfirm();
+                delete centralWidget;
+                delete utentecontrol;
+                utentecontrol = 0;
+                statusBar->showMessage("Succesfully logged out!",3000);
                 break;
             case QMessageBox::Discard:
-                //exit without saving
+                delete centralWidget;
+                delete utentecontrol;
+                utentecontrol = 0;
+                statusBar->showMessage("Succesfully logged out!",3000);
                 break;
             case QMessageBox::Cancel:
                 break;
             default:
                 break;
         }
+    }
+    else{
+        delete centralWidget;
+        delete utentecontrol;
+        utentecontrol = 0;
+        statusBar->showMessage("Succesfully logged out!",3000);
+
     }
 
 }

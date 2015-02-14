@@ -19,9 +19,12 @@ public:
     MenuBar(QWidget *parent = 0);
 
 signals:
+    void logoutSave(bool);
 
 public slots:
-    void changeMenuLogin();
+    void checkSaveOn();
+    void enableMenuLogin();
+    void disableMenuLogin();
     void enableSave();
     void disableSave();
 

@@ -43,7 +43,7 @@ public slots:
     void saveEnabler();
     void loginClient(const QString&);
     void loginAdmin();
-    void logout();
+    void logout(bool);
 
 };
 

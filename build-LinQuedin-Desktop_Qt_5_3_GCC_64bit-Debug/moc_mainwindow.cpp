@@ -73,7 +73,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,    0,   64,    2, 0x0a /* Public */,
        8,    1,   65,    2, 0x0a /* Public */,
        9,    0,   68,    2, 0x0a /* Public */,
-      10,    0,   69,    2, 0x0a /* Public */,
+      10,    1,   69,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -86,7 +86,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,    2,
 
        0        // eod
 };
@@ -104,7 +104,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->saveEnabler(); break;
         case 6: _t->loginClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 7: _t->loginAdmin(); break;
-        case 8: _t->logout(); break;
+        case 8: _t->logout((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

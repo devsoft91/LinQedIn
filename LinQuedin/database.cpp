@@ -14,7 +14,7 @@ void Database::load(){
 
     Utente* utente;
 
-    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/input.xml");
+    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml");
     QFile file(path);
     file.open(QIODevice::ReadOnly);
     QXmlStreamReader reader(&file);
@@ -173,7 +173,7 @@ void Database::load(){
 }
 
 void Database::save() const{
-    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/output.xml");
+    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml");
     QFile file(path);
     file.open(QIODevice::WriteOnly);
     QXmlStreamWriter writer(&file);

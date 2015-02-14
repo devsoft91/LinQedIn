@@ -48,7 +48,11 @@ signals:
     void signalUpdate();
 
 public slots:
+    void fillFields();
     void update();
+    void disableUpdate();
+    void enableUpdate(const QString&);
+    void enableUpdate(const QDate&);
 
 };
 
