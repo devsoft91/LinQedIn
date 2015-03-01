@@ -14,9 +14,13 @@ public:
     Client(const QString&);
     void stampa() const;
     void initialize(const QString&);
-    void sendDatiAnagrafici(const DAnagrafici&);
     void saveDatabase();
+    void sendDatiAnagrafici(const DAnagrafici&);
+    void sendTitoliStudio(const TitoliStudio&);
+    void sendImpieghi(const Impieghi&);
     DAnagrafici* returnDatiAnagrafici() const;
+    TitoliStudio* returnTitoliStudio() const;
+    Impieghi* returnImpieghi() const;
 
 };
 

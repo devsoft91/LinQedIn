@@ -8,7 +8,7 @@
                     <Cognome>Infinity</Cognome>
                     <Email>einfinity@houncazzoenorme.com</Email>
                     <Data_Nascita>01 02 1992</Data_Nascita>
-                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Nascita>TrevisoLam</Luogo_Nascita>
                     <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
@@ -23,12 +23,12 @@
         <Utente type="Executive">
             <Profilo>
                 <Dati_Anagrafici>
-                    <Nome>Enrico</Nome>
-                    <Cognome>Ceron</Cognome>
-                    <Email>enrico.ceron@gmail.com</Email>
-                    <Data_Nascita>01 02 1992</Data_Nascita>
-                    <Luogo_Nascita>Biadene</Luogo_Nascita>
-                    <Luogo_Residenza>Montebelluna</Luogo_Residenza>
+                    <Nome>Ciccio</Nome>
+                    <Cognome>Pasticcio</Cognome>
+                    <Email>ciccio.pasticcio@gmail.com</Email>
+                    <Data_Nascita>01 02 1989</Data_Nascita>
+                    <Luogo_Nascita>Montebelluna</Luogo_Nascita>
+                    <Luogo_Residenza>Pescara</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>

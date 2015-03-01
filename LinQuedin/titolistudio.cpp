@@ -22,7 +22,9 @@ int TitoliStudio::getAnno() const{
 }
 
 vector<Laurea> TitoliStudio::getLaurea() const{
-    return lauree;
+    if(lauree.size()!=0)
+        return lauree;
+    return vector<Laurea>();
 }
 
 void TitoliStudio::setDiploma(const QString& d){

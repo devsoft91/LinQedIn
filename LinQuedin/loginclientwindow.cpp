@@ -13,8 +13,11 @@ LoginClientWindow::LoginClientWindow(QWidget *parent) : QWidget(parent){
     parent->setWindowTitle("LinQedIn - Login Client");
     setLayout(layout);
 
+    username->setFocus();
+
     connect(b_login, SIGNAL(clicked()), this, SLOT(setU()));
     connect(this, SIGNAL(valueReady(const QString&)), parent, SLOT(loginClient(const QString&)));
+    connect(username, SIGNAL(returnPressed()), this, SLOT(setU()));
 }
 
 LoginClientWindow::~LoginClientWindow(){

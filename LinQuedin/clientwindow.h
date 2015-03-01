@@ -15,6 +15,7 @@ class ClientWindow : public QTabWidget{
 public:
     ViewDatiAnagrafici* d_anagrafici;
     ViewTitoliStudio* titoli_studio;
+    QWidget* impieghi;
     QWidget* rete;
     ClientWindow(QWidget *parent,Client*);
 

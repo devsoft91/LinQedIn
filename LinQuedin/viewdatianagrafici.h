@@ -28,12 +28,6 @@ public:
     QLabel* l_datanascita;
     QLabel* l_luogonascita;
     QLabel* l_luogoresidenza;
-    QPushButton* b_nome;
-    QPushButton* b_cognome;
-    QPushButton* b_email;
-    QPushButton* b_datanascita;
-    QPushButton* b_luogonascita;
-    QPushButton* b_luogoresidenza;
     QDialogButtonBox* buttonbox;
     QPushButton* confirm;
     QPushButton* discard;

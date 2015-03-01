@@ -1,6 +1,8 @@
 #include "viewdatianagrafici.h"
 
-ViewDatiAnagrafici::ViewDatiAnagrafici(QWidget *parent,Client* c) : QWidget(parent),tmp(c),nome(0){
+ViewDatiAnagrafici::ViewDatiAnagrafici(QWidget *parent,Client* c) : QWidget(parent){
+
+    tmp = c; nome = 0;
 
     gridlayout = new QGridLayout(this);
 
@@ -37,10 +39,6 @@ ViewDatiAnagrafici::ViewDatiAnagrafici(QWidget *parent,Client* c) : QWidget(pare
 
 }
 
-DAnagrafici* ViewDatiAnagrafici::getDatiAnagrafici(Client* c) const{
-    return c->returnDatiAnagrafici();
-}
-
 //slot
 void ViewDatiAnagrafici::fillFields(){
     DAnagrafici* dati = getDatiAnagrafici(tmp);
@@ -68,6 +66,10 @@ void ViewDatiAnagrafici::fillFields(){
     connect(datanascita, SIGNAL(dateChanged(const QDate&)), this, SLOT(enableUpdate(const QDate&)));
     connect(luogonascita, SIGNAL(textChanged(const QString&)), this, SLOT(enableUpdate(const QString&)));
     connect(luogoresidenza, SIGNAL(textChanged(const QString&)), this, SLOT(enableUpdate(const QString&)));
+}
+
+DAnagrafici* ViewDatiAnagrafici::getDatiAnagrafici(Client* c) const{
+    return c->returnDatiAnagrafici();
 }
 
 void ViewDatiAnagrafici::setDatiAnagrafici(){
