@@ -17,7 +17,11 @@ public:
     Profilo(const DAnagrafici&,const TitoliStudio&,const Impieghi&);
     void setDati(const DAnagrafici&);
     void setTitoli(const TitoliStudio&);
+    void setDiploma(const QString&,int);
     void setImpieghi(const Impieghi&);
+    void setLaurea(const Laurea&);
+    void setLaurea(const QString&,const Laurea&);
+    void removeLaurea(const QString&);
     DAnagrafici getDati() const;
     TitoliStudio getTitoli() const;
     Impieghi getImpieghi() const;

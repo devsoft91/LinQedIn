@@ -38,3 +38,25 @@ void TitoliStudio::setAnno(const int& a){
 void TitoliStudio::addLaurea(const Laurea& l) {
     lauree.push_back(l);
 }
+
+void TitoliStudio::updateLaurea(const QString& s,const Laurea& l) {
+    vector<Laurea>::iterator it = lauree.begin();
+    bool found = false;
+    while(it!=lauree.end() && !found){
+        if((*it).getNome()==s){
+            found = true;
+            (*it).setNome(l.getNome());
+            (*it).setAnno(l.getAnno());
+        }
+        ++it;
+    }
+}
+
+void TitoliStudio::removeLaurea(const QString& s) {
+    int i = 0;
+    vector<Laurea>::const_iterator it = lauree.begin();
+    while((*it).getNome()!=s){
+        ++it; ++i;
+    }
+    lauree.erase(lauree.begin()+i);
+}

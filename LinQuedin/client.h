@@ -17,7 +17,10 @@ public:
     void saveDatabase();
     void sendDatiAnagrafici(const DAnagrafici&);
     void sendTitoliStudio(const TitoliStudio&);
+    void sendDiploma(const QString&,int);
     void sendImpieghi(const Impieghi&);
+    void sendLaurea(const Laurea&);
+    void sendLaurea(const QString&,const Laurea&);
     DAnagrafici* returnDatiAnagrafici() const;
     TitoliStudio* returnTitoliStudio() const;
     Impieghi* returnImpieghi() const;

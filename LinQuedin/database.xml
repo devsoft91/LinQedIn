@@ -4,18 +4,22 @@
         <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
-                    <Nome>Enrico</Nome>
-                    <Cognome>Infinity</Cognome>
-                    <Email>einfinity@houncazzoenorme.com</Email>
-                    <Data_Nascita>01 02 1992</Data_Nascita>
-                    <Luogo_Nascita>TrevisoLam</Luogo_Nascita>
-                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
+                    <Nome>a</Nome>
+                    <Cognome>a</Cognome>
+                    <Email>a</Email>
+                    <Data_Nascita>01 01 1900</Data_Nascita>
+                    <Luogo_Nascita>a</Luogo_Nascita>
+                    <Luogo_Residenza>a</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
                         <NomeDiploma>infinito</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
+                    <Laurea>
+                        <NomeLaurea>azzzz</NomeLaurea>
+                        <AnnoLaurea>2053</AnnoLaurea>
+                    </Laurea>
                 </Titoli_Studio>
             </Profilo>
             <Username>b</Username>
@@ -28,13 +32,21 @@
                     <Email>ciccio.pasticcio@gmail.com</Email>
                     <Data_Nascita>01 02 1989</Data_Nascita>
                     <Luogo_Nascita>Montebelluna</Luogo_Nascita>
-                    <Luogo_Residenza>Pescara</Luogo_Residenza>
+                    <Luogo_Residenza>Pesaro</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
                         <NomeDiploma>infinito</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
+                    <Laurea>
+                        <NomeLaurea>test della madonna</NomeLaurea>
+                        <AnnoLaurea>1911</AnnoLaurea>
+                    </Laurea>
+                    <Laurea>
+                        <NomeLaurea>co co co</NomeLaurea>
+                        <AnnoLaurea>1900</AnnoLaurea>
+                    </Laurea>
                 </Titoli_Studio>
             </Profilo>
             <Username>c</Username>
@@ -55,12 +67,8 @@
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
                     <Laurea>
-                        <NomeLaurea>Informatica(test)</NomeLaurea>
-                        <AnnoLaurea>2020</AnnoLaurea>
-                    </Laurea>
-                    <Laurea>
-                        <NomeLaurea>Psicologia(test)</NomeLaurea>
-                        <AnnoLaurea>2025</AnnoLaurea>
+                        <NomeLaurea>Informatica</NomeLaurea>
+                        <AnnoLaurea>2016</AnnoLaurea>
                     </Laurea>
                 </Titoli_Studio>
                 <Impieghi>

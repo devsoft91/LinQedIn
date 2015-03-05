@@ -9,7 +9,7 @@ private:
     QString nome;
     int anno;
 public:
-    Laurea(const QString& ="",int =0); // da completareeeeeee
+    Laurea(const QString& ="",int =0);
     QString getNome() const;
     int getAnno() const;
     void setNome(const QString&);

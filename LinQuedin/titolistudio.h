@@ -24,6 +24,8 @@ public:
     void setDiploma(const QString&);
     void setAnno(const int&);
     void addLaurea(const Laurea&);
+    void updateLaurea(const QString&,const Laurea&);
+    void removeLaurea(const QString&);
     //elimina un elemento
     //distruttore di default
 

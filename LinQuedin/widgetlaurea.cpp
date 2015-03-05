@@ -26,4 +26,33 @@ WidgetLaurea::WidgetLaurea(const QString& s, const int& i, const int& k, QWidget
 
     setLayout(g_layout);
 
+    connect(elimina, SIGNAL(clicked()), this, SLOT(sendRemoveId()));
+    connect(this, SIGNAL(signalRemoveId(WidgetLaurea*)), parent, SLOT(updateAfterRemove(WidgetLaurea*)));
+    connect(aggiorna, SIGNAL(clicked()), this, SLOT(sendUpdateId()));
+    connect(this, SIGNAL(signalUpdateId(const QString&,int,WidgetLaurea*)), parent, SLOT(addUBox(const QString&,int,WidgetLaurea*)));
+
+
 }
+
+WidgetLaurea::~WidgetLaurea(){
+    delete nomelaurea;
+    delete annolaurea;
+    delete l_nomelaurea;
+    delete l_annolaurea;
+    delete aggiorna;
+    delete elimina;
+    delete buttonbox;
+    delete g_layout;
+}
+
+//slot
+void WidgetLaurea::sendRemoveId(){
+    emit signalRemoveId(this);
+}
+
+//slot
+void WidgetLaurea::sendUpdateId(){
+    emit signalUpdateId(nomelaurea->text(),annolaurea->text().toInt(),this);
+}
+
+

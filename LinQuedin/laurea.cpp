@@ -1,8 +1,6 @@
 #include "laurea.h"
 
-Laurea::Laurea(const QString& a,int b) : nome(a),anno(b)
-{
-// da completareeeeeeeeee
+Laurea::Laurea(const QString& a,int b) : nome(a),anno(b){
 }
 
 QString Laurea::getNome() const{

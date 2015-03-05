@@ -155,7 +155,6 @@ void ViewTitoliStudio::disableUpdate(){
 
 //slot
 void ViewTitoliStudio::backData(){
-    std::cout<<tmp_annodiploma->text().toInt()<<std::endl;
     nomediploma->setText(tmp_nomediploma->text());
     annodiploma->setValue(tmp_annodiploma->text().toInt());
 }

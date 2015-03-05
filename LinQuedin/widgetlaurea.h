@@ -10,6 +10,8 @@
 #include <QPushButton>
 #include <QString>
 
+#include "widgetupdatelaurea.h"
+
 class WidgetLaurea : public QWidget{
     Q_OBJECT
 public:
@@ -22,11 +24,19 @@ public:
     QDialogButtonBox* buttonbox;
     QPushButton* aggiorna;
     QPushButton* elimina;
+
+    WidgetUpdateLaurea* dialog;
+
     WidgetLaurea(const QString&, const int&, const int&, QWidget *parent = 0);
+    ~WidgetLaurea();
 
 signals:
+    void signalRemoveId(WidgetLaurea*);
+    void signalUpdateId(const QString&,int,WidgetLaurea*);
 
 public slots:
+    void sendRemoveId();
+    void sendUpdateId();
 
 };
 

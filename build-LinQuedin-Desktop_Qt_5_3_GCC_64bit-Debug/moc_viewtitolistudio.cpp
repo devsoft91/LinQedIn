@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ViewTitoliStudio_t {
-    QByteArrayData data[3];
-    char stringdata[29];
+    QByteArrayData data[16];
+    char stringdata[192];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,9 +31,27 @@ static const qt_meta_stringdata_ViewTitoliStudio_t qt_meta_stringdata_ViewTitoli
     {
 QT_MOC_LITERAL(0, 0, 16),
 QT_MOC_LITERAL(1, 17, 10),
-QT_MOC_LITERAL(2, 28, 0)
+QT_MOC_LITERAL(2, 28, 0),
+QT_MOC_LITERAL(3, 29, 10),
+QT_MOC_LITERAL(4, 40, 7),
+QT_MOC_LITERAL(5, 48, 7),
+QT_MOC_LITERAL(6, 56, 13),
+QT_MOC_LITERAL(7, 70, 14),
+QT_MOC_LITERAL(8, 85, 10),
+QT_MOC_LITERAL(9, 96, 9),
+QT_MOC_LITERAL(10, 106, 17),
+QT_MOC_LITERAL(11, 124, 17),
+QT_MOC_LITERAL(12, 142, 13),
+QT_MOC_LITERAL(13, 156, 13),
+QT_MOC_LITERAL(14, 170, 8),
+QT_MOC_LITERAL(15, 179, 12)
     },
-    "ViewTitoliStudio\0updateView\0"
+    "ViewTitoliStudio\0callSaveOn\0\0updateView\0"
+    "addLBox\0addUBox\0WidgetLaurea*\0"
+    "fetchNewLaurea\0QLineEdit*\0QSpinBox*\0"
+    "fetchUpdateLaurea\0updateAfterRemove\0"
+    "updateDiploma\0disableUpdate\0backData\0"
+    "enableUpdate"
 };
 #undef QT_MOC_LITERAL
 
@@ -43,18 +61,44 @@ static const uint qt_meta_data_ViewTitoliStudio[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   74,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       3,    0,   75,    2, 0x0a /* Public */,
+       4,    0,   76,    2, 0x0a /* Public */,
+       5,    3,   77,    2, 0x0a /* Public */,
+       7,    2,   84,    2, 0x0a /* Public */,
+      10,    3,   89,    2, 0x0a /* Public */,
+      11,    1,   96,    2, 0x0a /* Public */,
+      12,    0,   99,    2, 0x0a /* Public */,
+      13,    0,  100,    2, 0x0a /* Public */,
+      14,    0,  101,    2, 0x0a /* Public */,
+      15,    1,  102,    2, 0x0a /* Public */,
+      15,    1,  105,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int, 0x80000000 | 6,    2,    2,    2,
+    QMetaType::Void, 0x80000000 | 8, 0x80000000 | 9,    2,    2,
+    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 8, 0x80000000 | 9,    2,    2,    2,
+    QMetaType::Void, 0x80000000 | 6,    2,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::Int,    2,
 
        0        // eod
 };
@@ -64,11 +108,68 @@ void ViewTitoliStudio::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     if (_c == QMetaObject::InvokeMetaMethod) {
         ViewTitoliStudio *_t = static_cast<ViewTitoliStudio *>(_o);
         switch (_id) {
-        case 0: _t->updateView(); break;
+        case 0: _t->callSaveOn(); break;
+        case 1: _t->updateView(); break;
+        case 2: _t->addLBox(); break;
+        case 3: _t->addUBox((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< WidgetLaurea*(*)>(_a[3]))); break;
+        case 4: _t->fetchNewLaurea((*reinterpret_cast< QLineEdit*(*)>(_a[1])),(*reinterpret_cast< QSpinBox*(*)>(_a[2]))); break;
+        case 5: _t->fetchUpdateLaurea((*reinterpret_cast< WidgetLaurea*(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2])),(*reinterpret_cast< QSpinBox*(*)>(_a[3]))); break;
+        case 6: _t->updateAfterRemove((*reinterpret_cast< WidgetLaurea*(*)>(_a[1]))); break;
+        case 7: _t->updateDiploma(); break;
+        case 8: _t->disableUpdate(); break;
+        case 9: _t->backData(); break;
+        case 10: _t->enableUpdate((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->enableUpdate((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 2:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< WidgetLaurea* >(); break;
+            }
+            break;
+        case 4:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLineEdit* >(); break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QSpinBox* >(); break;
+            }
+            break;
+        case 5:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 1:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLineEdit* >(); break;
+            case 2:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QSpinBox* >(); break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< WidgetLaurea* >(); break;
+            }
+            break;
+        case 6:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< WidgetLaurea* >(); break;
+            }
+            break;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
+        {
+            typedef void (ViewTitoliStudio::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ViewTitoliStudio::callSaveOn)) {
+                *result = 0;
+            }
+        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject ViewTitoliStudio::staticMetaObject = {
@@ -96,14 +197,20 @@ int ViewTitoliStudio::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        if (_id < 12)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 12;
     }
     return _id;
+}
+
+// SIGNAL 0
+void ViewTitoliStudio::callSaveOn()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

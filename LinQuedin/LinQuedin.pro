@@ -33,7 +33,9 @@ SOURCES += main.cpp\
     clientwindow.cpp \
     viewdatianagrafici.cpp \
     viewtitolistudio.cpp \
-    widgetlaurea.cpp
+    widgetlaurea.cpp \
+    widgetnewlaurea.cpp \
+    widgetupdatelaurea.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -56,7 +58,9 @@ HEADERS  += mainwindow.h \
     clientwindow.h \
     viewdatianagrafici.h \
     viewtitolistudio.h \
-    widgetlaurea.h
+    widgetlaurea.h \
+    widgetnewlaurea.h \
+    widgetupdatelaurea.h
 
 RESOURCES += \
     resources.qrc

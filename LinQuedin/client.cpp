@@ -26,8 +26,20 @@ void Client::sendTitoliStudio(const TitoliStudio& t){
     u->profile.setTitoli(t);
 }
 
+void Client::sendDiploma(const QString& s, int i){
+    u->profile.setDiploma(s,i);
+}
+
 void Client::sendImpieghi(const Impieghi& i){
     u->profile.setImpieghi(i);
+}
+
+void Client::sendLaurea(const Laurea& l){
+    u->profile.setLaurea(l);
+}
+
+void Client::sendLaurea(const QString& s,const Laurea& l){
+    u->profile.setLaurea(s,l);
 }
 
 DAnagrafici* Client::returnDatiAnagrafici() const{
