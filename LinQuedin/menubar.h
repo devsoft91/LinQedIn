@@ -1,8 +1,10 @@
 #ifndef MENUBAR_H
 #define MENUBAR_H
 
-#include <QtWidgets/QMenuBar>
+#include <QMenuBar>
 #include <QAction>
+
+#include <iostream>
 
 class MenuBar : public QMenuBar{
     Q_OBJECT    
@@ -27,6 +29,7 @@ public slots:
     void disableMenuLogin();
     void enableSave();
     void disableSave();
+    void cancelState();
 
 };
 

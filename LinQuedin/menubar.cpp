@@ -45,7 +45,6 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));
     connect(action_logout, SIGNAL(triggered()), this, SLOT(checkSaveOn()));
     connect(this, SIGNAL(logoutSave(bool)), parent, SLOT(logout(bool)));
-    connect(action_logout, SIGNAL(triggered()), this, SLOT(enableMenuLogin()));
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
     connect(action_save, SIGNAL(triggered()), this, SLOT(disableSave()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
@@ -84,4 +83,13 @@ void MenuBar::enableSave(){
 //slot
 void MenuBar::disableSave(){
     action_save->setDisabled(true);
+}
+
+//slot
+void MenuBar::cancelState(){
+    menufile_newinstance->setEnabled(false);
+    action_new_client->setEnabled(false);
+    action_new_admin->setEnabled(false);
+    action_logout->setEnabled(true);
+    action_save->setEnabled(true);
 }

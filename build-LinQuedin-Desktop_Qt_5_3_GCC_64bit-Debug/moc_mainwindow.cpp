@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[11];
-    char stringdata[147];
+    QByteArrayData data[14];
+    char stringdata[200];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,19 +33,23 @@ QT_MOC_LITERAL(0, 0, 10),
 QT_MOC_LITERAL(1, 11, 18),
 QT_MOC_LITERAL(2, 30, 0),
 QT_MOC_LITERAL(3, 31, 18),
-QT_MOC_LITERAL(4, 50, 21),
-QT_MOC_LITERAL(5, 72, 20),
-QT_MOC_LITERAL(6, 93, 11),
-QT_MOC_LITERAL(7, 105, 11),
-QT_MOC_LITERAL(8, 117, 11),
-QT_MOC_LITERAL(9, 129, 10),
-QT_MOC_LITERAL(10, 140, 6)
+QT_MOC_LITERAL(4, 50, 15),
+QT_MOC_LITERAL(5, 66, 18),
+QT_MOC_LITERAL(6, 85, 17),
+QT_MOC_LITERAL(7, 103, 21),
+QT_MOC_LITERAL(8, 125, 20),
+QT_MOC_LITERAL(9, 146, 11),
+QT_MOC_LITERAL(10, 158, 11),
+QT_MOC_LITERAL(11, 170, 11),
+QT_MOC_LITERAL(12, 182, 10),
+QT_MOC_LITERAL(13, 193, 6)
     },
     "MainWindow\0disableNewInstance\0\0"
-    "enableSaveInstance\0showLoginClientWindow\0"
-    "showLoginAdminWindow\0saveConfirm\0"
-    "saveEnabler\0loginClient\0loginAdmin\0"
-    "logout"
+    "enableSaveInstance\0signalSaveState\0"
+    "signalDiscardState\0signalCancelState\0"
+    "showLoginClientWindow\0showLoginAdminWindow\0"
+    "saveConfirm\0saveEnabler\0loginClient\0"
+    "loginAdmin\0logout"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,27 +59,33 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x06 /* Public */,
-       3,    0,   60,    2, 0x06 /* Public */,
+       1,    0,   74,    2, 0x06 /* Public */,
+       3,    0,   75,    2, 0x06 /* Public */,
+       4,    0,   76,    2, 0x06 /* Public */,
+       5,    0,   77,    2, 0x06 /* Public */,
+       6,    0,   78,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   61,    2, 0x0a /* Public */,
-       5,    0,   62,    2, 0x0a /* Public */,
-       6,    0,   63,    2, 0x0a /* Public */,
-       7,    0,   64,    2, 0x0a /* Public */,
-       8,    1,   65,    2, 0x0a /* Public */,
-       9,    0,   68,    2, 0x0a /* Public */,
-      10,    1,   69,    2, 0x0a /* Public */,
+       7,    0,   79,    2, 0x0a /* Public */,
+       8,    0,   80,    2, 0x0a /* Public */,
+       9,    0,   81,    2, 0x0a /* Public */,
+      10,    0,   82,    2, 0x0a /* Public */,
+      11,    1,   83,    2, 0x0a /* Public */,
+      12,    0,   86,    2, 0x0a /* Public */,
+      13,    1,   87,    2, 0x0a /* Public */,
 
  // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -98,13 +108,16 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->disableNewInstance(); break;
         case 1: _t->enableSaveInstance(); break;
-        case 2: _t->showLoginClientWindow(); break;
-        case 3: _t->showLoginAdminWindow(); break;
-        case 4: _t->saveConfirm(); break;
-        case 5: _t->saveEnabler(); break;
-        case 6: _t->loginClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 7: _t->loginAdmin(); break;
-        case 8: _t->logout((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 2: _t->signalSaveState(); break;
+        case 3: _t->signalDiscardState(); break;
+        case 4: _t->signalCancelState(); break;
+        case 5: _t->showLoginClientWindow(); break;
+        case 6: _t->showLoginAdminWindow(); break;
+        case 7: _t->saveConfirm(); break;
+        case 8: _t->saveEnabler(); break;
+        case 9: _t->loginClient((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 10: _t->loginAdmin(); break;
+        case 11: _t->logout((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -120,6 +133,24 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             typedef void (MainWindow::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::enableSaveInstance)) {
                 *result = 1;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::signalSaveState)) {
+                *result = 2;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::signalDiscardState)) {
+                *result = 3;
+            }
+        }
+        {
+            typedef void (MainWindow::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MainWindow::signalCancelState)) {
+                *result = 4;
             }
         }
     }
@@ -150,13 +181,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 12;
     }
     return _id;
 }
@@ -171,5 +202,23 @@ void MainWindow::disableNewInstance()
 void MainWindow::enableSaveInstance()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, 0);
+}
+
+// SIGNAL 2
+void MainWindow::signalSaveState()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, 0);
+}
+
+// SIGNAL 3
+void MainWindow::signalDiscardState()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, 0);
+}
+
+// SIGNAL 4
+void MainWindow::signalCancelState()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, 0);
 }
 QT_END_MOC_NAMESPACE

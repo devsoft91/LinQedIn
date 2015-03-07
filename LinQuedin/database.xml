@@ -13,13 +13,9 @@
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
-                        <NomeDiploma>infinito</NomeDiploma>
+                        <NomeDiploma></NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
-                    <Laurea>
-                        <NomeLaurea>azzzz</NomeLaurea>
-                        <AnnoLaurea>2053</AnnoLaurea>
-                    </Laurea>
                 </Titoli_Studio>
             </Profilo>
             <Username>b</Username>
@@ -37,7 +33,7 @@
                 <Titoli_Studio>
                     <Diploma>
                         <NomeDiploma>infinito</NomeDiploma>
-                        <AnnoDiploma>2010</AnnoDiploma>
+                        <AnnoDiploma>2003</AnnoDiploma>
                     </Diploma>
                     <Laurea>
                         <NomeLaurea>test della madonna</NomeLaurea>
@@ -66,14 +62,17 @@
                         <NomeDiploma>Liceo Scientifio Tecnologico</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
-                    <Laurea>
-                        <NomeLaurea>Informatica</NomeLaurea>
-                        <AnnoLaurea>2016</AnnoLaurea>
-                    </Laurea>
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
                         <Azienda>Alla Cima</Azienda>
+                        <Titolo>Cameriere</Titolo>
+                        <Citta>Valdobbiadene</Citta>
+                        <Inizio>05 08 2012</Inizio>
+                        <Fine>01 12 2015</Fine>
+                    </Lavoro>
+                    <Lavoro>
+                        <Azienda>Porcodio</Azienda>
                         <Titolo>Cameriere</Titolo>
                         <Citta>Valdobbiadene</Citta>
                         <Inizio>05 08 2012</Inizio>

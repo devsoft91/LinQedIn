@@ -1,8 +1,6 @@
 #include "widgetlaurea.h"
 
-WidgetLaurea::WidgetLaurea(const QString& s, const int& i, const int& k, QWidget *parent) : QWidget(parent){
-
-    id = k;
+WidgetLaurea::WidgetLaurea(const QString& s, const int& i, QWidget *parent) : QWidget(parent){
 
     g_layout = new QGridLayout(this);
 

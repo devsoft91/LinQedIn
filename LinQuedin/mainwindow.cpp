@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent){
 
     connect(this, SIGNAL(disableNewInstance()), menuBar, SLOT(disableMenuLogin()));
     connect(this, SIGNAL(enableSaveInstance()), menuBar, SLOT(enableSave()));
+    connect(this, SIGNAL(signalSaveState()), menuBar, SLOT(enableMenuLogin()));
+    connect(this, SIGNAL(signalDiscardState()), menuBar, SLOT(enableMenuLogin()));
+    connect(this, SIGNAL(signalCancelState()), menuBar, SLOT(cancelState()));
 
 }
 
@@ -88,14 +91,19 @@ void MainWindow::logout(bool b){
                 delete utentecontrol;
                 utentecontrol = 0;
                 statusBar->showMessage("Succesfully logged out!",3000);
+                setWindowTitle("LinQedIn");
+                emit signalSaveState();
                 break;
             case QMessageBox::Discard:
                 delete centralWidget;
                 delete utentecontrol;
                 utentecontrol = 0;
                 statusBar->showMessage("Succesfully logged out!",3000);
+                setWindowTitle("LinQedIn");
+                emit signalDiscardState();
                 break;
             case QMessageBox::Cancel:
+                emit signalCancelState();
                 break;
             default:
                 break;
@@ -106,7 +114,8 @@ void MainWindow::logout(bool b){
         delete utentecontrol;
         utentecontrol = 0;
         statusBar->showMessage("Succesfully logged out!",3000);
-
+        setWindowTitle("LinQedIn");
+        emit signalDiscardState();
     }
 
 }

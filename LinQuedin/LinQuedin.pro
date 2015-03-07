@@ -35,7 +35,10 @@ SOURCES += main.cpp\
     viewtitolistudio.cpp \
     widgetlaurea.cpp \
     widgetnewlaurea.cpp \
-    widgetupdatelaurea.cpp
+    widgetupdatelaurea.cpp \
+    viewimpieghi.cpp \
+    widgetimpiego.cpp \
+    widgetnewimpiego.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -60,7 +63,10 @@ HEADERS  += mainwindow.h \
     viewtitolistudio.h \
     widgetlaurea.h \
     widgetnewlaurea.h \
-    widgetupdatelaurea.h
+    widgetupdatelaurea.h \
+    viewimpieghi.h \
+    widgetimpiego.h \
+    widgetnewimpiego.h
 
 RESOURCES += \
     resources.qrc

@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+#include <QDialogButtonBox>
 #include <QPushButton>
 
 #include "widgetlaurea.h"

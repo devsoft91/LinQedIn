@@ -27,7 +27,6 @@ void ViewTitoliStudio::updateView(){
     b_lauree = new QGroupBox("Lauree");
 
     g_layout = new QGridLayout();
-    g_layout->setSizeConstraint(QLayout::SetMinimumSize);
 
     l_nomediploma = new QLabel("Nome Diploma");
     l_annodiploma = new QLabel("Anno Diploma");
@@ -63,12 +62,11 @@ void ViewTitoliStudio::updateView(){
 
     vector_lauree.clear();
     vector_lauree = titoli->getLaurea();
-    std::cout<<vector_lauree.size()<<std::endl;
     int size = vector_lauree.size();
     if(size != 0){
         vector<Laurea>::const_iterator it = vector_lauree.begin();
         for(int k=0;k<size;k++){
-            WidgetLaurea* widget = new WidgetLaurea((*it).getNome(),(*it).getAnno(),k,this);
+            WidgetLaurea* widget = new WidgetLaurea((*it).getNome(),(*it).getAnno(),this);
             lauree_layout->addWidget(widget);
             ++it;
         }
@@ -105,9 +103,7 @@ void ViewTitoliStudio::setDiploma(){
 
 //slot
 void ViewTitoliStudio::addLBox(){
-
     dialog1 = new WidgetNewLaurea(this);
-
 }
 
 //slot
@@ -155,7 +151,6 @@ void ViewTitoliStudio::disableUpdate(){
 
 //slot
 void ViewTitoliStudio::backData(){
-    std::cout<<tmp_annodiploma->text().toInt()<<std::endl;
     nomediploma->setText(tmp_nomediploma->text());
     annodiploma->setValue(tmp_annodiploma->text().toInt());
 }

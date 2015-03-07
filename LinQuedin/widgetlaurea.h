@@ -15,7 +15,6 @@
 class WidgetLaurea : public QWidget{
     Q_OBJECT
 public:
-    int id;
     QGridLayout* g_layout;
     QLineEdit* nomelaurea;
     QLineEdit* annolaurea;
@@ -27,7 +26,7 @@ public:
 
     WidgetUpdateLaurea* dialog;
 
-    WidgetLaurea(const QString&, const int&, const int&, QWidget *parent = 0);
+    WidgetLaurea(const QString&, const int&, QWidget *parent = 0);
     ~WidgetLaurea();
 
 signals:

@@ -35,6 +35,9 @@ public:
 signals:
     void disableNewInstance();
     void enableSaveInstance();
+    void signalSaveState();
+    void signalDiscardState();
+    void signalCancelState();
 
 public slots:
     void showLoginClientWindow();

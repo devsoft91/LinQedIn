@@ -48,7 +48,7 @@ void ViewDatiAnagrafici::fillFields(){
     nome = new QLineEdit(dati->getNome());
     cognome = new QLineEdit(dati->getCognome());
     email = new QLineEdit(dati->getEmail());
-    datanascita = new QDateEdit(dati->getData_nascita());
+    datanascita = new QDateEdit(dati->getData_nascita()); datanascita->setDisplayFormat("dd/MM/yyyy");
     luogonascita = new QLineEdit(dati->getLuogo_nascita());
     luogoresidenza = new QLineEdit(dati->getLuogo_residenza());
     gridlayout->addWidget(nome,0,1);
@@ -90,12 +90,13 @@ void ViewDatiAnagrafici::disableUpdate(){
 }
 
 //slot
-void ViewDatiAnagrafici::enableUpdate(const QString& s){
+void ViewDatiAnagrafici::enableUpdate(const QString&){
     confirm->setDisabled(false);
     discard->setDisabled(false);
 }
 
 //slot
-void ViewDatiAnagrafici::enableUpdate(const QDate& d){
+void ViewDatiAnagrafici::enableUpdate(const QDate&){
     confirm->setDisabled(false);
+    discard->setDisabled(false);
 }

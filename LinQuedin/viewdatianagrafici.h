@@ -34,7 +34,7 @@ public:
 
     Client* tmp;
 
-    ViewDatiAnagrafici(QWidget *parent,Client*);
+    ViewDatiAnagrafici(QWidget*,Client*);
     DAnagrafici* getDatiAnagrafici(Client*) const;
     void setDatiAnagrafici();
 

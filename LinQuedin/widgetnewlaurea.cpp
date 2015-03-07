@@ -4,8 +4,6 @@ WidgetNewLaurea::WidgetNewLaurea(QWidget *parent) : QWidget(parent){
 
     box = new QDialog();
     box->resize(300,100);
-    //if(box->testAttribute(Qt::WA_DeleteOnClose)) std::cout<<"ok"<<std::endl;
-    //else std::cout<<"male"<<std::endl;
     layout = new QGridLayout(box);
     box->setWindowTitle("Nuova Laurea");
     l_nomelaurea = new QLabel("Nome Laurea");
