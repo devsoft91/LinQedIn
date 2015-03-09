@@ -18,10 +18,13 @@ public:
     void setDati(const DAnagrafici&);
     void setTitoli(const TitoliStudio&);
     void setDiploma(const QString&,int);
-    void setImpieghi(const Impieghi&);
     void setLaurea(const Laurea&);
     void setLaurea(const QString&,const Laurea&);
+    void setImpieghi(const Impieghi&);
+    void setLavoro(const Lavoro&);
     void removeLaurea(const QString&);
+    void removeImpiego(const Lavoro&);
+    void updateImpiego(const Lavoro&,const Lavoro&);
     DAnagrafici getDati() const;
     TitoliStudio getTitoli() const;
     Impieghi getImpieghi() const;

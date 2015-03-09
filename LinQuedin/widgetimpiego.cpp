@@ -20,11 +20,19 @@ WidgetImpiego::WidgetImpiego(const QString& a,const QString& b,const QString& c,
     inizio = new QDateEdit(d); inizio->setDisplayFormat("dd/MM/yyyy");
     fine = new QDateEdit(e); fine->setDisplayFormat("dd/MM/yyyy");
 
+    tmp_titolo = titolo->text();
+    tmp_azienda = azienda->text();
+    tmp_citta = citta->text();
+    tmp_inizio = inizio->date();
+    tmp_fine = fine->date();
+
     buttonbox = new QDialogButtonBox(Qt::Horizontal,this);
-    modifica = new QPushButton("Modifica"); modifica->setDisabled(true);
+    applica = new QPushButton("Applica"); applica->setDisabled(true);
     annulla = new QPushButton("Annulla"); annulla->setDisabled(true);
-    buttonbox->addButton(modifica,QDialogButtonBox::AcceptRole);
+    elimina = new QPushButton("Elimina");
+    buttonbox->addButton(applica,QDialogButtonBox::AcceptRole);
     buttonbox->addButton(annulla,QDialogButtonBox::RejectRole);
+    buttonbox->addButton(elimina,QDialogButtonBox::ActionRole);
 
     g_layout->addWidget(l_titolo,0,0);
     g_layout->addWidget(l_azienda,1,0);
@@ -48,16 +56,59 @@ WidgetImpiego::WidgetImpiego(const QString& a,const QString& b,const QString& c,
     connect(inizio, SIGNAL(dateChanged(const QDate&)), this, SLOT(enableUpdate(const QDate&)));
     connect(fine, SIGNAL(dateChanged(const QDate&)), this, SLOT(enableUpdate(const QDate&)));
 
+    connect(elimina, SIGNAL(clicked()), this, SLOT(sendRemoveId()));
+    connect(this, SIGNAL(signalRemoveId(WidgetImpiego*)), parent, SLOT(updateAfterRemove(WidgetImpiego*)));
+    connect(applica, SIGNAL(clicked()), this, SLOT(updateState()));
+    connect(applica, SIGNAL(clicked()), this, SLOT(disableUpdate()));
+    connect(this, SIGNAL(signalUpdateId(WidgetImpiego*,const QString&,const QString&,const QString&,const QDate&,const QDate&)), parent, SLOT(updateAfterUpdate(WidgetImpiego*,const QString&,const QString&,const QString&,const QDate&,const QDate&)));
+    connect(annulla, SIGNAL(clicked()), this, SLOT(backData()));
+
 }
 
 //slot
 void WidgetImpiego::enableUpdate(const QString&){
-    modifica->setDisabled(false);
+    applica->setDisabled(false);
     annulla->setDisabled(false);
+    elimina->setDisabled(true);
 }
 
 //slot
 void WidgetImpiego::enableUpdate(const QDate&){
-    modifica->setDisabled(false);
+    applica->setDisabled(false);
     annulla->setDisabled(false);
+    elimina->setDisabled(true);
+}
+
+//slot
+void WidgetImpiego::disableUpdate(){
+    applica->setDisabled(true);
+    annulla->setDisabled(true);
+    elimina->setDisabled(false);
+
+    tmp_titolo = titolo->text();
+    tmp_azienda = azienda->text();
+    tmp_citta = citta->text();
+    tmp_inizio = inizio->date();
+    tmp_fine = fine->date();
+}
+
+//slot
+void WidgetImpiego::sendRemoveId(){
+    emit signalRemoveId(this);
+}
+
+//slot
+void WidgetImpiego::updateState(){
+    emit signalUpdateId(this,tmp_titolo,tmp_azienda,tmp_citta,tmp_inizio,tmp_fine);
+}
+
+//slot
+void WidgetImpiego::backData(){
+    titolo->setText(tmp_titolo);
+    azienda->setText(tmp_azienda);
+    citta->setText(tmp_citta);
+    inizio->setDate(tmp_inizio);
+    fine->setDate(tmp_fine);
+
+    disableUpdate();
 }

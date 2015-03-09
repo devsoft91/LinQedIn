@@ -1,9 +1,9 @@
 #ifndef IMPIEGHI_H
 #define IMPIEGHI_H
 
-#include "lavoro.h"
-
 #include <vector>
+
+#include "lavoro.h"
 
 using std::vector;
 
@@ -16,6 +16,8 @@ public:
     Impieghi(const Lavoro&);
     vector<Lavoro> getLavoro() const;
     void addLavoro(const Lavoro&);
+    void removeLavoro(const Lavoro&);
+    void updateLavoro(const Lavoro&,const Lavoro&);
 };
 
 #endif // IMPIEGHI_H

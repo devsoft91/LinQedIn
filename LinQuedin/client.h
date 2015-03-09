@@ -18,7 +18,8 @@ public:
     void sendDatiAnagrafici(const DAnagrafici&);
     void sendTitoliStudio(const TitoliStudio&);
     void sendDiploma(const QString&,int);
-    void sendImpieghi(const Impieghi&);
+    void sendImpiego(const Impieghi&);
+    void sendLavoro(const Lavoro&);
     void sendLaurea(const Laurea&);
     void sendLaurea(const QString&,const Laurea&);
     DAnagrafici* returnDatiAnagrafici() const;

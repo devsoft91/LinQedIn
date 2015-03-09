@@ -65,18 +65,18 @@
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
-                        <Azienda>Alla Cima</Azienda>
                         <Titolo>Cameriere</Titolo>
+                        <Azienda>Alla Cima</Azienda>
                         <Citta>Valdobbiadene</Citta>
                         <Inizio>05 08 2012</Inizio>
                         <Fine>01 12 2015</Fine>
                     </Lavoro>
                     <Lavoro>
-                        <Azienda>Porcodio</Azienda>
-                        <Titolo>Cameriere</Titolo>
-                        <Citta>Valdobbiadene</Citta>
-                        <Inizio>05 08 2012</Inizio>
-                        <Fine>01 12 2015</Fine>
+                        <Titolo>Operaio</Titolo>
+                        <Azienda>Zero Puro</Azienda>
+                        <Citta>Pederobba</Citta>
+                        <Inizio>01 01 2010</Inizio>
+                        <Fine>01 01 2011</Fine>
                     </Lavoro>
                 </Impieghi>
             </Profilo>

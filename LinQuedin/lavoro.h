@@ -7,8 +7,8 @@
 class Lavoro
 {
 private:
-    QString azienda;
     QString titolo;
+    QString azienda;
     QString citta;
     QDate inizio;
     QDate fine;
@@ -20,6 +20,12 @@ public:
     QString getCitta() const;
     QDate getInizio() const;
     QDate getFine() const;
+    void setAzienda(const QString&);
+    void setTitolo(const QString&);
+    void setCitta(const QString&);
+    void setInizio(const QDate&);
+    void setFine(const QDate&);
+    bool operator==(const Lavoro&) const;
 };
 
 #endif // LAVORO_H

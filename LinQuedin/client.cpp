@@ -30,8 +30,12 @@ void Client::sendDiploma(const QString& s, int i){
     u->profile.setDiploma(s,i);
 }
 
-void Client::sendImpieghi(const Impieghi& i){
+void Client::sendImpiego(const Impieghi& i){
     u->profile.setImpieghi(i);
+}
+
+void Client::sendLavoro(const Lavoro& l){
+    u->profile.setLavoro(l);
 }
 
 void Client::sendLaurea(const Laurea& l){

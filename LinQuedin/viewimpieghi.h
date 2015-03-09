@@ -32,11 +32,14 @@ public:
     void setImpieghi();
 
 signals:
+    void callSaveOn();
 
 public slots:
     void updateView();
     void addIBox();
     void fetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*);
+    void updateAfterRemove(WidgetImpiego*);
+    void updateAfterUpdate(WidgetImpiego*,const QString&,const QString&,const QString&,const QDate&,const QDate&);
 
 };
 

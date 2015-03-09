@@ -31,8 +31,20 @@ void Profilo::setLaurea(const QString& s,const Laurea& l){
     titoli.updateLaurea(s,l);
 }
 
+void Profilo::setLavoro(const Lavoro& l){
+    impieghi.addLavoro(l);
+}
+
 void Profilo::removeLaurea(const QString& s){
     titoli.removeLaurea(s);
+}
+
+void Profilo::removeImpiego(const Lavoro& l){
+    impieghi.removeLavoro(l);
+}
+
+void Profilo::updateImpiego(const Lavoro& l,const Lavoro& old){
+    impieghi.updateLavoro(l,old);
 }
 
 DAnagrafici Profilo::getDati() const{

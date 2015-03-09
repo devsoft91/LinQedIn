@@ -32,15 +32,29 @@ public:
     QDateEdit* inizio;
     QDateEdit* fine;
     QDialogButtonBox* buttonbox;
-    QPushButton* modifica;
+    QPushButton* applica;
     QPushButton* annulla;
+    QPushButton* elimina;
+
+    QString tmp_titolo;
+    QString tmp_azienda;
+    QString tmp_citta;
+    QDate tmp_inizio;
+    QDate tmp_fine;
+
     WidgetImpiego(const QString&,const QString&,const QString&,const QDate&,const QDate&,QWidget*);
 
 signals:
+    void signalRemoveId(WidgetImpiego*);
+    void signalUpdateId(WidgetImpiego*,const QString&,const QString&,const QString&,const QDate&,const QDate&);
 
 public slots:
     void enableUpdate(const QString&);
     void enableUpdate(const QDate&);
+    void disableUpdate();
+    void sendRemoveId();
+    void updateState();
+    void backData();
 };
 
 #endif // WIDGETIMPIEGO_H

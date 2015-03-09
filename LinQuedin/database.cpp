@@ -101,12 +101,13 @@ void Database::load(){
                         Impieghi impieghi;
                         while(!(reader.name() == "Impieghi" && reader.tokenType() == QXmlStreamReader::EndElement)){
                             while(!(reader.name() == "Lavoro" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                                if(reader.name() == "Azienda") {
-                                    azienda = reader.readElementText();
-                                }
 
                                 if(reader.name() == "Titolo") {
                                     titolo = reader.readElementText();
+                                }
+
+                                if(reader.name() == "Azienda") {
+                                    azienda = reader.readElementText();
                                 }
 
                                 if(reader.name() == "Citta") {
@@ -123,7 +124,7 @@ void Database::load(){
 
                                 reader.readNextStartElement();
                             }
-                            Lavoro lavoro(azienda,titolo,citta,inizio,fine);
+                            Lavoro lavoro(titolo,azienda,citta,inizio,fine);
                             impieghi.addLavoro(lavoro);
                             reader.readNextStartElement();
                         }
@@ -219,8 +220,8 @@ void Database::save() const{
                         writer.writeStartElement("Impieghi");
                         for (int i=0;i<vsize;++i){
                             writer.writeStartElement("Lavoro");
-                            writer.writeTextElement("Azienda",(*it).second->profile.getImpieghi().getLavoro()[i].getAzienda());
                             writer.writeTextElement("Titolo",(*it).second->profile.getImpieghi().getLavoro()[i].getTitolo());
+                            writer.writeTextElement("Azienda",(*it).second->profile.getImpieghi().getLavoro()[i].getAzienda());
                             writer.writeTextElement("Citta",(*it).second->profile.getImpieghi().getLavoro()[i].getCitta());
                             writer.writeTextElement("Inizio",(*it).second->profile.getImpieghi().getLavoro()[i].getInizio().toString("dd MM yyyy"));
                             writer.writeTextElement("Fine",(*it).second->profile.getImpieghi().getLavoro()[i].getFine().toString("dd MM yyyy"));
