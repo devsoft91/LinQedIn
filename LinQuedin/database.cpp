@@ -19,8 +19,6 @@ void Database::load(){
     file.open(QIODevice::ReadOnly);
     QXmlStreamReader reader(&file);
     reader.readNextStartElement();
-    //std::cout<<reader.name().toString().toStdString();
-
 
     while(!(reader.name()=="Database" && reader.tokenType() == QXmlStreamReader::EndElement)){
         if(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::StartElement){

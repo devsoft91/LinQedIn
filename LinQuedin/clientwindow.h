@@ -9,6 +9,7 @@
 #include "viewdatianagrafici.h"
 #include "viewtitolistudio.h"
 #include "viewimpieghi.h"
+#include "viewreti.h"
 #include "client.h"
 
 class ClientWindow : public QTabWidget{
@@ -17,7 +18,7 @@ public:
     ViewDatiAnagrafici* d_anagrafici;
     ViewTitoliStudio* titoli_studio;
     ViewImpieghi* impieghi;
-    QWidget* rete;
+    ViewReti* rete;
     ClientWindow(QWidget *parent,Client*);
 
 

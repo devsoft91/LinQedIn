@@ -33,13 +33,12 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     addMenu(menufile);
 
     menuedit = new QMenu("Edit");
-    menuedit->addAction("Undo");
-    menuedit->addAction("Redo");
-    menuedit->addSeparator();
-    menuedit->addAction("Cut");
-    menuedit->addAction("Copy");
-    menuedit->addAction("Paste");
+    menuedit->addAction("Find");
     addMenu(menuedit);
+
+    menuhelp = new QMenu("Help");
+    menuhelp->addAction("About LinQedin");
+    addMenu(menuhelp);
 
     connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
     connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));

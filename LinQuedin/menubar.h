@@ -11,6 +11,7 @@ class MenuBar : public QMenuBar{
 public:
     QMenu* menufile;
     QMenu* menuedit;
+    QMenu* menuhelp;
     QMenu* menufile_newinstance;
     QMenu* logout;
     QAction* action_new_client;
