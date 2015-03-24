@@ -5,17 +5,18 @@
 
 #include "lavoro.h"
 
-using std::vector;
+using std::list;
 
 class Impieghi
 {
-private:
-    vector<Lavoro> impieghi;
 public:
+    list<Lavoro> impieghi;
+
     Impieghi();
     Impieghi(const Lavoro&);
-    vector<Lavoro> getLavoro() const;
-    void addLavoro(const Lavoro&);
+    list<Lavoro> getLavori() const;
+    void addLavoro(const Lavoro&);  //attenzione ridefinito
+    void addLavoro(const Lavoro&,bool);
     void removeLavoro(const Lavoro&);
     void updateLavoro(const Lavoro&,const Lavoro&);
 };

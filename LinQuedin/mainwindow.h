@@ -14,6 +14,7 @@
 #include "loginclientwindow.h"
 #include "loginadminwindow.h"
 #include "clientwindow.h"
+#include "widgetnewricerca.h"
 
 #include "client.h"
 
@@ -28,6 +29,8 @@ private:
     QStatusBar *statusBar;
     Client* utentecontrol;
 
+    WidgetNewRicerca* dialog;
+
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -38,6 +41,9 @@ signals:
     void signalSaveState();
     void signalDiscardState();
     void signalCancelState();
+    void signalDisableFind();
+    void signalEnableFind();
+    void signalAddRicerca();
 
 public slots:
     void showLoginClientWindow();
@@ -47,6 +53,7 @@ public slots:
     void loginClient(const QString&);
     void loginAdmin();
     void logout(bool);
+    void callFormRicerca();
 
 };
 

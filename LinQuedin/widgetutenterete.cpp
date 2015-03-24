@@ -1,6 +1,6 @@
 #include "widgetutenterete.h"
 
-WidgetUtenteRete::WidgetUtenteRete(QWidget *parent) : QWidget(parent){
+WidgetUtenteRete::WidgetUtenteRete(const QString& a,const QString& b,const QString& u,QWidget *parent) : QWidget(parent),username(u){
 
     out_layout = new QVBoxLayout();
 
@@ -10,17 +10,17 @@ WidgetUtenteRete::WidgetUtenteRete(QWidget *parent) : QWidget(parent){
 
     sx_layout = new QVBoxLayout();
 
-    nome = new QLabel("Ciccio Pasticcio");
+    nome = new QLabel(a);
     QFont font; font.setPointSize(20);
     nome->setFont(font);
-    dettaglio = new QLabel("Madonna puttana");
+    dettaglio = new QLabel(b);
 
     sx_layout->addWidget(nome);
     sx_layout->addWidget(dettaglio);
 
     buttonbox = new QDialogButtonBox(Qt::Horizontal,this);
     visualizza = new QPushButton("Visualizza Profilo");
-    elimina = new QPushButton("Elimina dalla rete");
+    elimina = new QPushButton("Elimina dalla Rete");
     buttonbox->addButton(visualizza,QDialogButtonBox::AcceptRole);
     buttonbox->addButton(elimina,QDialogButtonBox::RejectRole);
 
@@ -31,4 +31,12 @@ WidgetUtenteRete::WidgetUtenteRete(QWidget *parent) : QWidget(parent){
     out_layout->addWidget(box_esterna);
     setLayout(out_layout);
 
+    connect(elimina, SIGNAL(clicked()), this, SLOT(sendRemoveId()));
+    connect(this, SIGNAL(signalRemoveId(WidgetUtenteRete*)), parent, SLOT(updateAfterRemove(WidgetUtenteRete*)));
+
+}
+
+//slot
+void WidgetUtenteRete::sendRemoveId(){
+    emit signalRemoveId(this);
 }

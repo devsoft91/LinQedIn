@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Database>
     <Utenti>
-        <Utente type="Business">
-            <Profilo>
-                <Dati_Anagrafici>
-                    <Nome>a</Nome>
-                    <Cognome>a</Cognome>
-                    <Email>a</Email>
-                    <Data_Nascita>01 01 1900</Data_Nascita>
-                    <Luogo_Nascita>a</Luogo_Nascita>
-                    <Luogo_Residenza>a</Luogo_Residenza>
-                </Dati_Anagrafici>
-                <Titoli_Studio>
-                    <Diploma>
-                        <NomeDiploma></NomeDiploma>
-                        <AnnoDiploma>2010</AnnoDiploma>
-                    </Diploma>
-                </Titoli_Studio>
-            </Profilo>
-            <Username>b</Username>
-        </Utente>
         <Utente type="Executive">
             <Profilo>
                 <Dati_Anagrafici>
-                    <Nome>Ciccio</Nome>
+                    <Nome>Mario</Nome>
                     <Cognome>Pasticcio</Cognome>
                     <Email>ciccio.pasticcio@gmail.com</Email>
                     <Data_Nascita>01 02 1989</Data_Nascita>
@@ -44,8 +25,56 @@
                         <AnnoLaurea>1900</AnnoLaurea>
                     </Laurea>
                 </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Titolo>Pusher</Titolo>
+                        <Azienda>via Nelli</Azienda>
+                        <Citta>Padova</Citta>
+                        <Inizio>01 01 2010</Inizio>
+                        <Fine>01 01 2011</Fine>
+                    </Lavoro>
+                </Impieghi>
             </Profilo>
-            <Username>c</Username>
+            <Username>cicciop</Username>
+        </Utente>
+        <Utente type="Basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Consuelo</Nome>
+                    <Cognome>Martino</Cognome>
+                    <Email>figa@valdo.it</Email>
+                    <Data_Nascita>17 09 1991</Data_Nascita>
+                    <Luogo_Nascita>Valdobbiadene</Luogo_Nascita>
+                    <Luogo_Residenza>Pederobba</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>Liceo classico</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                    <Laurea>
+                        <NomeLaurea>merde antiche</NomeLaurea>
+                        <AnnoLaurea>2014</AnnoLaurea>
+                    </Laurea>
+                </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Titolo>Cameriera</Titolo>
+                        <Azienda>Agriturismo Le Mesine</Azienda>
+                        <Citta>Valdobbiadene</Citta>
+                        <Inizio>05 08 2012</Inizio>
+                        <Fine>01 12 2015</Fine>
+                    </Lavoro>
+                    <Lavoro>
+                        <Titolo>rompicazzi</Titolo>
+                        <Azienda>la mia</Azienda>
+                        <Citta>pianeta terra</Citta>
+                        <Inizio>01 01 2010</Inizio>
+                        <Fine>01 01 2011</Fine>
+                    </Lavoro>
+                </Impieghi>
+            </Profilo>
+            <Username>consu</Username>
         </Utente>
         <Utente type="Basic">
             <Profilo>
@@ -59,14 +88,14 @@
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
-                        <NomeDiploma>Liceo Scientifio Tecnologico</NomeDiploma>
+                        <NomeDiploma>Liceo Scientifico Tecnologico</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
                         <Titolo>Cameriere</Titolo>
-                        <Azienda>Alla Cima</Azienda>
+                        <Azienda>Trattoria Alla Cima</Azienda>
                         <Citta>Valdobbiadene</Citta>
                         <Inizio>05 08 2012</Inizio>
                         <Fine>01 12 2015</Fine>
@@ -82,10 +111,52 @@
             </Profilo>
             <Username>devsoft91</Username>
         </Utente>
+        <Utente type="Business">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Mario</Nome>
+                    <Cognome>Rossi</Cognome>
+                    <Email>candio@atea.it</Email>
+                    <Data_Nascita>01 01 1900</Data_Nascita>
+                    <Luogo_Nascita>Istanbul</Luogo_Nascita>
+                    <Luogo_Residenza>Cittadella</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>ITIS</NomeDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
+                    </Diploma>
+                </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Titolo>Manager</Titolo>
+                        <Azienda>Elettrolux</Azienda>
+                        <Citta>Milano</Citta>
+                        <Inizio>01 01 2001</Inizio>
+                        <Fine>01 01 2002</Fine>
+                    </Lavoro>
+                    <Lavoro>
+                        <Titolo>Operaio</Titolo>
+                        <Azienda>Luxottica</Azienda>
+                        <Citta>Pederobba</Citta>
+                        <Inizio>01 01 2000</Inizio>
+                        <Fine>01 01 2001</Fine>
+                    </Lavoro>
+                    <Lavoro>
+                        <Titolo>Operatore Ecologico</Titolo>
+                        <Azienda>Scuola Elementare</Azienda>
+                        <Citta>Onigo</Citta>
+                        <Inizio>01 01 1998</Inizio>
+                        <Fine>01 01 1999</Fine>
+                    </Lavoro>
+                </Impieghi>
+            </Profilo>
+            <Username>marior</Username>
+        </Utente>
     </Utenti>
     <Reti>
-        <Link>b-c</Link>
-        <Link>devsoft91-b</Link>
-        <Link>devsoft91-c</Link>
+        <Link>devsoft91-cicciop</Link>
+        <Link>marior-cicciop</Link>
+        <Link>marior-devsoft91</Link>
     </Reti>
 </Database>

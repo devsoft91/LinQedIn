@@ -25,7 +25,7 @@ public:
     WidgetNewImpiego* dialog;
 
     Client* tmp;
-    vector<Lavoro> vector_impieghi;
+    list<Lavoro> list_impieghi;
 
     ViewImpieghi(QWidget *parent,Client*);
     Impieghi* getImpieghi(Client*) const;
@@ -37,7 +37,7 @@ signals:
 public slots:
     void updateView();
     void addIBox();
-    void fetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*);
+    void fetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*,bool);
     void updateAfterRemove(WidgetImpiego*);
     void updateAfterUpdate(WidgetImpiego*,const QString&,const QString&,const QString&,const QDate&,const QDate&);
 

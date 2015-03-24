@@ -15,6 +15,7 @@ class WidgetUtenteRete : public QWidget
 {
     Q_OBJECT
 public:
+    QString username;
     QVBoxLayout* out_layout;
     QGroupBox* box_esterna;
     QGridLayout* g_layout;
@@ -24,11 +25,13 @@ public:
     QDialogButtonBox* buttonbox;
     QPushButton* visualizza;
     QPushButton* elimina;
-    WidgetUtenteRete(QWidget *parent = 0);
+    WidgetUtenteRete(const QString&,const QString&,const QString&,QWidget *parent = 0);
 
 signals:
+    void signalRemoveId(WidgetUtenteRete*);
 
 public slots:
+    void sendRemoveId();
 
 };
 

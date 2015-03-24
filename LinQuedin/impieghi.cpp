@@ -6,7 +6,7 @@ Impieghi::Impieghi(const Lavoro& l){
     addLavoro(l);
 }
 
-vector<Lavoro> Impieghi::getLavoro() const{
+list<Lavoro> Impieghi::getLavori() const{
     return impieghi;
 }
 
@@ -14,21 +14,26 @@ void Impieghi::addLavoro(const Lavoro& l){
     impieghi.push_back(l);
 }
 
+void Impieghi::addLavoro(const Lavoro& l, bool f){
+    if(f) impieghi.push_front(l);
+    else impieghi.push_back(l);
+}
+
 void Impieghi::removeLavoro(const Lavoro& l){
-    vector<Lavoro>::const_iterator it = impieghi.begin();
+    list<Lavoro>::iterator it = impieghi.begin();
     bool trovato = false;
     int i=0;
     while(!trovato && it!=impieghi.end()){
         if((*it)==l){
             trovato=true;
-            impieghi.erase(impieghi.begin()+i);
+            impieghi.erase(it);
         }
         else{++it; ++i;}
     }
 }
 
 void Impieghi::updateLavoro(const Lavoro& l, const Lavoro& old){
-    vector<Lavoro>::iterator it = impieghi.begin();
+    list<Lavoro>::iterator it = impieghi.begin();
     bool trovato = false;
     int i=0;
     while(!trovato && it!=impieghi.end()){

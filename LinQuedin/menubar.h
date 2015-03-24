@@ -19,6 +19,8 @@ public:
     QAction* action_logout;
     QAction* action_save;
     QAction* action_close;
+    QAction* action_find;
+    QAction* action_about;
     MenuBar(QWidget *parent = 0);
 
 signals:
@@ -31,6 +33,8 @@ public slots:
     void enableSave();
     void disableSave();
     void cancelState();
+    void enableFind();
+    void disableFind();
 
 };
 

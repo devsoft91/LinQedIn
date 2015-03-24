@@ -7,5 +7,7 @@
         <file>immagini/admin.png</file>
         <file>immagini/client.png</file>
         <file>immagini/logout.png</file>
+        <file>immagini/find.png</file>
+        <file>immagini/about.png</file>
     </qresource>
 </RCC>

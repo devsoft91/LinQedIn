@@ -13,6 +13,8 @@ void Database::load(){
     int annod, annol;
 
     Utente* utente;
+    Utente* utenteA;
+    Utente* utenteB;
 
     QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml");
     QFile file(path);
@@ -143,8 +145,6 @@ void Database::load(){
                 if(tipo == "Executive")
                     utente = new UExecutive(profile,user);
                 Aggiungi(user,utente);
-                std::cout<<typeid(*utente).name()<<std::endl;
-                utente->find();  //al momento stampa il tipo
                 reader.readNextStartElement();
 
             }
@@ -157,8 +157,9 @@ void Database::load(){
                 coppia = users.split("-");
                 userA = coppia.at(0);
                 userB = coppia.at(1);
-                utente = db.find(userA)->second;  //attenzione core dump se non esiste utente A
-                utente->add(userB,*this);
+                utenteA = getUtente(userA);
+                utenteB = getUtente(userB);//attenzione core dump se non esiste utente A
+                utenteA->add(utenteB);
 
                 reader.readNextStartElement();
             }
@@ -168,7 +169,7 @@ void Database::load(){
     }
 
     file.close();
-    std::cout<<std::endl;
+
 }
 
 void Database::save() const{
@@ -213,17 +214,20 @@ void Database::save() const{
                         writer.writeEndElement();
                         }
                     writer.writeEndElement();
-                    vsize = (*it).second->profile.getImpieghi().getLavoro().size();
+                    list<Lavoro> lista_lavori = (*it).second->profile.getImpieghi().getLavori();
+                    vsize = lista_lavori.size();
                     if(vsize!=0){
+                        list<Lavoro>::const_iterator it = lista_lavori.begin();
                         writer.writeStartElement("Impieghi");
                         for (int i=0;i<vsize;++i){
                             writer.writeStartElement("Lavoro");
-                            writer.writeTextElement("Titolo",(*it).second->profile.getImpieghi().getLavoro()[i].getTitolo());
-                            writer.writeTextElement("Azienda",(*it).second->profile.getImpieghi().getLavoro()[i].getAzienda());
-                            writer.writeTextElement("Citta",(*it).second->profile.getImpieghi().getLavoro()[i].getCitta());
-                            writer.writeTextElement("Inizio",(*it).second->profile.getImpieghi().getLavoro()[i].getInizio().toString("dd MM yyyy"));
-                            writer.writeTextElement("Fine",(*it).second->profile.getImpieghi().getLavoro()[i].getFine().toString("dd MM yyyy"));
+                            writer.writeTextElement("Titolo",(*it).getTitolo());
+                            writer.writeTextElement("Azienda",(*it).getAzienda());
+                            writer.writeTextElement("Citta",(*it).getCitta());
+                            writer.writeTextElement("Inizio",(*it).getInizio().toString("dd MM yyyy"));
+                            writer.writeTextElement("Fine",(*it).getFine().toString("dd MM yyyy"));
                             writer.writeEndElement();
+                            ++it;
                         }
                         writer.writeEndElement(); //impieghi
                     }

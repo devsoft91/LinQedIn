@@ -5,6 +5,7 @@
 
 #include "profilo.h"
 #include "rete.h"
+#include "datiricerca.h"
 
 #include "database.h"
 class Database;
@@ -17,9 +18,9 @@ public:
     Rete* net;
     Utente();
     Utente(const Profilo&,const QString&);
-    virtual void add(const QString&,const Database&);
-    //virtual void remove(const QString&,const Database&);
-    virtual void find() =0;
+    virtual void add(Utente*);
+    virtual void remove(const QString&);
+    virtual map<QString,Utente*> find(DatiRicerca*,Database*) =0;
     virtual ~Utente();
 };
 

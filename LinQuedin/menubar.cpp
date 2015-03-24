@@ -6,18 +6,24 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     action_logout = new QAction(QIcon(":/immagini/logout.png"),"Logout",this);
     action_save = new QAction(QIcon(":/immagini/save.png"),"Save",this);
     action_close = new QAction(QIcon(":/immagini/exit.png"),"Exit",this);
+    action_find = new QAction(QIcon(":/immagini/find.png"),"Find",this);
+    action_about = new QAction(QIcon(":/immagini/about.png"),"About LinQedin",this);
 
     QKeySequence newClient(Qt::ALT + Qt::Key_C);
     QKeySequence newAdmin(Qt::ALT + Qt::Key_A);
     QKeySequence logout(Qt::CTRL + Qt::Key_W);
     QKeySequence save(Qt::CTRL + Qt::Key_S);
     QKeySequence close(Qt::CTRL + Qt::Key_Q);
+    QKeySequence find(Qt::CTRL + Qt::Key_F);
+    QKeySequence about(Qt::CTRL + Qt::Key_I);
 
     action_new_client->setShortcut(newClient);
     action_new_admin->setShortcut(newAdmin);
     action_logout->setShortcut(logout);action_logout->setEnabled(false);
     action_save->setShortcut(save);action_save->setEnabled(false);
     action_close->setShortcut(close);
+    action_find->setShortcut(find);action_find->setEnabled(false);
+    action_about->setShortcut(about);
 
     menufile = new QMenu("File");
     menufile_newinstance = new QMenu("New Instance");
@@ -33,11 +39,11 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     addMenu(menufile);
 
     menuedit = new QMenu("Edit");
-    menuedit->addAction("Find");
+    menuedit->addAction(action_find);
     addMenu(menuedit);
 
     menuhelp = new QMenu("Help");
-    menuhelp->addAction("About LinQedin");
+    menuhelp->addAction(action_about);
     addMenu(menuhelp);
 
     connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
@@ -47,6 +53,7 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
     connect(action_save, SIGNAL(triggered()), this, SLOT(disableSave()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
+    connect(action_find, SIGNAL(triggered()), parent, SLOT(callFormRicerca()));
 }
 
 //slot
@@ -91,4 +98,14 @@ void MenuBar::cancelState(){
     action_new_admin->setEnabled(false);
     action_logout->setEnabled(true);
     action_save->setEnabled(true);
+}
+
+//slot
+void MenuBar::enableFind(){
+    action_find->setEnabled(true);
+}
+
+//slot
+void MenuBar::disableFind(){
+    action_find->setEnabled(false);
 }

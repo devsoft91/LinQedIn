@@ -8,8 +8,8 @@ class UBasic : public Utente
 public:
     UBasic();
     UBasic(const Profilo&,const QString&);
-    void add(const QString&,const Database&);
-    void find();
+    void add(Utente*);
+    map<QString,Utente*> find(DatiRicerca*,Database*);
     ~UBasic();
 };
 

@@ -21,7 +21,8 @@ public:
     void setLaurea(const Laurea&);
     void setLaurea(const QString&,const Laurea&);
     void setImpieghi(const Impieghi&);
-    void setLavoro(const Lavoro&);
+    void setLavoro(const Lavoro&);  //attenzione ridefinito
+    void setLavoro(const Lavoro&,bool);
     void removeLaurea(const QString&);
     void removeImpiego(const Lavoro&);
     void updateImpiego(const Lavoro&,const Lavoro&);

@@ -26,11 +26,11 @@ void ViewImpieghi::updateView(){
 
     addImpiego = new QPushButton("Aggiungi Impiego");
 
-    vector_impieghi.clear();
-    vector_impieghi = impieghi->getLavoro();
-    int size = vector_impieghi.size();
+    list_impieghi.clear();
+    list_impieghi = impieghi->getLavori();
+    int size = list_impieghi.size();
     if(size != 0){
-        vector<Lavoro>::const_iterator it = vector_impieghi.begin();
+        list<Lavoro>::const_iterator it = list_impieghi.begin();
         for(int k=0;k<size;k++){
             WidgetImpiego* widget = new WidgetImpiego((*it).getTitolo(),(*it).getAzienda(),(*it).getCitta(),(*it).getInizio(),(*it).getFine(),this);
             v_layout->addWidget(widget);
@@ -64,9 +64,9 @@ void ViewImpieghi::addIBox(){
 }
 
 //slot
-void ViewImpieghi::fetchNewImpiego(QLineEdit* a,QLineEdit* b,QLineEdit* c,QDateEdit* d,QDateEdit* e){
+void ViewImpieghi::fetchNewImpiego(QLineEdit* a,QLineEdit* b,QLineEdit* c,QDateEdit* d,QDateEdit* e,bool f){
     Lavoro l(a->text(),b->text(),c->text(),d->date(),e->date());
-    tmp->sendLavoro(l);
+    tmp->sendLavoro(l,f);
     delete layout;
     updateView();
     emit callSaveOn();

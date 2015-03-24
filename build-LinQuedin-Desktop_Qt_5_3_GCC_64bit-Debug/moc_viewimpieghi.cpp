@@ -67,9 +67,9 @@ static const uint qt_meta_data_ViewImpieghi[] = {
  // slots: name, argc, parameters, tag, flags
        3,    0,   45,    2, 0x0a /* Public */,
        4,    0,   46,    2, 0x0a /* Public */,
-       5,    5,   47,    2, 0x0a /* Public */,
-       8,    1,   58,    2, 0x0a /* Public */,
-      10,    6,   61,    2, 0x0a /* Public */,
+       5,    6,   47,    2, 0x0a /* Public */,
+       8,    1,   60,    2, 0x0a /* Public */,
+      10,    6,   63,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -77,7 +77,7 @@ static const uint qt_meta_data_ViewImpieghi[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 7, 0x80000000 | 7,    2,    2,    2,    2,    2,
+    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 7, 0x80000000 | 7, QMetaType::Bool,    2,    2,    2,    2,    2,    2,
     QMetaType::Void, 0x80000000 | 9,    2,
     QMetaType::Void, 0x80000000 | 9, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QDate, QMetaType::QDate,    2,    2,    2,    2,    2,    2,
 
@@ -92,7 +92,7 @@ void ViewImpieghi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 0: _t->callSaveOn(); break;
         case 1: _t->updateView(); break;
         case 2: _t->addIBox(); break;
-        case 3: _t->fetchNewImpiego((*reinterpret_cast< QLineEdit*(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2])),(*reinterpret_cast< QLineEdit*(*)>(_a[3])),(*reinterpret_cast< QDateEdit*(*)>(_a[4])),(*reinterpret_cast< QDateEdit*(*)>(_a[5]))); break;
+        case 3: _t->fetchNewImpiego((*reinterpret_cast< QLineEdit*(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2])),(*reinterpret_cast< QLineEdit*(*)>(_a[3])),(*reinterpret_cast< QDateEdit*(*)>(_a[4])),(*reinterpret_cast< QDateEdit*(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6]))); break;
         case 4: _t->updateAfterRemove((*reinterpret_cast< WidgetImpiego*(*)>(_a[1]))); break;
         case 5: _t->updateAfterUpdate((*reinterpret_cast< WidgetImpiego*(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< const QString(*)>(_a[3])),(*reinterpret_cast< const QString(*)>(_a[4])),(*reinterpret_cast< const QDate(*)>(_a[5])),(*reinterpret_cast< const QDate(*)>(_a[6]))); break;
         default: ;

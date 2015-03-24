@@ -1,8 +1,11 @@
 #include "client.h"
 
-Client::Client(const QString& s){
-    data_ = new Database();
-    data_->load();
+Client::Client(const QString& s,Database* d){
+    if(d==0){
+        data_ = new Database();
+        data_->load();
+    }
+    else data_ = d;
     initialize(s);
 }
 
@@ -38,12 +41,45 @@ void Client::sendLavoro(const Lavoro& l){
     u->profile.setLavoro(l);
 }
 
+void Client::sendLavoro(const Lavoro& l, bool f){
+    u->profile.setLavoro(l,f);
+}
+
 void Client::sendLaurea(const Laurea& l){
     u->profile.setLaurea(l);
 }
 
 void Client::sendLaurea(const QString& s,const Laurea& l){
     u->profile.setLaurea(s,l);
+}
+
+void Client::sendRicerca(const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
+    DatiRicerca* dati = new DatiRicerca();
+    if(a!=""){
+        dati->setNome(a);
+    }
+    if(b!=""){
+        dati->setCognome(b);
+    }
+    if(c!=""){
+        dati->setDiploma(c);
+    }
+    if(d!=""){
+        dati->setLaurea(d);
+    }
+    if(e!=""){
+        dati->setTitolo(e);
+    }
+    if(f!=""){
+        dati->setAzienda(f);
+    }
+
+    risultati = u->find(dati,data_);
+}
+
+void Client::addToNet(const QString& s){
+    Utente* utente = data_->getUtente(s);
+    u->add(utente);
 }
 
 DAnagrafici* Client::returnDatiAnagrafici() const{
@@ -56,4 +92,33 @@ TitoliStudio* Client::returnTitoliStudio() const{
 
 Impieghi* Client::returnImpieghi() const{
     return new Impieghi(u->profile.getImpieghi());
+}
+
+map<QString,Nodo> Client::returnRete() const{
+    return u->net->rete;
+}
+
+void Client::removeFromNet(const QString& s){
+    u->remove(s);
+}
+
+int Client::returnUserType() const{
+    QString typo = typeid(*u).name();
+    if(typo.contains("Basic"))
+        return 0;
+    if(typo.contains("Business"))
+        return 1;
+    if(typo.contains("Executive"))
+        return 2;
+}
+
+map<QString,Utente*> Client::returnRicerca() const{
+    return risultati;
+}
+
+bool Client::isFriendOf(const QString& s) const{
+    map<QString,Nodo>::const_iterator it = u->net->rete.end();
+    if(u->net->rete.find(s)!=it)
+        return true;
+    return false;
 }

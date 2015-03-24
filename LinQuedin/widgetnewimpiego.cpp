@@ -12,12 +12,15 @@ WidgetNewImpiego::WidgetNewImpiego(QWidget *parent) : QWidget(parent){
     l_citta = new QLabel("Città");
     l_inizio = new QLabel("Data Inizio");
     l_fine = new QLabel("Data Fine");
+    primo_lavoro = new QLabel("Attuale lavoro?");
 
     titolo = new QLineEdit();
     azienda = new QLineEdit();
     citta = new QLineEdit();
     inizio = new QDateEdit(); inizio->setDisplayFormat("dd/MM/yyyy");
     fine = new QDateEdit(); fine->setDisplayFormat("dd/MM/yyyy");
+
+    check = new QCheckBox();
 
     buttonbox = new QDialogButtonBox(Qt::Horizontal,this);
     aggiungi = new QPushButton("Aggiungi");
@@ -35,13 +38,15 @@ WidgetNewImpiego::WidgetNewImpiego(QWidget *parent) : QWidget(parent){
     g_layout->addWidget(citta,2,1);
     g_layout->addWidget(inizio,3,1);
     g_layout->addWidget(fine,4,1);
-    g_layout->addWidget(buttonbox,5,1);
+    g_layout->addWidget(primo_lavoro,5,0);
+    g_layout->addWidget(check,5,1);
+    g_layout->addWidget(buttonbox,6,1);
 
     box->setLayout(g_layout);
 
     connect(aggiungi, SIGNAL(clicked()), this, SLOT(newImpiegoReady()));
     connect(annulla, SIGNAL(clicked()), box, SLOT(close()));
-    connect(this, SIGNAL(callFetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*)), parent, SLOT(fetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*)));
+    connect(this, SIGNAL(callFetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*,bool)), parent, SLOT(fetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*,bool)));
 
     box->exec();
 
@@ -49,6 +54,6 @@ WidgetNewImpiego::WidgetNewImpiego(QWidget *parent) : QWidget(parent){
 
 //slot
 void WidgetNewImpiego::newImpiegoReady(){
-    emit callFetchNewImpiego(titolo,azienda,citta,inizio,fine);
+    emit callFetchNewImpiego(titolo,azienda,citta,inizio,fine,check->isChecked());
     box->close();
 }

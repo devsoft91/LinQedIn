@@ -6,12 +6,14 @@
 using namespace std;
 
 #include "utente.h"
+class DatiRicerca;
 
 class Client{
 public:
     Utente* u;
     Database* data_;
-    Client(const QString&);
+    map<QString,Utente*> risultati;
+    Client(const QString&,Database* = 0);
     void stampa() const;
     void initialize(const QString&);
     void saveDatabase();
@@ -20,11 +22,20 @@ public:
     void sendDiploma(const QString&,int);
     void sendImpiego(const Impieghi&);
     void sendLavoro(const Lavoro&);
+    void sendLavoro(const Lavoro&,bool);
     void sendLaurea(const Laurea&);
     void sendLaurea(const QString&,const Laurea&);
+    void sendRicerca(const QString&,const QString&,const QString&,const QString&,const QString&,const QString&);
+    void addToNet(const QString&);
     DAnagrafici* returnDatiAnagrafici() const;
     TitoliStudio* returnTitoliStudio() const;
     Impieghi* returnImpieghi() const;
+    map<QString,Nodo> returnRete() const;
+    int returnUserType() const;
+    map<QString,Utente*> returnRicerca() const;
+    bool isFriendOf(const QString&) const;
+
+    void removeFromNet(const QString&);
 
 };
 

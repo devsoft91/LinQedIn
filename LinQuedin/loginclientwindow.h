@@ -9,15 +9,17 @@
 #include <QString>
 
 #include <iostream>
-using std::cout;
 
 class LoginClientWindow : public QWidget{
     Q_OBJECT
 private:
+    QGridLayout* layout1;
+    QGridLayout* layout2;
+    QGridLayout* out_layout;
     QLabel* l_username;
     QLineEdit* username;
     QPushButton* b_login;
-    QGridLayout* layout;
+
 public:
     LoginClientWindow(QWidget *parent = 0);
     ~LoginClientWindow();

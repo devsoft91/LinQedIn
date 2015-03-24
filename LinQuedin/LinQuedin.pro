@@ -40,7 +40,11 @@ SOURCES += main.cpp\
     widgetimpiego.cpp \
     widgetnewimpiego.cpp \
     viewreti.cpp \
-    widgetutenterete.cpp
+    widgetutenterete.cpp \
+    viewricerca.cpp \
+    widgetnewricerca.cpp \
+    datiricerca.cpp \
+    widgetutentericerca.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -70,7 +74,11 @@ HEADERS  += mainwindow.h \
     widgetimpiego.h \
     widgetnewimpiego.h \
     viewreti.h \
-    widgetutenterete.h
+    widgetutenterete.h \
+    viewricerca.h \
+    widgetnewricerca.h \
+    datiricerca.h \
+    widgetutentericerca.h
 
 RESOURCES += \
     resources.qrc

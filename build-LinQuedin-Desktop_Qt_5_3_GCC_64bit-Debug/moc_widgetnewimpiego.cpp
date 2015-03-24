@@ -55,13 +55,13 @@ static const uint qt_meta_data_WidgetNewImpiego[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    5,   24,    2, 0x06 /* Public */,
+       1,    6,   24,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   35,    2, 0x0a /* Public */,
+       5,    0,   37,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 4, 0x80000000 | 4,    2,    2,    2,    2,    2,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 3, 0x80000000 | 4, 0x80000000 | 4, QMetaType::Bool,    2,    2,    2,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -74,7 +74,7 @@ void WidgetNewImpiego::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
     if (_c == QMetaObject::InvokeMetaMethod) {
         WidgetNewImpiego *_t = static_cast<WidgetNewImpiego *>(_o);
         switch (_id) {
-        case 0: _t->callFetchNewImpiego((*reinterpret_cast< QLineEdit*(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2])),(*reinterpret_cast< QLineEdit*(*)>(_a[3])),(*reinterpret_cast< QDateEdit*(*)>(_a[4])),(*reinterpret_cast< QDateEdit*(*)>(_a[5]))); break;
+        case 0: _t->callFetchNewImpiego((*reinterpret_cast< QLineEdit*(*)>(_a[1])),(*reinterpret_cast< QLineEdit*(*)>(_a[2])),(*reinterpret_cast< QLineEdit*(*)>(_a[3])),(*reinterpret_cast< QDateEdit*(*)>(_a[4])),(*reinterpret_cast< QDateEdit*(*)>(_a[5])),(*reinterpret_cast< bool(*)>(_a[6]))); break;
         case 1: _t->newImpiegoReady(); break;
         default: ;
         }
@@ -98,7 +98,7 @@ void WidgetNewImpiego::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         int *result = reinterpret_cast<int *>(_a[0]);
         void **func = reinterpret_cast<void **>(_a[1]);
         {
-            typedef void (WidgetNewImpiego::*_t)(QLineEdit * , QLineEdit * , QLineEdit * , QDateEdit * , QDateEdit * );
+            typedef void (WidgetNewImpiego::*_t)(QLineEdit * , QLineEdit * , QLineEdit * , QDateEdit * , QDateEdit * , bool );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&WidgetNewImpiego::callFetchNewImpiego)) {
                 *result = 0;
             }
@@ -143,9 +143,9 @@ int WidgetNewImpiego::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void WidgetNewImpiego::callFetchNewImpiego(QLineEdit * _t1, QLineEdit * _t2, QLineEdit * _t3, QDateEdit * _t4, QDateEdit * _t5)
+void WidgetNewImpiego::callFetchNewImpiego(QLineEdit * _t1, QLineEdit * _t2, QLineEdit * _t3, QDateEdit * _t4, QDateEdit * _t5, bool _t6)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)), const_cast<void*>(reinterpret_cast<const void*>(&_t5)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)), const_cast<void*>(reinterpret_cast<const void*>(&_t5)), const_cast<void*>(reinterpret_cast<const void*>(&_t6)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

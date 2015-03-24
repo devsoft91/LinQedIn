@@ -10,6 +10,7 @@
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <QPushButton>
+#include <QCheckBox>
 
 class WidgetNewImpiego : public QWidget
 {
@@ -22,18 +23,20 @@ public:
     QLabel* l_citta;
     QLabel* l_inizio;
     QLabel* l_fine;
+    QLabel* primo_lavoro;
     QLineEdit* titolo;
     QLineEdit* azienda;
     QLineEdit* citta;
     QDateEdit* inizio;
     QDateEdit* fine;
+    QCheckBox* check;
     QDialogButtonBox* buttonbox;
     QPushButton* aggiungi;
     QPushButton* annulla;
     WidgetNewImpiego(QWidget *parent);
 
 signals:
-    void callFetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*);
+    void callFetchNewImpiego(QLineEdit*,QLineEdit*,QLineEdit*,QDateEdit*,QDateEdit*,bool);
 
 public slots:
     void newImpiegoReady();

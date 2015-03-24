@@ -14,6 +14,7 @@ public:
     map<QString,Nodo> rete;
     Rete();
     void addUser(const QString&,const Nodo&);
+    void removeUser(const QString&);
 };
 
 #endif // RETE_H

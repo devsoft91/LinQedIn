@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QScrollArea>
+#include <QLabel>
 
 #include "widgetutenterete.h"
 #include "client.h"
@@ -16,14 +17,19 @@ public:
     QWidget* w;
     QScrollArea* scroll_area;
     QVBoxLayout* v_layout;
+    QLabel* empty;
 
     Client* tmp;
+    map<QString,Nodo> map_rete;
 
     ViewReti(QWidget *parent,Client*);
 
 signals:
+    void callSaveOn();
 
 public slots:
+    void update();
+    void updateAfterRemove(WidgetUtenteRete*);
 
 };
 

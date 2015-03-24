@@ -2,14 +2,15 @@
 #define CLIENTWINDOW_H
 
 #include <QWidget>
-#include <QPushButton>
 #include <QGridLayout>
 #include <QTabWidget>
+#include <QTabBar>
 
 #include "viewdatianagrafici.h"
 #include "viewtitolistudio.h"
 #include "viewimpieghi.h"
 #include "viewreti.h"
+#include "viewricerca.h"
 #include "client.h"
 
 class ClientWindow : public QTabWidget{
@@ -19,14 +20,21 @@ public:
     ViewTitoliStudio* titoli_studio;
     ViewImpieghi* impieghi;
     ViewReti* rete;
-    ClientWindow(QWidget *parent,Client*);
+    ViewRicerca* ricerca;
 
+    Client* tmp;
+
+    ClientWindow(QWidget *parent,Client*);
 
 signals:
     void signalSaveOn();
+    void signalUpdateRicerca();
+    void signalUpdateViewReti();
 
 public slots:
     void saveOn();
+    void focusRicerca();
+    void updateViewReti();
     
 };
 

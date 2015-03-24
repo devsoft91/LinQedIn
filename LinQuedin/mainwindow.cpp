@@ -18,12 +18,12 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent){
     connect(this, SIGNAL(signalSaveState()), menuBar, SLOT(enableMenuLogin()));
     connect(this, SIGNAL(signalDiscardState()), menuBar, SLOT(enableMenuLogin()));
     connect(this, SIGNAL(signalCancelState()), menuBar, SLOT(cancelState()));
+    connect(this, SIGNAL(signalDisableFind()), menuBar, SLOT(disableFind()));
+    connect(this, SIGNAL(signalEnableFind()), menuBar, SLOT(enableFind()));
 
 }
 
-MainWindow::~MainWindow()
-{
-
+MainWindow::~MainWindow(){
 }
 
 //slot
@@ -51,7 +51,6 @@ void MainWindow::saveEnabler(){
 
 //slot
 void MainWindow::loginClient(const QString& s){
-    std::cout<<s.toStdString()<<std::endl;
     if(utentecontrol)
         utentecontrol->initialize(s);
     else utentecontrol = new Client(s);
@@ -65,6 +64,7 @@ void MainWindow::loginClient(const QString& s){
         QString title = "LinQedIn - " + s;
         setWindowTitle(title);
         emit disableNewInstance();
+        emit signalEnableFind();
     }
 }
 
@@ -93,6 +93,7 @@ void MainWindow::logout(bool b){
                 statusBar->showMessage("Succesfully logged out!",3000);
                 setWindowTitle("LinQedIn");
                 emit signalSaveState();
+                emit signalDisableFind();
                 break;
             case QMessageBox::Discard:
                 delete centralWidget;
@@ -101,6 +102,7 @@ void MainWindow::logout(bool b){
                 statusBar->showMessage("Succesfully logged out!",3000);
                 setWindowTitle("LinQedIn");
                 emit signalDiscardState();
+                emit signalDisableFind();
                 break;
             case QMessageBox::Cancel:
                 emit signalCancelState();
@@ -116,6 +118,14 @@ void MainWindow::logout(bool b){
         statusBar->showMessage("Succesfully logged out!",3000);
         setWindowTitle("LinQedIn");
         emit signalDiscardState();
+        emit signalDisableFind();
     }
+
+}
+
+//slot
+void MainWindow::callFormRicerca(){
+
+    dialog = new WidgetNewRicerca(centralWidget,utentecontrol);
 
 }

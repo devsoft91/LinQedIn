@@ -35,6 +35,10 @@ void Profilo::setLavoro(const Lavoro& l){
     impieghi.addLavoro(l);
 }
 
+void Profilo::setLavoro(const Lavoro& l,bool f){
+    impieghi.addLavoro(l,f);
+}
+
 void Profilo::removeLaurea(const QString& s){
     titoli.removeLaurea(s);
 }
