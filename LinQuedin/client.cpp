@@ -53,7 +53,7 @@ void Client::sendLaurea(const QString& s,const Laurea& l){
     u->profile.setLaurea(s,l);
 }
 
-void Client::sendRicerca(const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
+void Client::sendRicerca(const QString& user,const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
     DatiRicerca* dati = new DatiRicerca();
     if(a!=""){
         dati->setNome(a);
@@ -121,4 +121,8 @@ bool Client::isFriendOf(const QString& s) const{
     if(u->net->rete.find(s)!=it)
         return true;
     return false;
+}
+
+Client::~Client(){
+
 }

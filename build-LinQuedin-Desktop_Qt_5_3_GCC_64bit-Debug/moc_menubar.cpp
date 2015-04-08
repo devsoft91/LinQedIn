@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MenuBar_t {
-    QByteArrayData data[11];
-    char stringdata[123];
+    QByteArrayData data[15];
+    char stringdata[181];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,19 +32,25 @@ static const qt_meta_stringdata_MenuBar_t qt_meta_stringdata_MenuBar = {
 QT_MOC_LITERAL(0, 0, 7),
 QT_MOC_LITERAL(1, 8, 10),
 QT_MOC_LITERAL(2, 19, 0),
-QT_MOC_LITERAL(3, 20, 11),
-QT_MOC_LITERAL(4, 32, 15),
-QT_MOC_LITERAL(5, 48, 16),
-QT_MOC_LITERAL(6, 65, 10),
-QT_MOC_LITERAL(7, 76, 11),
-QT_MOC_LITERAL(8, 88, 11),
-QT_MOC_LITERAL(9, 100, 10),
-QT_MOC_LITERAL(10, 111, 11)
+QT_MOC_LITERAL(3, 20, 8),
+QT_MOC_LITERAL(4, 29, 17),
+QT_MOC_LITERAL(5, 47, 11),
+QT_MOC_LITERAL(6, 59, 15),
+QT_MOC_LITERAL(7, 75, 16),
+QT_MOC_LITERAL(8, 92, 10),
+QT_MOC_LITERAL(9, 103, 11),
+QT_MOC_LITERAL(10, 115, 11),
+QT_MOC_LITERAL(11, 127, 10),
+QT_MOC_LITERAL(12, 138, 11),
+QT_MOC_LITERAL(13, 150, 15),
+QT_MOC_LITERAL(14, 166, 14)
     },
-    "MenuBar\0logoutSave\0\0checkSaveOn\0"
+    "MenuBar\0logoutSave\0\0exitSave\0"
+    "signalCheckSaveOn\0checkSaveOn\0"
     "enableMenuLogin\0disableMenuLogin\0"
     "enableSave\0disableSave\0cancelState\0"
-    "enableFind\0disableFind"
+    "enableFind\0disableFind\0triggeredLogout\0"
+    "triggeredClose"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,30 +60,38 @@ static const uint qt_meta_data_MenuBar[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x06 /* Public */,
+       1,    1,   79,    2, 0x06 /* Public */,
+       3,    1,   82,    2, 0x06 /* Public */,
+       4,    1,   85,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   62,    2, 0x0a /* Public */,
-       4,    0,   63,    2, 0x0a /* Public */,
-       5,    0,   64,    2, 0x0a /* Public */,
-       6,    0,   65,    2, 0x0a /* Public */,
-       7,    0,   66,    2, 0x0a /* Public */,
-       8,    0,   67,    2, 0x0a /* Public */,
-       9,    0,   68,    2, 0x0a /* Public */,
-      10,    0,   69,    2, 0x0a /* Public */,
+       5,    1,   88,    2, 0x0a /* Public */,
+       6,    0,   91,    2, 0x0a /* Public */,
+       7,    0,   92,    2, 0x0a /* Public */,
+       8,    0,   93,    2, 0x0a /* Public */,
+       9,    0,   94,    2, 0x0a /* Public */,
+      10,    0,   95,    2, 0x0a /* Public */,
+      11,    0,   96,    2, 0x0a /* Public */,
+      12,    0,   97,    2, 0x0a /* Public */,
+      13,    0,   98,    2, 0x0a /* Public */,
+      14,    0,   99,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::Bool,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -96,14 +110,18 @@ void MenuBar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         MenuBar *_t = static_cast<MenuBar *>(_o);
         switch (_id) {
         case 0: _t->logoutSave((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 1: _t->checkSaveOn(); break;
-        case 2: _t->enableMenuLogin(); break;
-        case 3: _t->disableMenuLogin(); break;
-        case 4: _t->enableSave(); break;
-        case 5: _t->disableSave(); break;
-        case 6: _t->cancelState(); break;
-        case 7: _t->enableFind(); break;
-        case 8: _t->disableFind(); break;
+        case 1: _t->exitSave((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 2: _t->signalCheckSaveOn((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 3: _t->checkSaveOn((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 4: _t->enableMenuLogin(); break;
+        case 5: _t->disableMenuLogin(); break;
+        case 6: _t->enableSave(); break;
+        case 7: _t->disableSave(); break;
+        case 8: _t->cancelState(); break;
+        case 9: _t->enableFind(); break;
+        case 10: _t->disableFind(); break;
+        case 11: _t->triggeredLogout(); break;
+        case 12: _t->triggeredClose(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -113,6 +131,18 @@ void MenuBar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             typedef void (MenuBar::*_t)(bool );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuBar::logoutSave)) {
                 *result = 0;
+            }
+        }
+        {
+            typedef void (MenuBar::*_t)(bool );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuBar::exitSave)) {
+                *result = 1;
+            }
+        }
+        {
+            typedef void (MenuBar::*_t)(const QString & );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&MenuBar::signalCheckSaveOn)) {
+                *result = 2;
             }
         }
     }
@@ -143,13 +173,13 @@ int MenuBar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }
@@ -159,5 +189,19 @@ void MenuBar::logoutSave(bool _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void MenuBar::exitSave(bool _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void MenuBar::signalCheckSaveOn(const QString & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_END_MOC_NAMESPACE

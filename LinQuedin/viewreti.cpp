@@ -13,12 +13,17 @@ ViewReti::ViewReti(QWidget* parent, Client* c) : QWidget(parent){
 //slot
 void ViewReti::update(){
     if(layout){
-        delete empty; delete v_layout; delete w; delete scroll_area; delete layout;
+        delete empty;
+        delete v_layout;
+        delete w;
+        delete scroll_area;
+        delete layout;
     }
 
     empty = new QLabel("Nessun Collegamento");
 
     layout = new QVBoxLayout();
+    layout->setMargin(0);
 
     scroll_area = new QScrollArea();
 

@@ -1,6 +1,8 @@
 #include "danagrafici.h"
 
-DAnagrafici::DAnagrafici(){}
+DAnagrafici::DAnagrafici(){
+    data_nascita.setDate(1900,01,01);
+}
 
 DAnagrafici::DAnagrafici(const QString& n,const QString& c,const QString& e,const QDate& d,const QString& ln,const QString& lr) : nome(n),cognome(c),email(e),data_nascita(d),luogo_nascita(ln),luogo_residenza(lr){}
 

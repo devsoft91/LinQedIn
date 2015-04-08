@@ -1,16 +1,17 @@
 #include "widgetnewricerca.h"
 
-WidgetNewRicerca::WidgetNewRicerca(QWidget *parent,Client* c) : QWidget(parent){
+WidgetNewRicerca::WidgetNewRicerca(QWidget *parent,Controller* c) : QWidget(parent){
 
     tmp = c;
 
     box = new QDialog();
     box->resize(300,100);
-    g_layout = new QGridLayout(box);
+    g_layout = new QGridLayout();
 
     fillFields();
 
-    box->setLayout(g_layout);
+    if(tmp->returnUserType()!=3)
+        box->setLayout(g_layout);
 
     connect(cerca, SIGNAL(clicked()), this, SLOT(checkEmptyFields()));
     connect(annulla, SIGNAL(clicked()), box, SLOT(close()));
@@ -32,6 +33,44 @@ void WidgetNewRicerca::fillFields(){
     if(tmp->returnUserType()==2){
         box->setWindowTitle("Nuova Ricerca - Executive");
         fillExecutive(2);
+    }
+    if(tmp->returnUserType()==3){
+        box->setWindowTitle("Nuova Ricerca - Admin");
+
+        l_username = new QLabel("Username");
+        username = new QLineEdit(); username->setText("");
+        g_layout->addWidget(l_username,0,0);
+        g_layout->addWidget(username,0,1);
+
+        v_layout = new QVBoxLayout();
+        v_layout->setAlignment(Qt::AlignTop);
+
+        radio1 = new QRadioButton("Cerca un utente");
+        radio1->setChecked(true);
+        g_box = new QGroupBox("Info");
+        g_box->setLayout(g_layout);
+        QFrame* line = new QFrame();
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+        radio2 = new QRadioButton("Cerca tutti gli utenti");
+
+        v_layout->addWidget(radio1);
+        v_layout->addWidget(g_box);
+        v_layout->addWidget(line);
+        v_layout->addWidget(radio2);
+
+        buttonbox = new QDialogButtonBox(Qt::Horizontal,this);
+        cerca = new QPushButton("Cerca");
+        annulla = new QPushButton("Annulla");
+        buttonbox->addButton(cerca,QDialogButtonBox::AcceptRole);
+        buttonbox->addButton(annulla,QDialogButtonBox::RejectRole);
+        buttonbox->setContentsMargins(0,10,0,0);
+        v_layout->addWidget(buttonbox);
+
+        box->setLayout(v_layout);
+
+        connect(radio1, SIGNAL(clicked()), this, SLOT(enableField()));
+        connect(radio2, SIGNAL(clicked()), this, SLOT(disableField()));
     }
 }
 
@@ -107,11 +146,15 @@ void WidgetNewRicerca::fillExecutive(int i){
 //slot
 void WidgetNewRicerca::launchResearch(){
     if(tmp->returnUserType()==0)
-        tmp->sendRicerca(nome->text(),cognome->text(),"","","","");
+        tmp->sendRicerca("",nome->text(),cognome->text(),"","","","");
     if(tmp->returnUserType()==1)
-        tmp->sendRicerca(nome->text(),cognome->text(),diploma->text(),laurea->text(),"","");
+        tmp->sendRicerca("",nome->text(),cognome->text(),diploma->text(),laurea->text(),"","");
     if(tmp->returnUserType()==2)
-        tmp->sendRicerca(nome->text(),cognome->text(),diploma->text(),laurea->text(),titolo->text(),azienda->text());
+        tmp->sendRicerca("",nome->text(),cognome->text(),diploma->text(),laurea->text(),titolo->text(),azienda->text());
+    if(tmp->returnUserType()==3)
+        if(radio1->isChecked())
+            tmp->sendRicerca(username->text(),"","","","","","");
+        else tmp->sendRicerca("","","","","","","");
 
     box->close();
 
@@ -132,6 +175,10 @@ void WidgetNewRicerca::checkEmptyFields(){
         if(nome->text()=="" && cognome->text()=="" && diploma->text()=="" && laurea->text()=="" && titolo->text()=="" && azienda->text()=="")
             warningDialog();
         else launchResearch();
+    if(tmp->returnUserType()==3)
+        if(radio1->isChecked() && username->text()=="")
+            warningDialog();
+        else launchResearch();
 }
 
 //slot
@@ -142,4 +189,14 @@ void WidgetNewRicerca::warningDialog(){
     box.setIcon(QMessageBox::Warning);
     box.setStandardButtons(QMessageBox::Ok);
     box.exec();
+}
+
+//slot
+void WidgetNewRicerca::enableField(){
+    g_box->setEnabled(true);
+}
+
+//slot
+void WidgetNewRicerca::disableField(){
+    g_box->setEnabled(false);
 }

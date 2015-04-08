@@ -1,6 +1,6 @@
 #include "uexecutive.h"
 
-UExecutive::UExecutive(){}
+UExecutive::UExecutive(const QString& u) : UBusiness(u){}
 
 UExecutive::UExecutive(const Profilo& a,const QString& b) : UBusiness(a,b){}
 

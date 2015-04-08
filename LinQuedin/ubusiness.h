@@ -6,7 +6,7 @@
 class UBusiness : public UBasic
 {
 public:
-    UBusiness();
+    UBusiness(const QString&);
     UBusiness(const Profilo&,const QString&);
     void add(Utente*);
     map<QString,Utente*> find(DatiRicerca*,Database*);

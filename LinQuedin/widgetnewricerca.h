@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QDialog>
 #include <QGridLayout>
+#include <QVBoxLayout>
+#include <QGroupBox>
 #include <QLineEdit>
 #include <QDateEdit>
 #include <QSpinBox>
@@ -11,8 +13,9 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QRadioButton>
 
-#include "client.h"
+#include "controller.h"
 
 class WidgetNewRicerca : public QWidget
 {
@@ -20,6 +23,15 @@ class WidgetNewRicerca : public QWidget
 public:
     QDialog* box;
     QGridLayout* g_layout;
+    QVBoxLayout* v_layout;
+    QGroupBox* g_box;
+
+    QRadioButton* radio1;
+    QRadioButton* radio2;
+
+    QLabel* l_username;
+    QLineEdit* username;
+
     QLabel* l_nome;
     QLabel* l_cognome;
     QLineEdit* nome;
@@ -39,13 +51,13 @@ public:
     QPushButton* cerca;
     QPushButton* annulla;
 
-    Client* tmp;
+    Controller* tmp;
 
     void fillFields();
     void fillBasic(int);
     void fillBusiness(int);
     void fillExecutive(int);
-    WidgetNewRicerca(QWidget *parent,Client*);
+    WidgetNewRicerca(QWidget *parent,Controller*);
 
 
 signals:
@@ -55,6 +67,8 @@ public slots:
     void launchResearch();
     void checkEmptyFields();
     void warningDialog();
+    void enableField();
+    void disableField();
 
 };
 

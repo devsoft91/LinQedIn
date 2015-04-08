@@ -11,16 +11,20 @@ class LoginAdminWindow : public QWidget
 {
     Q_OBJECT
 public:
-    QLabel* email_l;
-    QLineEdit* email_e;
-    QPushButton* login_b;
-    QGridLayout* layout;
+    QGridLayout* layout1;
+    QGridLayout* layout2;
+    QGridLayout* out_layout;
+    QLabel* l_pswd;
+    QLineEdit* pswd;
+    QPushButton* b_login;
     LoginAdminWindow(QWidget *parent = 0);
     ~LoginAdminWindow();
 
 signals:
+    void signalPassPswd(const QString&);
 
 public slots:
+    void checkPswd();
 
 };
 

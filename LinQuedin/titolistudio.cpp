@@ -11,7 +11,7 @@ TitoliStudio::TitoliStudio(const QString& a,int b,const Laurea& c) {
     diploma = a;
     anno = b;
     lauree.push_back(c);
-} // da completareeeeeee
+}
 
 QString TitoliStudio::getDiploma() const{
     return diploma;

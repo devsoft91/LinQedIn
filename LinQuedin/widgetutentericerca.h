@@ -10,6 +10,8 @@
 #include <QLabel>
 #include <QFont>
 
+#include "controller.h"
+#include "admin.h"
 #include "client.h"
 
 class WidgetUtenteRicerca : public QWidget
@@ -27,9 +29,9 @@ public:
     QPushButton* visualizza;
     QPushButton* aggiungi;
 
-    Client* tmp;
+    Controller* tmp;
 
-    WidgetUtenteRicerca(const QString&,const QString&,const QString&,QWidget *parent,Client*);
+    WidgetUtenteRicerca(const QString&,const QString&,const QString&,QWidget *parent,Controller*);
 
 signals:
     void signalUpdateNet();

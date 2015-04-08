@@ -1,6 +1,8 @@
 #include "utente.h"
 
-Utente::Utente(){}
+Utente::Utente(const QString& u) : username(u){
+    net = new Rete();
+}
 
 Utente::Utente(const Profilo& p,const QString& u) : profile(p),username(u){
     net = new Rete();
@@ -13,6 +15,13 @@ void Utente::add(Utente* u){
 
 void Utente::remove(const QString& c){
     net->removeUser(c);
+}
+
+Utente& Utente::operator=(const Utente& u){
+    profile = u.profile;
+    username = u.username;
+    *net = *(u.net);
+    return *this;
 }
 
 Utente::~Utente(){

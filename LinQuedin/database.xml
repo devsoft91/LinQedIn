@@ -1,82 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Database>
     <Utenti>
-        <Utente type="Executive">
+        <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
-                    <Nome>Mario</Nome>
+                    <Nome>Ciccio</Nome>
                     <Cognome>Pasticcio</Cognome>
-                    <Email>ciccio.pasticcio@gmail.com</Email>
-                    <Data_Nascita>01 02 1989</Data_Nascita>
-                    <Luogo_Nascita>Montebelluna</Luogo_Nascita>
-                    <Luogo_Residenza>Pesaro</Luogo_Residenza>
+                    <Email>einfinity@houncazzoenorme.com</Email>
+                    <Data_Nascita>01 02 1992</Data_Nascita>
+                    <Luogo_Nascita>TrevisoLammoda</Luogo_Nascita>
+                    <Luogo_Residenza>CazzoVoglio</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
                         <NomeDiploma>infinito</NomeDiploma>
-                        <AnnoDiploma>2003</AnnoDiploma>
+                        <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
-                    <Laurea>
-                        <NomeLaurea>test della madonna</NomeLaurea>
-                        <AnnoLaurea>1911</AnnoLaurea>
-                    </Laurea>
-                    <Laurea>
-                        <NomeLaurea>co co co</NomeLaurea>
-                        <AnnoLaurea>1900</AnnoLaurea>
-                    </Laurea>
                 </Titoli_Studio>
-                <Impieghi>
-                    <Lavoro>
-                        <Titolo>Pusher</Titolo>
-                        <Azienda>via Nelli</Azienda>
-                        <Citta>Padova</Citta>
-                        <Inizio>01 01 2010</Inizio>
-                        <Fine>01 01 2011</Fine>
-                    </Lavoro>
-                </Impieghi>
             </Profilo>
             <Username>cicciop</Username>
         </Utente>
-        <Utente type="Basic">
-            <Profilo>
-                <Dati_Anagrafici>
-                    <Nome>Consuelo</Nome>
-                    <Cognome>Martino</Cognome>
-                    <Email>figa@valdo.it</Email>
-                    <Data_Nascita>17 09 1991</Data_Nascita>
-                    <Luogo_Nascita>Valdobbiadene</Luogo_Nascita>
-                    <Luogo_Residenza>Pederobba</Luogo_Residenza>
-                </Dati_Anagrafici>
-                <Titoli_Studio>
-                    <Diploma>
-                        <NomeDiploma>Liceo classico</NomeDiploma>
-                        <AnnoDiploma>2010</AnnoDiploma>
-                    </Diploma>
-                    <Laurea>
-                        <NomeLaurea>merde antiche</NomeLaurea>
-                        <AnnoLaurea>2014</AnnoLaurea>
-                    </Laurea>
-                </Titoli_Studio>
-                <Impieghi>
-                    <Lavoro>
-                        <Titolo>Cameriera</Titolo>
-                        <Azienda>Agriturismo Le Mesine</Azienda>
-                        <Citta>Valdobbiadene</Citta>
-                        <Inizio>05 08 2012</Inizio>
-                        <Fine>01 12 2015</Fine>
-                    </Lavoro>
-                    <Lavoro>
-                        <Titolo>rompicazzi</Titolo>
-                        <Azienda>la mia</Azienda>
-                        <Citta>pianeta terra</Citta>
-                        <Inizio>01 01 2010</Inizio>
-                        <Fine>01 01 2011</Fine>
-                    </Lavoro>
-                </Impieghi>
-            </Profilo>
-            <Username>consu</Username>
-        </Utente>
-        <Utente type="Basic">
+        <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Giacomo</Nome>
@@ -88,75 +32,133 @@
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
-                        <NomeDiploma>Liceo Scientifico Tecnologico</NomeDiploma>
+                        <NomeDiploma>Liceo Scientifio Tecnologico</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
+                    <Laurea>
+                        <NomeLaurea>Informatica(test)</NomeLaurea>
+                        <AnnoLaurea>2020</AnnoLaurea>
+                    </Laurea>
+                    <Laurea>
+                        <NomeLaurea>Psicologia(test)</NomeLaurea>
+                        <AnnoLaurea>2025</AnnoLaurea>
+                    </Laurea>
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
                         <Titolo>Cameriere</Titolo>
-                        <Azienda>Trattoria Alla Cima</Azienda>
+                        <Azienda>Alla Cima</Azienda>
                         <Citta>Valdobbiadene</Citta>
                         <Inizio>05 08 2012</Inizio>
                         <Fine>01 12 2015</Fine>
                     </Lavoro>
                     <Lavoro>
-                        <Titolo>Operaio</Titolo>
+                        <Titolo>Operario</Titolo>
                         <Azienda>Zero Puro</Azienda>
                         <Citta>Pederobba</Citta>
-                        <Inizio>01 01 2010</Inizio>
-                        <Fine>01 01 2011</Fine>
+                        <Inizio>01 07 2008</Inizio>
+                        <Fine>01 08 2008</Fine>
                     </Lavoro>
                 </Impieghi>
             </Profilo>
             <Username>devsoft91</Username>
+        </Utente>
+        <Utente type="Basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome>Ilaria</Nome>
+                    <Cognome>Beltrame</Cognome>
+                    <Email>beltrame.ilaria@gmail.com</Email>
+                    <Data_Nascita></Data_Nascita>
+                    <Luogo_Nascita>Montebelluna</Luogo_Nascita>
+                    <Luogo_Residenza>Milano</Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma>Linguistico</NomeDiploma>
+                        <AnnoDiploma>2005</AnnoDiploma>
+                    </Diploma>
+                    <Laurea>
+                        <NomeLaurea>Sociologia</NomeLaurea>
+                        <AnnoLaurea>2010</AnnoLaurea>
+                    </Laurea>
+                </Titoli_Studio>
+                <Impieghi>
+                    <Lavoro>
+                        <Titolo>HR Manager</Titolo>
+                        <Azienda>Shell</Azienda>
+                        <Citta>Milano</Citta>
+                        <Inizio>01 01 2015</Inizio>
+                        <Fine>01 05 2016</Fine>
+                    </Lavoro>
+                </Impieghi>
+            </Profilo>
+            <Username>ilariab</Username>
         </Utente>
         <Utente type="Business">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Mario</Nome>
                     <Cognome>Rossi</Cognome>
-                    <Email>candio@atea.it</Email>
-                    <Data_Nascita>01 01 1900</Data_Nascita>
-                    <Luogo_Nascita>Istanbul</Luogo_Nascita>
-                    <Luogo_Residenza>Cittadella</Luogo_Residenza>
+                    <Email>mariorossi@unesco.org</Email>
+                    <Data_Nascita>16 02 1967</Data_Nascita>
+                    <Luogo_Nascita>Treviso</Luogo_Nascita>
+                    <Luogo_Residenza>Boston</Luogo_Residenza>
                 </Dati_Anagrafici>
                 <Titoli_Studio>
                     <Diploma>
-                        <NomeDiploma>ITIS</NomeDiploma>
-                        <AnnoDiploma>2010</AnnoDiploma>
+                        <NomeDiploma>Scienze Umane</NomeDiploma>
+                        <AnnoDiploma>1979</AnnoDiploma>
                     </Diploma>
+                    <Laurea>
+                        <NomeLaurea>Mediazione Culturale</NomeLaurea>
+                        <AnnoLaurea>1984</AnnoLaurea>
+                    </Laurea>
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
-                        <Titolo>Manager</Titolo>
-                        <Azienda>Elettrolux</Azienda>
-                        <Citta>Milano</Citta>
-                        <Inizio>01 01 2001</Inizio>
-                        <Fine>01 01 2002</Fine>
+                        <Titolo>CapoReparto Marketing</Titolo>
+                        <Azienda>Lattebusche</Azienda>
+                        <Citta>Lentiai</Citta>
+                        <Inizio>11 01 2006</Inizio>
+                        <Fine>07 04 2012</Fine>
                     </Lavoro>
                     <Lavoro>
-                        <Titolo>Operaio</Titolo>
-                        <Azienda>Luxottica</Azienda>
-                        <Citta>Pederobba</Citta>
-                        <Inizio>01 01 2000</Inizio>
-                        <Fine>01 01 2001</Fine>
-                    </Lavoro>
-                    <Lavoro>
-                        <Titolo>Operatore Ecologico</Titolo>
-                        <Azienda>Scuola Elementare</Azienda>
-                        <Citta>Onigo</Citta>
-                        <Inizio>01 01 1998</Inizio>
-                        <Fine>01 01 1999</Fine>
+                        <Titolo>Impiegato</Titolo>
+                        <Azienda>Parmalat</Azienda>
+                        <Citta>Parma</Citta>
+                        <Inizio>07 12 1988</Inizio>
+                        <Fine>15 05 2005</Fine>
                     </Lavoro>
                 </Impieghi>
             </Profilo>
             <Username>marior</Username>
         </Utente>
+        <Utente type="Basic">
+            <Profilo>
+                <Dati_Anagrafici>
+                    <Nome></Nome>
+                    <Cognome></Cognome>
+                    <Email></Email>
+                    <Data_Nascita>01 01 1905</Data_Nascita>
+                    <Luogo_Nascita></Luogo_Nascita>
+                    <Luogo_Residenza></Luogo_Residenza>
+                </Dati_Anagrafici>
+                <Titoli_Studio>
+                    <Diploma>
+                        <NomeDiploma></NomeDiploma>
+                        <AnnoDiploma>0</AnnoDiploma>
+                    </Diploma>
+                </Titoli_Studio>
+            </Profilo>
+            <Username>tizio</Username>
+        </Utente>
     </Utenti>
     <Reti>
         <Link>devsoft91-cicciop</Link>
+        <Link>devsoft91-marior</Link>
+        <Link>ilariab-devsoft91</Link>
         <Link>marior-cicciop</Link>
-        <Link>marior-devsoft91</Link>
+        <Link>marior-ilariab</Link>
     </Reti>
 </Database>

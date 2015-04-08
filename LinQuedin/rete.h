@@ -15,6 +15,7 @@ public:
     Rete();
     void addUser(const QString&,const Nodo&);
     void removeUser(const QString&);
+    Rete* operator=(Rete*);
 };
 
 #endif // RETE_H

@@ -2,7 +2,7 @@
 
 bool ViewRicerca::nuovo = true;
 
-ViewRicerca::ViewRicerca(QWidget *parent,Client* c) : QWidget(parent){
+ViewRicerca::ViewRicerca(QWidget *parent,Controller* c) : QWidget(parent){
 
     tmp = c;
     no_ricerca = new QLabel("Nessuna ricerca effettuata");
@@ -13,8 +13,10 @@ ViewRicerca::ViewRicerca(QWidget *parent,Client* c) : QWidget(parent){
 
     nuovo = false;
 
-    connect(this, SIGNAL(signalUpdateNet()), parent, SLOT(updateViewReti()));
-    connect(this, SIGNAL(callSaveOn()), parent, SLOT(saveOn()));
+    if(typeid(*tmp)==typeid(Client)){
+        connect(this, SIGNAL(signalUpdateNet()), parent, SLOT(updateViewReti()));
+        connect(this, SIGNAL(callSaveOn()), parent, SLOT(saveOn()));
+    }
 }
 
 //slot
@@ -30,6 +32,7 @@ void ViewRicerca::updateWithoutResearch(){
         delete layout;
     }
     layout = new QVBoxLayout();
+    layout->setMargin(0);
 
     v_layout = new QVBoxLayout();
     v_layout->setAlignment(Qt::AlignTop | Qt::AlignCenter);

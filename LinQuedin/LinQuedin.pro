@@ -44,7 +44,15 @@ SOURCES += main.cpp\
     viewricerca.cpp \
     widgetnewricerca.cpp \
     datiricerca.cpp \
-    widgetutentericerca.cpp
+    widgetutentericerca.cpp \
+    admin.cpp \
+    adminwindow.cpp \
+    controller.cpp \
+    viewgestioneutenti.cpp \
+    widgetchooseplan.cpp \
+    widgetabout.cpp \
+    widgetwelcome.cpp \
+    viewprofilo.cpp
 
 HEADERS  += mainwindow.h \
     danagrafici.h \
@@ -78,7 +86,15 @@ HEADERS  += mainwindow.h \
     viewricerca.h \
     widgetnewricerca.h \
     datiricerca.h \
-    widgetutentericerca.h
+    widgetutentericerca.h \
+    admin.h \
+    adminwindow.h \
+    controller.h \
+    viewgestioneutenti.h \
+    widgetchooseplan.h \
+    widgetabout.h \
+    widgetwelcome.h \
+    viewprofilo.h
 
 RESOURCES += \
     resources.qrc

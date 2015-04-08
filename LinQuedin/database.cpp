@@ -10,162 +10,185 @@ void Database::load(){
     QString nome,cognome,email,luogonascita,luogoresidenza,nomediploma,nomelaurea,azienda, titolo,citta,user,users,userA,userB,tipo;
     QDate datanascita,inizio, fine;
     QStringList coppia;
-    int annod, annol;
+    int annod, annol, stresstest = 0;
 
     Utente* utente;
     Utente* utenteA;
     Utente* utenteB;
 
-    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml");
+    path = "/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml";
     QFile file(path);
-    file.open(QIODevice::ReadOnly);
+    while(!file.open(QIODevice::ReadOnly)){
+        QMessageBox box;
+        box.setWindowTitle("Attention");
+        box.setText("Database not found. Choose one from your files.");
+        box.setIcon(QMessageBox::Warning);
+        box.setStandardButtons(QMessageBox::Ok);
+        int choose = box.exec();
+        switch(choose){
+            case QMessageBox::Ok:
+                path = QFileDialog::getOpenFileName(0,"Open File","/home","Xml (*.xml)");
+                file.setFileName(path);
+        }
+    }
+
     QXmlStreamReader reader(&file);
     reader.readNextStartElement();
-
-    while(!(reader.name()=="Database" && reader.tokenType() == QXmlStreamReader::EndElement)){
-        if(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::StartElement){
-            while(!(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                Profilo profile;
-                while(!(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                    if(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        tipo = reader.attributes().value("type").toString();
-                    }
-                    if(reader.name()=="Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        while(!(reader.name() == "Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::EndElement)) {
-
-                            if(reader.name() == "Nome") {
-                                nome = reader.readElementText();
-                            }
-
-                            if(reader.name() == "Cognome") {
-                                cognome = reader.readElementText();
-                            }
-
-                            if(reader.name() == "Email") {
-                                email = reader.readElementText();
-                            }
-
-                            if(reader.name() == "Data_Nascita") {
-                                datanascita = QDate::fromString(reader.readElementText(),"dd MM yyyy");
-                            }
-
-                            if(reader.name() == "Luogo_Nascita") {
-                                luogonascita = reader.readElementText();
-                            }
-
-                            if(reader.name() == "Luogo_Residenza") {
-                                luogoresidenza = reader.readElementText();
-                            }
-
-                            reader.readNextStartElement();
+    if(reader.name()=="Database"){
+        while(!(reader.name()=="Database" && reader.tokenType() == QXmlStreamReader::EndElement)){
+            if(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::StartElement){
+                while(!(reader.name()=="Utenti" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                    Profilo profile;
+                    while(!(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                        if(reader.name()=="Utente" && reader.tokenType() == QXmlStreamReader::StartElement){
+                            tipo = reader.attributes().value("type").toString();
                         }
-                        DAnagrafici dati(nome,cognome,email,datanascita,luogonascita,luogoresidenza);
-                        profile.setDati(dati); //fase 1
-                    }
+                        if(reader.name()=="Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::StartElement){
+                            while(!(reader.name() == "Dati_Anagrafici" && reader.tokenType() == QXmlStreamReader::EndElement)) {
 
-                    if(reader.name()=="Diploma" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        while(!(reader.name() == "Diploma" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                            if(reader.name() == "NomeDiploma") {
-                                nomediploma = reader.readElementText();
-                            }
-
-                            if(reader.name() == "AnnoDiploma") {
-                                annod = reader.readElementText().toInt();
-                            }
-                            reader.readNextStartElement();
-                        }
-                        TitoliStudio titoli(nomediploma,annod);
-
-                        while(!(reader.name() == "Titoli_Studio" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                            if(reader.name() == "Laurea" && reader.tokenType() == QXmlStreamReader::StartElement){
-                                while(!(reader.name() == "Laurea" && reader.tokenType() == QXmlStreamReader::EndElement)){
-
-                                    if(reader.name() == "NomeLaurea") {
-                                        nomelaurea = reader.readElementText();
-                                    }
-
-                                    if(reader.name() == "AnnoLaurea") {
-                                        annol = reader.readElementText().toInt();
-                                    }
-                                    reader.readNextStartElement();
-                                }
-                                Laurea laurea(nomelaurea,annol);
-                                titoli.addLaurea(laurea);
-                            }
-                            reader.readNextStartElement();
-                        }
-                        profile.setTitoli(titoli); //fase 2
-                    }
-
-                    if(reader.name()=="Lavoro" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        Impieghi impieghi;
-                        while(!(reader.name() == "Impieghi" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                            while(!(reader.name() == "Lavoro" && reader.tokenType() == QXmlStreamReader::EndElement)){
-
-                                if(reader.name() == "Titolo") {
-                                    titolo = reader.readElementText();
+                                if(reader.name() == "Nome") {
+                                    nome = reader.readElementText();
                                 }
 
-                                if(reader.name() == "Azienda") {
-                                    azienda = reader.readElementText();
+                                if(reader.name() == "Cognome") {
+                                    cognome = reader.readElementText();
                                 }
 
-                                if(reader.name() == "Citta") {
-                                    citta = reader.readElementText();
+                                if(reader.name() == "Email") {
+                                    email = reader.readElementText();
                                 }
 
-                                if(reader.name() == "Inizio") {
-                                    inizio = QDate::fromString(reader.readElementText(),"dd MM yyyy");
+                                if(reader.name() == "Data_Nascita") {
+                                    datanascita = QDate::fromString(reader.readElementText(),"dd MM yyyy");
                                 }
 
-                                if(reader.name() == "Fine") {
-                                    fine = QDate::fromString(reader.readElementText(),"dd MM yyyy");
+                                if(reader.name() == "Luogo_Nascita") {
+                                    luogonascita = reader.readElementText();
+                                }
+
+                                if(reader.name() == "Luogo_Residenza") {
+                                    luogoresidenza = reader.readElementText();
                                 }
 
                                 reader.readNextStartElement();
                             }
-                            Lavoro lavoro(titolo,azienda,citta,inizio,fine);
-                            impieghi.addLavoro(lavoro);
-                            reader.readNextStartElement();
+                            DAnagrafici dati(nome,cognome,email,datanascita,luogonascita,luogoresidenza);
+                            profile.setDati(dati);
                         }
-                        profile.setImpieghi(impieghi);  //fase 3
+
+                        if(reader.name()=="Diploma" && reader.tokenType() == QXmlStreamReader::StartElement){
+                            while(!(reader.name() == "Diploma" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                                if(reader.name() == "NomeDiploma") {
+                                    nomediploma = reader.readElementText();
+                                }
+
+                                if(reader.name() == "AnnoDiploma") {
+                                    annod = reader.readElementText().toInt();
+                                }
+                                reader.readNextStartElement();
+                            }
+                            TitoliStudio titoli(nomediploma,annod);
+
+                            while(!(reader.name() == "Titoli_Studio" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                                if(reader.name() == "Laurea" && reader.tokenType() == QXmlStreamReader::StartElement){
+                                    while(!(reader.name() == "Laurea" && reader.tokenType() == QXmlStreamReader::EndElement)){
+
+                                        if(reader.name() == "NomeLaurea") {
+                                            nomelaurea = reader.readElementText();
+                                        }
+
+                                        if(reader.name() == "AnnoLaurea") {
+                                            annol = reader.readElementText().toInt();
+                                        }
+                                        reader.readNextStartElement();
+                                    }
+                                    Laurea laurea(nomelaurea,annol);
+                                    titoli.addLaurea(laurea);
+                                }
+                                reader.readNextStartElement();
+                            }
+                            profile.setTitoli(titoli);
+                        }
+
+                        if(reader.name()=="Lavoro" && reader.tokenType() == QXmlStreamReader::StartElement){
+                            Impieghi impieghi;
+                            while(!(reader.name() == "Impieghi" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                                while(!(reader.name() == "Lavoro" && reader.tokenType() == QXmlStreamReader::EndElement)){
+
+                                    if(reader.name() == "Titolo") {
+                                        titolo = reader.readElementText();
+                                    }
+
+                                    if(reader.name() == "Azienda") {
+                                        azienda = reader.readElementText();
+                                    }
+
+                                    if(reader.name() == "Citta") {
+                                        citta = reader.readElementText();
+                                    }
+
+                                    if(reader.name() == "Inizio") {
+                                        inizio = QDate::fromString(reader.readElementText(),"dd MM yyyy");
+                                    }
+
+                                    if(reader.name() == "Fine") {
+                                        fine = QDate::fromString(reader.readElementText(),"dd MM yyyy");
+                                    }
+
+                                    reader.readNextStartElement();
+                                }
+                                Lavoro lavoro(titolo,azienda,citta,inizio,fine);
+                                impieghi.addLavoro(lavoro);
+                                reader.readNextStartElement();
+                            }
+                            profile.setImpieghi(impieghi);
+                        }
+
+                        if(reader.name()=="Username" && reader.tokenType() == QXmlStreamReader::StartElement){
+                            user = reader.readElementText();
+                        }
+
+                        reader.readNextStartElement();
                     }
 
-                    if(reader.name()=="Username" && reader.tokenType() == QXmlStreamReader::StartElement){
-                        user = reader.readElementText();
-                    }
+                    if(tipo == "Basic")
+                        utente = new UBasic(profile,user);
+                    if(tipo == "Business")
+                        utente = new UBusiness(profile,user);
+                    if(tipo == "Executive")
+                        utente = new UExecutive(profile,user);
+                    Aggiungi(user,utente);
+                    reader.readNextStartElement();
+
+                }
+            }
+
+            if(reader.name()=="Reti" && reader.tokenType() == QXmlStreamReader::StartElement){
+                reader.readNextStartElement();
+                while(!(reader.name() == "Reti" && reader.tokenType() == QXmlStreamReader::EndElement)){
+                    users = reader.readElementText();
+                    coppia = users.split("-");
+                    userA = coppia.at(0);
+                    userB = coppia.at(1);
+                    utenteA = getUtente(userA);
+                    utenteB = getUtente(userB);//attenzione core dump se non esiste utente A
+                    utenteA->add(utenteB);
 
                     reader.readNextStartElement();
                 }
-
-                if(tipo == "Basic")
-                    utente = new UBasic(profile,user);
-                if(tipo == "Business")
-                    utente = new UBusiness(profile,user);
-                if(tipo == "Executive")
-                    utente = new UExecutive(profile,user);
-                Aggiungi(user,utente);
-                reader.readNextStartElement();
-
             }
-        }
 
-        if(reader.name()=="Reti" && reader.tokenType() == QXmlStreamReader::StartElement){
             reader.readNextStartElement();
-            while(!(reader.name() == "Reti" && reader.tokenType() == QXmlStreamReader::EndElement)){
-                users = reader.readElementText();
-                coppia = users.split("-");
-                userA = coppia.at(0);
-                userB = coppia.at(1);
-                utenteA = getUtente(userA);
-                utenteB = getUtente(userB);//attenzione core dump se non esiste utente A
-                utenteA->add(utenteB);
-
-                reader.readNextStartElement();
-            }
+            stresstest++;
         }
-
-        reader.readNextStartElement();
+    }
+    else{
+        QMessageBox box;
+        box.setWindowTitle("Warning");
+        box.setText("The file doesn't contain any database!");
+        box.setIcon(QMessageBox::Critical);
+        box.setStandardButtons(QMessageBox::Close);
+        box.exec();
     }
 
     file.close();
@@ -173,7 +196,6 @@ void Database::load(){
 }
 
 void Database::save() const{
-    QString path("/home/giacomo/Scrivania/P2/PROGETTO/LinQuedin/database.xml");
     QFile file(path);
     file.open(QIODevice::WriteOnly);
     QXmlStreamWriter writer(&file);
@@ -270,18 +292,29 @@ void Database::Aggiungi(const QString& us,Utente* ut){
 void Database::Elimina(const QString& ut){
     Utente* tmp = db.find(ut)->second;
     db.erase(ut);
-    std::cout<<"Elimina\n";
     delete tmp;
 }
 
 Utente* Database::getUtente(const QString& u) const{
-    std::map<QString,Utente*>::const_iterator it = db.find(u);
+    map<QString,Utente*>::const_iterator it = db.find(u);
     if(it!=db.end())
         return it->second;
     return 0;
 }
 
-void Database::checkflag() const{
+map<QString,Utente*> Database::find(const QString& s) const{
+    if(s=="")
+        return db;
+    else{
+        map<QString,Utente*> datatmp;
+        map<QString,Utente*>::const_iterator it = db.find(s);
+        if(it!=db.end())
+            datatmp.insert(std::pair<QString,Utente*>((*it).first,(*it).second));
+        return datatmp;
+    }
 
 }
 
+void Database::checkflag() const{
+
+}

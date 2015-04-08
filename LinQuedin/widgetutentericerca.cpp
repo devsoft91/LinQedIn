@@ -1,6 +1,6 @@
 #include "widgetutentericerca.h"
 
-WidgetUtenteRicerca::WidgetUtenteRicerca(const QString& a,const QString& b,const QString& u,QWidget *parent,Client *c) : QWidget(parent),username(u){
+WidgetUtenteRicerca::WidgetUtenteRicerca(const QString& a,const QString& b,const QString& u,QWidget *parent,Controller *c) : QWidget(parent),username(u){
 
     tmp = c; username = u;
 
@@ -12,7 +12,12 @@ WidgetUtenteRicerca::WidgetUtenteRicerca(const QString& a,const QString& b,const
 
     sx_layout = new QVBoxLayout();
 
-    nome = new QLabel(a);
+    if(typeid(*tmp)==typeid(Admin)){
+        QString stringa = a + " - (" + u + ")";
+        nome = new QLabel(stringa);
+    }
+    else nome = new QLabel(a);
+
     QFont font; font.setPointSize(20);
     nome->setFont(font);
     dettaglio = new QLabel(b);
@@ -23,8 +28,9 @@ WidgetUtenteRicerca::WidgetUtenteRicerca(const QString& a,const QString& b,const
     buttonbox = new QDialogButtonBox(Qt::Horizontal,this);
     visualizza = new QPushButton("Visualizza Profilo");
     aggiungi = new QPushButton("Aggiungi alla Rete");
-    if(!(tmp->isFriendOf(u)))
-        buttonbox->addButton(aggiungi,QDialogButtonBox::ActionRole);
+    if(typeid(*tmp)==typeid(Client))
+        if(!(tmp->isFriendOf(u)))
+            buttonbox->addButton(aggiungi,QDialogButtonBox::ActionRole);
     buttonbox->addButton(visualizza,QDialogButtonBox::AcceptRole);
 
     g_layout->addLayout(sx_layout,0,0);

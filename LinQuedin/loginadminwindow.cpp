@@ -2,24 +2,47 @@
 
 LoginAdminWindow::LoginAdminWindow(QWidget *parent) : QWidget(parent){
 
-    email_l = new QLabel("Username:");
-    email_e = new QLineEdit;
-    login_b = new QPushButton("Login Admin");
-    layout = new QGridLayout;
-    layout->addWidget(email_l,0,0);
-    layout->addWidget(email_e,0,1);
-    layout->addWidget(login_b,0,2);
+    out_layout = new QGridLayout();
+    out_layout->setAlignment(Qt::AlignHCenter);
 
-    parent->setWindowTitle("LinQedIn - Login Administrator");
-    setLayout(layout);
+    layout1 = new QGridLayout();
+    layout1->setAlignment(Qt::AlignHCenter);
 
-    connect(login_b, SIGNAL(clicked()), parent, SLOT(loginAdmin()));
+    layout2 = new QGridLayout();
+    layout2->setAlignment(Qt::AlignHCenter);
 
-}
+    l_pswd = new QLabel("Password:");l_pswd->setMaximumWidth(80);
+    pswd = new QLineEdit(); pswd->setMaximumWidth(250); pswd->setEchoMode(QLineEdit::Password);
+    layout1->addWidget(l_pswd,0,0);
+    layout1->addWidget(pswd,0,1);
+
+    b_login = new QPushButton("Login Admin");b_login->setMaximumWidth(100);
+    layout2->addWidget(b_login,0,0);
+
+    out_layout->addLayout(layout1,0,0);
+    out_layout->addLayout(layout2,1,0);
+
+    parent->setWindowTitle("LinQedIn - Login Admin");
+    setLayout(out_layout);
+
+    pswd->setFocus();
+
+    connect(b_login, SIGNAL(clicked()), this, SLOT(checkPswd()));
+    connect(this, SIGNAL(signalPassPswd(QString)), parent, SLOT(loginAdmin(const QString&)));
+    connect(pswd, SIGNAL(returnPressed()), this, SLOT(checkPswd()));
+    }
 
 LoginAdminWindow::~LoginAdminWindow(){
-    delete email_l;
-    delete email_e;
-    delete login_b;
-    delete layout;
+    delete l_pswd;
+    delete pswd;
+    delete b_login;
+    delete layout1;
+    delete layout2;
+    delete out_layout;
 }
+
+//slot
+void LoginAdminWindow::checkPswd(){
+    emit signalPassPswd(pswd->text());
+}
+

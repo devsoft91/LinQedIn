@@ -6,6 +6,7 @@
 class DatiRicerca
 {
 private:
+    QString username;
     QString nome;
     QString cognome;
     QString diploma;
@@ -13,6 +14,7 @@ private:
     QString titolo;
     QString azienda;
 public:
+    void setUsername(const QString&);
     void setNome(const QString&);
     void setCognome(const QString&);
     void setDiploma(const QString&);
@@ -25,7 +27,7 @@ public:
     QString getLaurea() const;
     QString getTitolo() const;
     QString getAzienda() const;
-    DatiRicerca(const QString& a = "",const QString& b = "",const QString& c = "",const QString& d = "",const QString& e = "",const QString& f = "");
+    DatiRicerca(const QString& user = "",const QString& a = "",const QString& b = "",const QString& c = "",const QString& d = "",const QString& e = "",const QString& f = "");
 };
 
 #endif // DATIRICERCA_H

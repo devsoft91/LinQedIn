@@ -6,6 +6,7 @@
 #include <QScrollArea>
 #include <QLabel>
 
+#include "controller.h"
 #include "client.h"
 #include "widgetutentericerca.h"
 
@@ -21,10 +22,10 @@ public:
     QLabel* no_ricerca;
     QLabel* no_risultati;
 
-    Client* tmp;
+    Controller* tmp;
     map<QString,Utente*> map_utenti;
 
-    ViewRicerca(QWidget *parent,Client*);
+    ViewRicerca(QWidget *parent,Controller*);
 
 signals:
     void signalUpdateNet();

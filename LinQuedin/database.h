@@ -10,6 +10,8 @@
 #include <map>
 #include <algorithm>
 #include <typeinfo>
+#include <QMessageBox>
+#include <QFileDialog>
 
 #include "utente.h"
 
@@ -22,10 +24,12 @@ private:
 public:
     Database();
     map<QString,Utente*> db;
+    QString path;
     void load();
     void save() const;
     void Aggiungi(const QString&,Utente*);
     void Elimina(const QString&);
+    map<QString,Utente*> find(const QString&) const;
     Utente* getUtente(const QString&) const;
 };
 

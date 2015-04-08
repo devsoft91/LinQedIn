@@ -6,7 +6,7 @@
 class UBasic : public Utente
 {
 public:
-    UBasic();
+    UBasic(const QString&);
     UBasic(const Profilo&,const QString&);
     void add(Utente*);
     map<QString,Utente*> find(DatiRicerca*,Database*);

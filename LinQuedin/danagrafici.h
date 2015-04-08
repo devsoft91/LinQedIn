@@ -17,7 +17,6 @@ private:
 public:
     DAnagrafici();
     DAnagrafici(const QString&,const QString&,const QString&,const QDate&,const QString&,const QString&);
-    //distruttore standard
 
     void setNome(const QString&);
     void setCognome(const QString&);

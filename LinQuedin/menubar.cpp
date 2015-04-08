@@ -7,7 +7,7 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
     action_save = new QAction(QIcon(":/immagini/save.png"),"Save",this);
     action_close = new QAction(QIcon(":/immagini/exit.png"),"Exit",this);
     action_find = new QAction(QIcon(":/immagini/find.png"),"Find",this);
-    action_about = new QAction(QIcon(":/immagini/about.png"),"About LinQedin",this);
+    action_about = new QAction(QIcon(":/immagini/about.png"),"About LinQedIn",this);
 
     QKeySequence newClient(Qt::ALT + Qt::Key_C);
     QKeySequence newAdmin(Qt::ALT + Qt::Key_A);
@@ -48,20 +48,31 @@ MenuBar::MenuBar(QWidget *parent) : QMenuBar(parent){
 
     connect(action_new_client, SIGNAL(triggered()), parent, SLOT(showLoginClientWindow()));
     connect(action_new_admin, SIGNAL(triggered()), parent, SLOT(showLoginAdminWindow()));
-    connect(action_logout, SIGNAL(triggered()), this, SLOT(checkSaveOn()));
+    connect(action_logout, SIGNAL(triggered()), this, SLOT(triggeredLogout()));
     connect(this, SIGNAL(logoutSave(bool)), parent, SLOT(logout(bool)));
+    connect(this, SIGNAL(exitSave(bool)), parent, SLOT(exit(bool)));
+    connect(this, SIGNAL(signalCheckSaveOn(const QString&)), this, SLOT(checkSaveOn(const QString&)));
     connect(action_save, SIGNAL(triggered()), parent, SLOT(saveConfirm()));
     connect(action_save, SIGNAL(triggered()), this, SLOT(disableSave()));
     connect(action_close, SIGNAL(triggered()), parent, SLOT(close()));
     connect(action_find, SIGNAL(triggered()), parent, SLOT(callFormRicerca()));
+    connect(action_about, SIGNAL(triggered()), parent, SLOT(showInfo()));
 }
 
 //slot
-void MenuBar::checkSaveOn(){
-    if(action_save->isEnabled()){
-        emit logoutSave(true);
+void MenuBar::checkSaveOn(const QString& s){
+    if(s=="logout"){
+        if(action_save->isEnabled()){
+            emit logoutSave(true);
+        }
+        else emit logoutSave(false);
     }
-    else emit logoutSave(false);
+    if(s=="exit"){
+        if(action_save->isEnabled()){
+            emit exitSave(true);
+        }
+        else emit exitSave(false);
+    }
 }
 
 //slot
@@ -108,4 +119,14 @@ void MenuBar::enableFind(){
 //slot
 void MenuBar::disableFind(){
     action_find->setEnabled(false);
+}
+
+//slot
+void MenuBar::triggeredLogout(){
+    emit signalCheckSaveOn("logout");
+}
+
+//slot
+void MenuBar::triggeredClose(){
+    emit signalCheckSaveOn("exit");
 }

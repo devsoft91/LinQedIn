@@ -16,7 +16,8 @@ LoginClientWindow::LoginClientWindow(QWidget *parent) : QWidget(parent){
     layout1->addWidget(l_username,0,0);
     layout1->addWidget(username,0,1);
 
-    b_login = new QPushButton("Login Client");b_login->setMaximumWidth(100);
+    b_login = new QPushButton("Login Client");
+    b_login->setMaximumWidth(100);
     layout2->addWidget(b_login,0,0);
 
     out_layout->addLayout(layout1,0,0);

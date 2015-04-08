@@ -16,6 +16,7 @@ void ViewImpieghi::updateView(){
     Impieghi* impieghi = getImpieghi(tmp);
 
     layout = new QVBoxLayout();
+    layout->setMargin(0);
 
     v_layout = new QVBoxLayout();
     v_layout->setAlignment(Qt::AlignTop);

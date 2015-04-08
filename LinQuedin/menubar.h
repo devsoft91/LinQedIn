@@ -25,9 +25,11 @@ public:
 
 signals:
     void logoutSave(bool);
+    void exitSave(bool);
+    void signalCheckSaveOn(const QString&);
 
 public slots:
-    void checkSaveOn();
+    void checkSaveOn(const QString&);
     void enableMenuLogin();
     void disableMenuLogin();
     void enableSave();
@@ -35,6 +37,8 @@ public slots:
     void cancelState();
     void enableFind();
     void disableFind();
+    void triggeredLogout();
+    void triggeredClose();
 
 };
 

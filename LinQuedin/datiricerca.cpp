@@ -1,6 +1,10 @@
 #include "datiricerca.h"
 
-DatiRicerca::DatiRicerca(const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f) : nome(a),cognome(b),diploma(c),laurea(d),titolo(e),azienda(f){}
+DatiRicerca::DatiRicerca(const QString& user,const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f) : username(user),nome(a),cognome(b),diploma(c),laurea(d),titolo(e),azienda(f){}
+
+void DatiRicerca::setUsername(const QString& user){
+    username = user;
+}
 
 void DatiRicerca::setNome(const QString& s){
     nome = s;

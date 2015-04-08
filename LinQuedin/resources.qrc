@@ -9,5 +9,6 @@
         <file>immagini/logout.png</file>
         <file>immagini/find.png</file>
         <file>immagini/about.png</file>
+        <file>immagini/linQedin.png</file>
     </qresource>
 </RCC>
