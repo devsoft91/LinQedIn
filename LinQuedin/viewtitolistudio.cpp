@@ -132,7 +132,7 @@ void ViewTitoliStudio::fetchUpdateLaurea(WidgetLaurea* w,QLineEdit* e,QSpinBox* 
 //slot
 void ViewTitoliStudio::updateAfterRemove(WidgetLaurea* w){
     lauree_layout->removeWidget(w);
-    tmp->u->profile.removeLaurea(w->nomelaurea->text());
+    tmp->u->getProfilo().removeLaurea(w->nomelaurea->text());
     delete w;
     emit callSaveOn();
 }

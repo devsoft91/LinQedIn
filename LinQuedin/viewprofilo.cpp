@@ -36,12 +36,12 @@ void ViewProfilo::viewBasic(){
     DAnagrafici dati;
     Client* client = dynamic_cast<Client*>(tmp);
     if(client){
-        dati = client->data_->getUtente(username)->profile.getDati();
+        dati = client->data_->getUtente(username)->getProfilo().getDati();
         controllertype = 0;
     }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
-        dati = admin->data_->getUtente(username)->profile.getDati();
+        dati = admin->data_->getUtente(username)->getProfilo().getDati();
         controllertype = 1;
     }
     QStringList label;
@@ -73,12 +73,12 @@ void ViewProfilo::viewBusiness(){
     TitoliStudio titoli;
     Client* client = dynamic_cast<Client*>(tmp);
     if(client){
-        titoli = client->data_->getUtente(username)->profile.getTitoli();
+        titoli = client->data_->getUtente(username)->getProfilo().getTitoli();
         controllertype = 0;
     }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
-        titoli = admin->data_->getUtente(username)->profile.getTitoli();
+        titoli = admin->data_->getUtente(username)->getProfilo().getTitoli();
         controllertype = 1;
     }
     vector<Laurea> v = titoli.getLauree();
@@ -140,12 +140,12 @@ void ViewProfilo::viewExecutive(){
     Impieghi lavori;
     Client* client = dynamic_cast<Client*>(tmp);
     if(client){
-        lavori = client->data_->getUtente(username)->profile.getImpieghi();
+        lavori = client->data_->getUtente(username)->getProfilo().getImpieghi();
         controllertype = 0;
     }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
-        lavori = admin->data_->getUtente(username)->profile.getImpieghi();
+        lavori = admin->data_->getUtente(username)->getProfilo().getImpieghi();
         controllertype = 1;
     }
     list<Lavoro> l = lavori.getLavori();
@@ -207,15 +207,15 @@ void ViewProfilo::viewAdmin(){
 
     viewExecutive();
 
-    map<QString,Nodo> m = admin->data_->getUtente(username)->net->rete;
+    map<QString,Nodo> m = admin->data_->getUtente(username)->getRete()->rete;
     if(m.size()!=0){
         QString label = "Rete (" + QString::number(m.size()) + ")";
         map<QString,Nodo>::const_iterator it = m.begin();
         QList<QTreeWidgetItem *> items;
         QTreeWidgetItem* rete = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(label)));
         for(;it!=m.end();++it){
-            QString nc = (*it).second.utente->profile.getDati().getNome();
-            nc = nc + " " + (*it).second.utente->profile.getDati().getCognome();
+            QString nc = (*it).second.utente->getProfilo().getDati().getNome();
+            nc = nc + " " + (*it).second.utente->getProfilo().getDati().getCognome();
             QTreeWidgetItem* child = new QTreeWidgetItem();
             QVariant variant1("Utente");
             QVariant variant2(nc);

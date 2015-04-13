@@ -38,12 +38,12 @@ void ViewReti::update(){
     if(size != 0){
         map<QString,Nodo>::const_iterator it = map_rete.begin();
         for(int k=0;k<size;k++){
-            QString namesurname((*it).second.utente->profile.getDati().getNome() + " " + (*it).second.utente->profile.getDati().getCognome());
+            QString namesurname((*it).second.utente->getProfilo().getDati().getNome() + " " + (*it).second.utente->getProfilo().getDati().getCognome());
             QString infojob;
-            if((*it).second.utente->profile.getImpieghi().impieghi.empty())
+            if((*it).second.utente->getProfilo().getImpieghi().impieghi.empty())
                 infojob = "Disoccupato";
-            else infojob = (*it).second.utente->profile.getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second.utente->profile.getImpieghi().impieghi.front().getAzienda();
-            QString username((*it).second.utente->username);
+            else infojob = (*it).second.utente->getProfilo().getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second.utente->getProfilo().getImpieghi().impieghi.front().getAzienda();
+            QString username((*it).second.utente->getUsername());
             WidgetUtenteRete* widget = new WidgetUtenteRete(namesurname,infojob,username,this,tmp);
             v_layout->addWidget(widget);
             ++it;
@@ -74,8 +74,8 @@ void ViewReti::updateAfterRemove(WidgetUtenteRete* widget){
 
     Client* tmp1 = new Client(widget->username,tmp->data_);
 
-    tmp1->removeFromNet(tmp->u->username);
-    tmp->removeFromNet(tmp1->u->username);
+    tmp1->removeFromNet(tmp->u->getUsername());
+    tmp->removeFromNet(tmp1->u->getUsername());
 
     update();
 

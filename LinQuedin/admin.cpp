@@ -85,13 +85,13 @@ void Admin::changePlanTo(const QString& u,int t){
     }
 
     data_->Elimina(u);
-    map<QString,Nodo> net = utente->net->rete;
+    map<QString,Nodo> net = utente->getRete()->rete;
     map<QString,Nodo>::const_iterator it = net.begin();
     for(;it!=net.end();++it){
         Utente* p = data_->getUtente((*it).first);
         if((*it).second.flag)
-            p->net->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,false)));
-        else p->net->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,true)));
+            p->getRete()->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,false)));
+        else p->getRete()->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,true)));
     }
     data_->Aggiungi(u,utente);
 

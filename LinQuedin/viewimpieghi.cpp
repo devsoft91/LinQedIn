@@ -77,7 +77,7 @@ void ViewImpieghi::fetchNewImpiego(QLineEdit* a,QLineEdit* b,QLineEdit* c,QDateE
 void ViewImpieghi::updateAfterRemove(WidgetImpiego* w){
     v_layout->removeWidget(w);
     Lavoro l(w->titolo->text(),w->azienda->text(),w->citta->text(),w->inizio->date(),w->fine->date());
-    tmp->u->profile.removeImpiego(l);
+    tmp->u->getProfilo().removeImpiego(l);
     delete w;
     emit callSaveOn();
 }
@@ -86,7 +86,7 @@ void ViewImpieghi::updateAfterRemove(WidgetImpiego* w){
 void ViewImpieghi::updateAfterUpdate(WidgetImpiego* w,const QString& a,const QString& b,const QString& c,const QDate& d,const QDate& e){
     Lavoro l(w->titolo->text(),w->azienda->text(),w->citta->text(),w->inizio->date(),w->fine->date());
     Lavoro old(a,b,c,d,e);
-    tmp->u->profile.updateImpiego(l,old);
+    tmp->u->getProfilo().updateImpiego(l,old);
     emit callSaveOn();
 }
 

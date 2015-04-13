@@ -216,27 +216,27 @@ void Database::save() const{
               writer.writeAttribute("type","Executive");
                 writer.writeStartElement("Profilo");
                     writer.writeStartElement("Dati_Anagrafici");
-                        writer.writeTextElement("Nome",(*it).second->profile.getDati().getNome());
-                        writer.writeTextElement("Cognome",(*it).second->profile.getDati().getCognome());
-                        writer.writeTextElement("Email",(*it).second->profile.getDati().getEmail());
-                        writer.writeTextElement("Data_Nascita",(*it).second->profile.getDati().getData_nascita().toString("dd MM yyyy"));
-                        writer.writeTextElement("Luogo_Nascita",(*it).second->profile.getDati().getLuogo_nascita());
-                        writer.writeTextElement("Luogo_Residenza",(*it).second->profile.getDati().getLuogo_residenza());
+                        writer.writeTextElement("Nome",(*it).second->getProfilo().getDati().getNome());
+                        writer.writeTextElement("Cognome",(*it).second->getProfilo().getDati().getCognome());
+                        writer.writeTextElement("Email",(*it).second->getProfilo().getDati().getEmail());
+                        writer.writeTextElement("Data_Nascita",(*it).second->getProfilo().getDati().getData_nascita().toString("dd MM yyyy"));
+                        writer.writeTextElement("Luogo_Nascita",(*it).second->getProfilo().getDati().getLuogo_nascita());
+                        writer.writeTextElement("Luogo_Residenza",(*it).second->getProfilo().getDati().getLuogo_residenza());
                     writer.writeEndElement();
                     writer.writeStartElement("Titoli_Studio");
                         writer.writeStartElement("Diploma");
-                            writer.writeTextElement("NomeDiploma",(*it).second->profile.getTitoli().getDiploma());
-                            writer.writeTextElement("AnnoDiploma",QString::number((*it).second->profile.getTitoli().getAnno()));
+                            writer.writeTextElement("NomeDiploma",(*it).second->getProfilo().getTitoli().getDiploma());
+                            writer.writeTextElement("AnnoDiploma",QString::number((*it).second->getProfilo().getTitoli().getAnno()));
                         writer.writeEndElement();
-                    int vsize = (*it).second->profile.getTitoli().getLauree().size();
+                    int vsize = (*it).second->getProfilo().getTitoli().getLauree().size();
                         for (int i=0;i<vsize;++i) {
                         writer.writeStartElement("Laurea");
-                            writer.writeTextElement("NomeLaurea",(*it).second->profile.getTitoli().getLauree()[i].getNome());
-                            writer.writeTextElement("AnnoLaurea",QString::number((*it).second->profile.getTitoli().getLauree()[i].getAnno()));
+                            writer.writeTextElement("NomeLaurea",(*it).second->getProfilo().getTitoli().getLauree()[i].getNome());
+                            writer.writeTextElement("AnnoLaurea",QString::number((*it).second->getProfilo().getTitoli().getLauree()[i].getAnno()));
                         writer.writeEndElement();
                         }
                     writer.writeEndElement();
-                    list<Lavoro> lista_lavori = (*it).second->profile.getImpieghi().getLavori();
+                    list<Lavoro> lista_lavori = (*it).second->getProfilo().getImpieghi().getLavori();
                     vsize = lista_lavori.size();
                     if(vsize!=0){
                         list<Lavoro>::const_iterator it = lista_lavori.begin();
@@ -254,7 +254,7 @@ void Database::save() const{
                         writer.writeEndElement(); //impieghi
                     }
                 writer.writeEndElement();  //profilo
-                writer.writeTextElement("Username",(*it).second->username);
+                writer.writeTextElement("Username",(*it).second->getUsername());
             writer.writeEndElement();  //utente
             it++;
         }
@@ -263,13 +263,13 @@ void Database::save() const{
         writer.writeStartElement("Reti");
         it = db.begin();
         for(int i=0;i<dbsize;++i){
-            if((*it).second->net != NULL){
-                std::map<QString,Nodo>::const_iterator iter = (*it).second->net->rete.begin();
-                int netsize = (*it).second->net->rete.size();
+            if((*it).second->getRete() != NULL){
+                std::map<QString,Nodo>::const_iterator iter = (*it).second->getRete()->rete.begin();
+                int netsize = (*it).second->getRete()->rete.size();
                 for(int j=0;j<netsize;j++){
                     if((*iter).second.flag){
                         QString a,b;
-                        a = (*it).second->username;
+                        a = (*it).second->getUsername();
                         a.append("-");
                         b = (*iter).first;
                         a.append(b);

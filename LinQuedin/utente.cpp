@@ -8,6 +8,30 @@ Utente::Utente(const Profilo& p,const QString& u) : profile(p),username(u){
     net = new Rete();
 }
 
+Profilo& Utente::getProfilo(){
+    return profile;
+}
+
+QString Utente::getUsername() const{
+    return username;
+}
+
+Rete* Utente::getRete() const{
+    return net;
+}
+
+void Utente::setProfilo(const Profilo& p){
+    profile = p;
+}
+
+void Utente::setUsername(const QString& u){
+    username = u;
+}
+
+void Utente::setRete(Rete* r){
+    net = r;
+}
+
 void Utente::add(Utente* u){
     net->addUser(u->username,Nodo(u,true));
     u->net->addUser((*this).username,Nodo(this,false));

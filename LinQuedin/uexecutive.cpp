@@ -14,7 +14,7 @@ map<QString,Utente*> UExecutive::find(DatiRicerca* d,Database* t){
 
     for(;it!=map_business.end();++it){
 
-        l_lavori = (*it).second->profile.getImpieghi().getLavori();
+        l_lavori = (*it).second->getProfilo().getImpieghi().getLavori();
         iter = l_lavori.begin();
 
         if(d->getTitolo()!=""){

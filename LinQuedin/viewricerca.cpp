@@ -45,12 +45,12 @@ void ViewRicerca::updateWithoutResearch(){
     if(size != 0){
         map<QString,Utente*>::const_iterator it = map_utenti.begin();
         for(int k=0;k<size;k++){
-            QString namesurname((*it).second->profile.getDati().getNome() + " " + (*it).second->profile.getDati().getCognome());
+            QString namesurname((*it).second->getProfilo().getDati().getNome() + " " + (*it).second->getProfilo().getDati().getCognome());
             QString infojob;
-            if((*it).second->profile.getImpieghi().impieghi.empty())
+            if((*it).second->getProfilo().getImpieghi().impieghi.empty())
                 infojob = "Disoccupato";
-            else infojob = (*it).second->profile.getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second->profile.getImpieghi().impieghi.front().getAzienda();
-            QString username((*it).second->username);
+            else infojob = (*it).second->getProfilo().getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second->getProfilo().getImpieghi().impieghi.front().getAzienda();
+            QString username((*it).second->getUsername());
             WidgetUtenteRicerca* widget = new WidgetUtenteRicerca(namesurname,infojob,username,this,tmp);
             v_layout->addWidget(widget);
             ++it;
