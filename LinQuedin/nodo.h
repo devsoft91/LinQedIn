@@ -1,17 +1,20 @@
 #ifndef NODO_H
 #define NODO_H
 
-#include <iostream>
-
 class Utente;
 
 class Nodo
 {
-public:
+private:
     Utente* utente;
     bool flag;
+public:
     Nodo();
     Nodo(Utente*,bool);
+    void setUtente(Utente*);
+    void setFlag(bool);
+    Utente* getUtente() const;
+    bool getFlag() const;
 };
 
 #endif // NODO_H

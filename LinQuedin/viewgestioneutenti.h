@@ -56,6 +56,7 @@ public slots:
     void checkEmptyDel();
     void checkEmptyMod();
     void catchSaveOn();
+    void catchMessage(const QString&);
 
 };
 

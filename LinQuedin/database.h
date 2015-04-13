@@ -1,7 +1,6 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include <iostream> //solo x test output
 #include <QString>
 #include <QFile>
 #include <QXmlStreamWriter>
@@ -19,12 +18,10 @@ using std::map;
 
 class Database
 {
-private:
-    void checkflag() const;  //attenzione non usato
 public:
-    Database();
     map<QString,Utente*> db;
     QString path;
+    Database();
     void load();
     void save() const;
     void Aggiungi(const QString&,Utente*);

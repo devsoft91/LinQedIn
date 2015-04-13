@@ -47,9 +47,9 @@ void ViewRicerca::updateWithoutResearch(){
         for(int k=0;k<size;k++){
             QString namesurname((*it).second->getProfilo().getDati().getNome() + " " + (*it).second->getProfilo().getDati().getCognome());
             QString infojob;
-            if((*it).second->getProfilo().getImpieghi().impieghi.empty())
+            if((*it).second->getProfilo().getImpieghi().getLavori().empty())
                 infojob = "Disoccupato";
-            else infojob = (*it).second->getProfilo().getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second->getProfilo().getImpieghi().impieghi.front().getAzienda();
+            else infojob = (*it).second->getProfilo().getImpieghi().getLavori().front().getTitolo() + " - " + (*it).second->getProfilo().getImpieghi().getLavori().front().getAzienda();
             QString username((*it).second->getUsername());
             WidgetUtenteRicerca* widget = new WidgetUtenteRicerca(namesurname,infojob,username,this,tmp);
             v_layout->addWidget(widget);

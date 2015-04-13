@@ -16,8 +16,8 @@ private:
     vector<Laurea> lauree;
 public:
     TitoliStudio();
-    TitoliStudio(const QString&,int); // da completareeeeeee
-    TitoliStudio(const QString&,int,const Laurea&); // da completareeeeeee
+    TitoliStudio(const QString&,int);
+    TitoliStudio(const QString&,int,const Laurea&);
     QString getDiploma() const;
     int getAnno() const;
     vector<Laurea> getLauree() const;

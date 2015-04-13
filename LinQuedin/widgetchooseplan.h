@@ -32,6 +32,7 @@ public:
 
 signals:
     void sendSaveOn();
+    void sendMessage(const QString&);
 
 public slots:
     void updatePlan();

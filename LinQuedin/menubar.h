@@ -4,8 +4,6 @@
 #include <QMenuBar>
 #include <QAction>
 
-#include <iostream>
-
 class MenuBar : public QMenuBar{
     Q_OBJECT    
 public:

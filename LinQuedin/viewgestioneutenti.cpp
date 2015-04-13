@@ -170,3 +170,8 @@ void ViewGestioneUtenti::warningDialog(){
 void ViewGestioneUtenti::catchSaveOn(){
     emit enableSaveInstance();
 }
+
+//slot
+void ViewGestioneUtenti::catchMessage(const QString& m){
+    emit sendMessage(m);
+}

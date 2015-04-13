@@ -37,6 +37,7 @@ WidgetChoosePlan::WidgetChoosePlan(QWidget *parent,Admin* a,const QString& u) : 
 
     connect(conferma, SIGNAL(clicked()), this, SLOT(updatePlan()));
     connect(this, SIGNAL(sendSaveOn()), parent, SLOT(catchSaveOn()));
+    connect(this, SIGNAL(sendMessage(const QString&)), parent, SLOT(catchMessage(const QString&)));
     connect(annulla, SIGNAL(clicked()), box, SLOT(close()));
 
     box->exec();
@@ -58,6 +59,7 @@ void WidgetChoosePlan::updatePlan(){
         tmp->changePlanTo(user,type);
         box->close();
         emit sendSaveOn();
+        emit sendMessage("The plan has been succesfully changed!");
     }
     else{
         QMessageBox box;

@@ -34,7 +34,6 @@ private:
     QStatusBar *statusBar;
 
     Admin* admincontroller;
-    Client* c;
     Client* clientcontroller;
     Controller* controller;
 

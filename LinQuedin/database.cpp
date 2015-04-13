@@ -171,7 +171,7 @@ void Database::load(){
                     userA = coppia.at(0);
                     userB = coppia.at(1);
                     utenteA = getUtente(userA);
-                    utenteB = getUtente(userB);//attenzione core dump se non esiste utente A
+                    utenteB = getUtente(userB);
                     utenteA->add(utenteB);
 
                     reader.readNextStartElement();
@@ -267,7 +267,7 @@ void Database::save() const{
                 std::map<QString,Nodo>::const_iterator iter = (*it).second->getRete()->rete.begin();
                 int netsize = (*it).second->getRete()->rete.size();
                 for(int j=0;j<netsize;j++){
-                    if((*iter).second.flag){
+                    if((*iter).second.getFlag()){
                         QString a,b;
                         a = (*it).second->getUsername();
                         a.append("-");
@@ -312,9 +312,5 @@ map<QString,Utente*> Database::find(const QString& s) const{
             datatmp.insert(std::pair<QString,Utente*>((*it).first,(*it).second));
         return datatmp;
     }
-
-}
-
-void Database::checkflag() const{
 
 }

@@ -214,8 +214,8 @@ void ViewProfilo::viewAdmin(){
         QList<QTreeWidgetItem *> items;
         QTreeWidgetItem* rete = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(label)));
         for(;it!=m.end();++it){
-            QString nc = (*it).second.utente->getProfilo().getDati().getNome();
-            nc = nc + " " + (*it).second.utente->getProfilo().getDati().getCognome();
+            QString nc = (*it).second.getUtente()->getProfilo().getDati().getNome();
+            nc = nc + " " + (*it).second.getUtente()->getProfilo().getDati().getCognome();
             QTreeWidgetItem* child = new QTreeWidgetItem();
             QVariant variant1("Utente");
             QVariant variant2(nc);

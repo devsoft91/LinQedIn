@@ -52,7 +52,7 @@ Utente::~Utente(){
     std::map<QString,Nodo>::const_iterator iter = net->rete.begin();
     int netsize = net->rete.size();
     for(int i=0;i<netsize;i++){
-        (*iter).second.utente->net->rete.erase(username);
+        (*iter).second.getUtente()->net->rete.erase(username);
         ++iter;
     }
     delete net;

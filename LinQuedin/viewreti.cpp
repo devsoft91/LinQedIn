@@ -38,12 +38,12 @@ void ViewReti::update(){
     if(size != 0){
         map<QString,Nodo>::const_iterator it = map_rete.begin();
         for(int k=0;k<size;k++){
-            QString namesurname((*it).second.utente->getProfilo().getDati().getNome() + " " + (*it).second.utente->getProfilo().getDati().getCognome());
+            QString namesurname((*it).second.getUtente()->getProfilo().getDati().getNome() + " " + (*it).second.getUtente()->getProfilo().getDati().getCognome());
             QString infojob;
-            if((*it).second.utente->getProfilo().getImpieghi().impieghi.empty())
+            if((*it).second.getUtente()->getProfilo().getImpieghi().getLavori().empty())
                 infojob = "Disoccupato";
-            else infojob = (*it).second.utente->getProfilo().getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second.utente->getProfilo().getImpieghi().impieghi.front().getAzienda();
-            QString username((*it).second.utente->getUsername());
+            else infojob = (*it).second.getUtente()->getProfilo().getImpieghi().getLavori().front().getTitolo() + " - " + (*it).second.getUtente()->getProfilo().getImpieghi().getLavori().front().getAzienda();
+            QString username((*it).second.getUtente()->getUsername());
             WidgetUtenteRete* widget = new WidgetUtenteRete(namesurname,infojob,username,this,tmp);
             v_layout->addWidget(widget);
             ++it;

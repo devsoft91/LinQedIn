@@ -69,17 +69,14 @@ void Admin::changePlanTo(const QString& u,int t){
     Utente* utente;
 
     if(t==0){
-        std::cout<<"0"<<std::endl;
         utente = new UBasic(u);
         *utente = *user;
     }
     if(t==1){
-        std::cout<<"1"<<std::endl;
         utente = new UBusiness(u);
         *utente = *user;
     }
     if(t==2){
-        std::cout<<"2"<<std::endl;
         utente = new UExecutive(u);
         *utente = *user;
     }
@@ -89,7 +86,7 @@ void Admin::changePlanTo(const QString& u,int t){
     map<QString,Nodo>::const_iterator it = net.begin();
     for(;it!=net.end();++it){
         Utente* p = data_->getUtente((*it).first);
-        if((*it).second.flag)
+        if((*it).second.getFlag())
             p->getRete()->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,false)));
         else p->getRete()->rete.insert(std::pair<QString,Nodo>(u,Nodo(utente,true)));
     }

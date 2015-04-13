@@ -9,13 +9,13 @@ using std::list;
 
 class Impieghi
 {
-public:
+private:
     list<Lavoro> impieghi;
-
+public:
     Impieghi();
     Impieghi(const Lavoro&);
     list<Lavoro> getLavori() const;
-    void addLavoro(const Lavoro&);  //attenzione ridefinito
+    void addLavoro(const Lavoro&);
     void addLavoro(const Lavoro&,bool);
     void removeLavoro(const Lavoro&);
     void updateLavoro(const Lavoro&,const Lavoro&);
