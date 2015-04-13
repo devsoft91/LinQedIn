@@ -10,6 +10,8 @@
 #include <QLabel>
 #include <QFont>
 
+#include "client.h"
+#include "viewprofilo.h"
 
 class WidgetUtenteRete : public QWidget
 {
@@ -25,13 +27,19 @@ public:
     QDialogButtonBox* buttonbox;
     QPushButton* visualizza;
     QPushButton* elimina;
-    WidgetUtenteRete(const QString&,const QString&,const QString&,QWidget *parent = 0);
+
+    ViewProfilo* profilo;
+
+    Client* tmp;
+
+    WidgetUtenteRete(const QString&,const QString&,const QString&,QWidget *parent,Client*);
 
 signals:
     void signalRemoveId(WidgetUtenteRete*);
 
 public slots:
     void sendRemoveId();
+    void viewProfilo();
 
 };
 

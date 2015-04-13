@@ -2,12 +2,32 @@
 #define VIEWPROFILO_H
 
 #include <QWidget>
+#include <QDialog>
+#include <QTreeWidget>
+#include <QVBoxLayout>
+#include <QVariant>
+
+#include "admin.h"
+#include "client.h"
+#include "controller.h"
 
 class ViewProfilo : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ViewProfilo(QWidget *parent = 0);
+    QString username;
+    QDialog* box;
+    QVBoxLayout* layout;
+    QTreeWidget* view;
+
+    Controller* tmp;
+
+    ViewProfilo(QWidget *parent,const QString&,Controller*);
+
+    void viewBasic();
+    void viewBusiness();
+    void viewExecutive();
+    void viewAdmin();
 
 signals:
 

@@ -17,19 +17,21 @@ int Admin::returnUserType() const{
 int Admin::typeOf(const QString& u) const{
     Utente* user = data_->getUtente(u);
     QString type = typeid(*user).name();
+    int r;
     if(type.contains("Basic"))
-        return 0;
+        r = 0;
     if(type.contains("Business"))
-        return 1;
+        r = 1;
     if(type.contains("Executive"))
-        return 2;
+        r = 2;
+    return r;
 }
 
 void Admin::saveDatabase(){
     data_->save();
 }
 
-void Admin::sendRicerca(const QString& user,const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
+void Admin::sendRicerca(const QString& user,const QString&,const QString&,const QString&,const QString&,const QString&,const QString&){
     risultati = data_->find(user);
 }
 
@@ -38,8 +40,9 @@ map<QString,Utente*> Admin::returnRicerca() const{
 }
 
 void Admin::addToNet(const QString&){}
-
-bool Admin::isFriendOf(const QString&) const{}
+bool Admin::isFriendOf(const QString&) const{
+    return false; //valore fittizio, non verrà mai invocato
+}
 
 void Admin::addToDatabase(const QString& s){
     data_->Aggiungi(s,new UBasic(s));
@@ -49,16 +52,16 @@ void Admin::delFromDatabase(const QString& s){
     data_->Elimina(s);
 }
 
-void Admin::modifyPlan(const QString& s){
-
-}
+void Admin::modifyPlan(const QString&){}
 
 bool Admin::exist(const QString& u){
     risultati = data_->find(u);
+    bool r;
     if(risultati.size()==0)
-        return false;
+        r = false;
     if(risultati.size()==1)
-        return true;
+        r = true;
+    return r;
 }
 
 void Admin::changePlanTo(const QString& u,int t){

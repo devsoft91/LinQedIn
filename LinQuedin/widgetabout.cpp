@@ -29,7 +29,10 @@ WidgetAbout::WidgetAbout(QWidget *parent) : QWidget(parent){
 
     info2 = new QLabel("Built with Qt 5.3.2 (GCC 4.6.1, 64 bit)");
     info2->setContentsMargins(30,10,10,10);
-    info3 = new QLabel("Built on Apr 04 2015 at 11:22");
+    QString date = QString::fromLocal8Bit(BMONTH) + " " + QString::fromLocal8Bit(BDAY) + " " + QString::fromLocal8Bit(BYEAR);
+    QString time = QString::fromLocal8Bit(BHOUR) + ":" + QString::fromLocal8Bit(BMINUTE) + ":" + QString::fromLocal8Bit(BSECOND);
+    QString datetime = "Built on " + date + " at " + time + " CEST";
+    info3 = new QLabel(datetime);
     info3->setContentsMargins(30,10,10,10);
     info4 = new QLabel("Copyright 2014-2015 - Giacomo Beltrame - All Rights Reserved");
     info4->setContentsMargins(30,10,10,10);

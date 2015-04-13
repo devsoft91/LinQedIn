@@ -3,7 +3,6 @@
 #include <string>
 #include <QDate>
 #include <iostream>
-#include <typeinfo>//solo x test DA RIMUOVERE
 
 #include "mainwindow.h"
 #include "qdesktopwidget.h"

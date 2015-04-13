@@ -151,10 +151,11 @@ void WidgetNewRicerca::launchResearch(){
         tmp->sendRicerca("",nome->text(),cognome->text(),diploma->text(),laurea->text(),"","");
     if(tmp->returnUserType()==2)
         tmp->sendRicerca("",nome->text(),cognome->text(),diploma->text(),laurea->text(),titolo->text(),azienda->text());
-    if(tmp->returnUserType()==3)
+    if(tmp->returnUserType()==3){
         if(radio1->isChecked())
             tmp->sendRicerca(username->text(),"","","","","","");
         else tmp->sendRicerca("","","","","","","");
+    }
 
     box->close();
 
@@ -163,22 +164,26 @@ void WidgetNewRicerca::launchResearch(){
 
 //slot
 void WidgetNewRicerca::checkEmptyFields(){
-    if(tmp->returnUserType()==0)
+    if(tmp->returnUserType()==0){
         if(nome->text()=="" && cognome->text()=="")
             warningDialog();
         else launchResearch();
-    if(tmp->returnUserType()==1)
+    }
+    if(tmp->returnUserType()==1){
         if(nome->text()=="" && cognome->text()=="" && diploma->text()=="" && laurea->text()=="")
             warningDialog();
         else launchResearch();
-    if(tmp->returnUserType()==2)
+    }
+    if(tmp->returnUserType()==2){
         if(nome->text()=="" && cognome->text()=="" && diploma->text()=="" && laurea->text()=="" && titolo->text()=="" && azienda->text()=="")
             warningDialog();
         else launchResearch();
-    if(tmp->returnUserType()==3)
+    }
+    if(tmp->returnUserType()==3){
         if(radio1->isChecked() && username->text()=="")
             warningDialog();
         else launchResearch();
+    }
 }
 
 //slot

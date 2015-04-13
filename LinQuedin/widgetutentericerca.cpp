@@ -42,6 +42,7 @@ WidgetUtenteRicerca::WidgetUtenteRicerca(const QString& a,const QString& b,const
 
     connect(aggiungi, SIGNAL(clicked()), this, SLOT(sendAddRicerca()));
     connect(this, SIGNAL(signalUpdateNet()), parent, SLOT(updateNet()));
+    connect(visualizza, SIGNAL(clicked()), this, SLOT(viewProfilo()));
 }
 
 //slot
@@ -49,4 +50,9 @@ void WidgetUtenteRicerca::sendAddRicerca(){
     buttonbox->removeButton(aggiungi);
     tmp->addToNet(username);
     emit signalUpdateNet();
+}
+
+//slot
+void WidgetUtenteRicerca::viewProfilo(){
+    profilo = new ViewProfilo(this,username,tmp);
 }

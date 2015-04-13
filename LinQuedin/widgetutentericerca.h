@@ -13,6 +13,7 @@
 #include "controller.h"
 #include "admin.h"
 #include "client.h"
+#include "viewprofilo.h"
 
 class WidgetUtenteRicerca : public QWidget
 {
@@ -29,6 +30,8 @@ public:
     QPushButton* visualizza;
     QPushButton* aggiungi;
 
+    ViewProfilo* profilo;
+
     Controller* tmp;
 
     WidgetUtenteRicerca(const QString&,const QString&,const QString&,QWidget *parent,Controller*);
@@ -38,6 +41,7 @@ signals:
 
 public slots:
     void sendAddRicerca();
+    void viewProfilo();
 
 };
 

@@ -35,14 +35,6 @@
                         <NomeDiploma>Liceo Scientifio Tecnologico</NomeDiploma>
                         <AnnoDiploma>2010</AnnoDiploma>
                     </Diploma>
-                    <Laurea>
-                        <NomeLaurea>Informatica(test)</NomeLaurea>
-                        <AnnoLaurea>2020</AnnoLaurea>
-                    </Laurea>
-                    <Laurea>
-                        <NomeLaurea>Psicologia(test)</NomeLaurea>
-                        <AnnoLaurea>2025</AnnoLaurea>
-                    </Laurea>
                 </Titoli_Studio>
                 <Impieghi>
                     <Lavoro>
@@ -69,7 +61,7 @@
                     <Nome>Ilaria</Nome>
                     <Cognome>Beltrame</Cognome>
                     <Email>beltrame.ilaria@gmail.com</Email>
-                    <Data_Nascita></Data_Nascita>
+                    <Data_Nascita>01 01 1986</Data_Nascita>
                     <Luogo_Nascita>Montebelluna</Luogo_Nascita>
                     <Luogo_Residenza>Milano</Luogo_Residenza>
                 </Dati_Anagrafici>
@@ -95,7 +87,7 @@
             </Profilo>
             <Username>ilariab</Username>
         </Utente>
-        <Utente type="Business">
+        <Utente type="Executive">
             <Profilo>
                 <Dati_Anagrafici>
                     <Nome>Mario</Nome>

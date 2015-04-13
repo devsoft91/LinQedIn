@@ -44,7 +44,7 @@ void ViewReti::update(){
                 infojob = "Disoccupato";
             else infojob = (*it).second.utente->profile.getImpieghi().impieghi.front().getTitolo() + " - " + (*it).second.utente->profile.getImpieghi().impieghi.front().getAzienda();
             QString username((*it).second.utente->username);
-            WidgetUtenteRete* widget = new WidgetUtenteRete(namesurname,infojob,username,this);
+            WidgetUtenteRete* widget = new WidgetUtenteRete(namesurname,infojob,username,this,tmp);
             v_layout->addWidget(widget);
             ++it;
         }

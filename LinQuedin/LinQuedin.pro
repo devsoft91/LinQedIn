@@ -11,6 +11,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = LinQuedin
 TEMPLATE = app
 
+DEFINES += BDAY=\\\"$$system(date +%d)\\\"
+DEFINES += BMONTH=\\\"$$system(date +%b)\\\"
+DEFINES += BYEAR=\\\"$$system(date +%Y)\\\"
+DEFINES += BHOUR=\\\"$$system(date +%H)\\\"
+DEFINES += BMINUTE=\\\"$$system(date +%M)\\\"
+DEFINES += BSECOND=\\\"$$system(date +%S)\\\"
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     danagrafici.cpp \

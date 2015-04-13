@@ -1,6 +1,8 @@
 #include "widgetutenterete.h"
 
-WidgetUtenteRete::WidgetUtenteRete(const QString& a,const QString& b,const QString& u,QWidget *parent) : QWidget(parent),username(u){
+WidgetUtenteRete::WidgetUtenteRete(const QString& a,const QString& b,const QString& u,QWidget *parent,Client* c) : QWidget(parent),username(u){
+
+    tmp = c;
 
     out_layout = new QVBoxLayout();
 
@@ -33,10 +35,15 @@ WidgetUtenteRete::WidgetUtenteRete(const QString& a,const QString& b,const QStri
 
     connect(elimina, SIGNAL(clicked()), this, SLOT(sendRemoveId()));
     connect(this, SIGNAL(signalRemoveId(WidgetUtenteRete*)), parent, SLOT(updateAfterRemove(WidgetUtenteRete*)));
-
+    connect(visualizza, SIGNAL(clicked()), this, SLOT(viewProfilo()));
 }
 
 //slot
 void WidgetUtenteRete::sendRemoveId(){
     emit signalRemoveId(this);
+}
+
+//slot
+void WidgetUtenteRete::viewProfilo(){
+    profilo = new ViewProfilo(this,username,tmp);
 }

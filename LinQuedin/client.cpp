@@ -53,7 +53,7 @@ void Client::sendLaurea(const QString& s,const Laurea& l){
     u->profile.setLaurea(s,l);
 }
 
-void Client::sendRicerca(const QString& user,const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
+void Client::sendRicerca(const QString&,const QString& a,const QString& b,const QString& c,const QString& d,const QString& e,const QString& f){
     DatiRicerca* dati = new DatiRicerca();
     if(a!=""){
         dati->setNome(a);
@@ -104,12 +104,14 @@ void Client::removeFromNet(const QString& s){
 
 int Client::returnUserType() const{
     QString typo = typeid(*u).name();
+    int r;
     if(typo.contains("Basic"))
-        return 0;
+        r = 0;
     if(typo.contains("Business"))
-        return 1;
+        r = 1;
     if(typo.contains("Executive"))
-        return 2;
+        r = 2;
+    return r;
 }
 
 map<QString,Utente*> Client::returnRicerca() const{
