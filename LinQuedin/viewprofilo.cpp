@@ -35,11 +35,14 @@ void ViewProfilo::viewBasic(){
 
     DAnagrafici dati;
     Client* client = dynamic_cast<Client*>(tmp);
-    if(client)
+    if(client){
         dati = client->data_->getUtente(username)->profile.getDati();
+        controllertype = 0;
+    }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
         dati = admin->data_->getUtente(username)->profile.getDati();
+        controllertype = 1;
     }
     QStringList label;
     label << "Nome" << "Cognome" << "Email" << "Data di Nascita" << "Luogo di Nascita" << "Luogo di Residenza";
@@ -56,7 +59,9 @@ void ViewProfilo::viewBasic(){
         dati_anagrafici->addChild(child);
     }
     items.append(dati_anagrafici);
-    view->insertTopLevelItems(0, items);
+    if(controllertype==0)
+        view->insertTopLevelItems(0,items);
+    else view->insertTopLevelItems(1,items);
     dati_anagrafici->setExpanded(true);
 
 }
@@ -67,13 +72,16 @@ void ViewProfilo::viewBusiness(){
 
     TitoliStudio titoli;
     Client* client = dynamic_cast<Client*>(tmp);
-    if(client)
+    if(client){
         titoli = client->data_->getUtente(username)->profile.getTitoli();
+        controllertype = 0;
+    }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
         titoli = admin->data_->getUtente(username)->profile.getTitoli();
+        controllertype = 1;
     }
-    vector<Laurea> v = titoli.getLaurea();
+    vector<Laurea> v = titoli.getLauree();
 
     QStringList label;
     label << "Nome Diploma" << "Anno Diploma" << "Nome Laurea" << "Anno Laurea";
@@ -115,7 +123,9 @@ void ViewProfilo::viewBusiness(){
     }
     titoli_studio->addChildren(children);
     items.append(titoli_studio);
-    view->insertTopLevelItems(1, items);
+    if(controllertype==0)
+        view->insertTopLevelItems(1,items);
+    else view->insertTopLevelItems(2,items);
     QList<QTreeWidgetItem*>::iterator iter = children.begin();
     for(;iter!=children.end();++iter)
         (*iter)->setExpanded(true);
@@ -129,11 +139,14 @@ void ViewProfilo::viewExecutive(){
 
     Impieghi lavori;
     Client* client = dynamic_cast<Client*>(tmp);
-    if(client)
+    if(client){
         lavori = client->data_->getUtente(username)->profile.getImpieghi();
+        controllertype = 0;
+    }
     else{
         Admin* admin = dynamic_cast<Admin*>(tmp);
         lavori = admin->data_->getUtente(username)->profile.getImpieghi();
+        controllertype = 1;
     }
     list<Lavoro> l = lavori.getLavori();
     if(l.size()!=0){
@@ -159,7 +172,9 @@ void ViewProfilo::viewExecutive(){
             impieghi->addChildren(children);
         }
         items.append(impieghi);
-        view->insertTopLevelItems(2, items);
+        if(controllertype==0)
+            view->insertTopLevelItems(2,items);
+        else view->insertTopLevelItems(3,items);
         QList<QTreeWidgetItem*>::iterator iter = children.begin();
         for(;iter!=children.end();++iter)
             (*iter)->setExpanded(true);
@@ -170,9 +185,28 @@ void ViewProfilo::viewExecutive(){
 
 void ViewProfilo::viewAdmin(){
 
+    Admin* admin = dynamic_cast<Admin*>(tmp);
+
+    QTreeWidgetItem* tipo = new QTreeWidgetItem();
+    QVariant variant1("Tipo Account");
+    tipo->setData(0,Qt::DisplayRole,variant1);
+    int usertype = admin->typeOf(username);
+    if(usertype==0){
+        QVariant variant2("Basic");
+        tipo->setData(1,Qt::DisplayRole,variant2);
+    }
+    if(usertype==1){
+        QVariant variant2("Business");
+        tipo->setData(1,Qt::DisplayRole,variant2);
+    }
+    if(usertype==2){
+        QVariant variant2("Executive");
+        tipo->setData(1,Qt::DisplayRole,variant2);
+    }
+    view->insertTopLevelItem(0,tipo);
+
     viewExecutive();
 
-    Admin* admin = dynamic_cast<Admin*>(tmp);
     map<QString,Nodo> m = admin->data_->getUtente(username)->net->rete;
     if(m.size()!=0){
         QString label = "Rete (" + QString::number(m.size()) + ")";
@@ -190,7 +224,7 @@ void ViewProfilo::viewAdmin(){
             rete->addChild(child);
         }
         items.append(rete);
-        view->insertTopLevelItems(3, items);
+        view->insertTopLevelItems(4,items);
         rete->setExpanded(true);
     }
 }

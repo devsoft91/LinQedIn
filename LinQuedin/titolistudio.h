@@ -20,7 +20,7 @@ public:
     TitoliStudio(const QString&,int,const Laurea&); // da completareeeeeee
     QString getDiploma() const;
     int getAnno() const;
-    vector<Laurea> getLaurea() const;
+    vector<Laurea> getLauree() const;
     void setDiploma(const QString&);
     void setAnno(const int&);
     void addLaurea(const Laurea&);

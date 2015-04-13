@@ -29,7 +29,6 @@ WidgetLaurea::WidgetLaurea(const QString& s, const int& i, QWidget *parent) : QW
     connect(aggiorna, SIGNAL(clicked()), this, SLOT(sendUpdateId()));
     connect(this, SIGNAL(signalUpdateId(const QString&,int,WidgetLaurea*)), parent, SLOT(addUBox(const QString&,int,WidgetLaurea*)));
 
-
 }
 
 WidgetLaurea::~WidgetLaurea(){

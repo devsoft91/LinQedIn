@@ -8,7 +8,6 @@ class UExecutive : public UBusiness
 public:
     UExecutive(const QString&);
     UExecutive(const Profilo&,const QString&);
-    void add(Utente*);
     map<QString,Utente*> find(DatiRicerca*,Database*);
     ~UExecutive();
 };

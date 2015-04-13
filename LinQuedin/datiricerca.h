@@ -24,7 +24,7 @@ public:
     QString getNome() const;
     QString getCognome() const;
     QString getDiploma() const;
-    QString getLaurea() const;
+    QString getLauree() const;
     QString getTitolo() const;
     QString getAzienda() const;
     DatiRicerca(const QString& user = "",const QString& a = "",const QString& b = "",const QString& c = "",const QString& d = "",const QString& e = "",const QString& f = "");

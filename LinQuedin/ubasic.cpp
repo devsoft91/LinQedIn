@@ -6,10 +6,6 @@ UBasic::UBasic(const Profilo& a,const QString& b) : Utente(a,b){
 
 }
 
-void UBasic::add(Utente* u){
-    this->Utente::add(u);
-}
-
 map<QString,Utente*> UBasic::find(DatiRicerca* d,Database* t){
     QString user = username;
     map<QString,Utente*> risultati;

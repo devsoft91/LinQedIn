@@ -4,10 +4,6 @@ UExecutive::UExecutive(const QString& u) : UBusiness(u){}
 
 UExecutive::UExecutive(const Profilo& a,const QString& b) : UBusiness(a,b){}
 
-void UExecutive::add(Utente* u){
-    this->Utente::add(u);
-}
-
 map<QString,Utente*> UExecutive::find(DatiRicerca* d,Database* t){
     map<QString,Utente*> risultati;
     map<QString,Utente*> map_business = UBusiness::find(d,t);

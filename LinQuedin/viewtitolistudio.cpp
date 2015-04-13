@@ -61,7 +61,7 @@ void ViewTitoliStudio::updateView(){
     v_layout->addWidget(b_diploma);
 
     vector_lauree.clear();
-    vector_lauree = titoli->getLaurea();
+    vector_lauree = titoli->getLauree();
     int size = vector_lauree.size();
     if(size != 0){
         vector<Laurea>::const_iterator it = vector_lauree.begin();

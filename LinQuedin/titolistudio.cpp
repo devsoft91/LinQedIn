@@ -21,7 +21,7 @@ int TitoliStudio::getAnno() const{
     return anno;
 }
 
-vector<Laurea> TitoliStudio::getLaurea() const{
+vector<Laurea> TitoliStudio::getLauree() const{
     if(lauree.size()!=0)
         return lauree;
     return vector<Laurea>();

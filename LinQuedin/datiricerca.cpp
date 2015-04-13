@@ -42,7 +42,7 @@ QString DatiRicerca::getDiploma() const{
     return diploma;
 }
 
-QString DatiRicerca::getLaurea() const{
+QString DatiRicerca::getLauree() const{
     return laurea;
 }
 

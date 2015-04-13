@@ -8,7 +8,6 @@ class UBusiness : public UBasic
 public:
     UBusiness(const QString&);
     UBusiness(const Profilo&,const QString&);
-    void add(Utente*);
     map<QString,Utente*> find(DatiRicerca*,Database*);
     ~UBusiness();
 };

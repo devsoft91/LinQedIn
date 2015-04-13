@@ -16,6 +16,7 @@ class ViewProfilo : public QWidget
     Q_OBJECT
 public:
     QString username;
+    int controllertype;
     QDialog* box;
     QVBoxLayout* layout;
     QTreeWidget* view;

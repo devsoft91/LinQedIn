@@ -228,11 +228,11 @@ void Database::save() const{
                             writer.writeTextElement("NomeDiploma",(*it).second->profile.getTitoli().getDiploma());
                             writer.writeTextElement("AnnoDiploma",QString::number((*it).second->profile.getTitoli().getAnno()));
                         writer.writeEndElement();
-                    int vsize = (*it).second->profile.getTitoli().getLaurea().size();
+                    int vsize = (*it).second->profile.getTitoli().getLauree().size();
                         for (int i=0;i<vsize;++i) {
                         writer.writeStartElement("Laurea");
-                            writer.writeTextElement("NomeLaurea",(*it).second->profile.getTitoli().getLaurea()[i].getNome());
-                            writer.writeTextElement("AnnoLaurea",QString::number((*it).second->profile.getTitoli().getLaurea()[i].getAnno()));
+                            writer.writeTextElement("NomeLaurea",(*it).second->profile.getTitoli().getLauree()[i].getNome());
+                            writer.writeTextElement("AnnoLaurea",QString::number((*it).second->profile.getTitoli().getLauree()[i].getAnno()));
                         writer.writeEndElement();
                         }
                     writer.writeEndElement();
