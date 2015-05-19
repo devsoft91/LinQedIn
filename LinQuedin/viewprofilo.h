@@ -11,6 +11,8 @@
 #include "client.h"
 #include "controller.h"
 
+class WidgetUtenteRete;
+
 class ViewProfilo : public QWidget
 {
     Q_OBJECT

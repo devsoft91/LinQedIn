@@ -15,16 +15,27 @@ ViewProfilo::ViewProfilo(QWidget *parent,const QString& s,Controller* c) : QWidg
     view->setHeaderLabels(list);
     view->setColumnWidth(0,200);
 
-    if(typeid(*tmp)==typeid(Client)){
-        if(tmp->returnUserType()==0)
-            viewBasic();
-        if(tmp->returnUserType()==1)
-            viewBusiness();
-        if(tmp->returnUserType()==2)
-            viewExecutive();
+    QString parenttype = typeid(*parent).name();
+    if(parenttype.contains("WidgetUtenteRicerca")){
+
+        if(typeid(*tmp)==typeid(Client)){
+            QString t = typeid(*parent).name();
+            if(t.contains("WidgetUtenteRete"))
+                viewExecutive();
+            else{
+                if(tmp->returnUserType()==0)
+                    viewBasic();
+                if(tmp->returnUserType()==1)
+                    viewBusiness();
+                if(tmp->returnUserType()==2)
+                    viewExecutive();
+            }
+        }
+        if(typeid(*tmp)==typeid(Admin))
+            viewAdmin();
+    }else{
+        viewExecutive();
     }
-    if(typeid(*tmp)==typeid(Admin))
-        viewAdmin();
 
     layout->addWidget(view);
     box->setLayout(layout);

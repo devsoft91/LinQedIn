@@ -12,6 +12,7 @@ using namespace std;
 int main(int argc,char* argv[]){
 
     QApplication app(argc,argv);
+    app.setWindowIcon(QIcon(":/immagini/save.png"));
     MainWindow w;
     QRect screenGeometry = QApplication::desktop()->screenGeometry();
     int x = (screenGeometry.width()-w.width()) / 2;
