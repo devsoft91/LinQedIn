@@ -2,6 +2,9 @@
 #define UTENTE_H
 
 #include<QString>
+#include <iostream>
+
+using std::cout;
 
 #include "profilo.h"
 #include "rete.h"
